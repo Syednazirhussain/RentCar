@@ -46,7 +46,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="javascript:void(0)" class="logo">
+    <a href="{{ route('admin.dashboard') }}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>R</b>CAR</span>
       <!-- logo for regular state and mobile devices -->
@@ -64,17 +64,17 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{ asset('adminlte/dist/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
+              <img src="{{ asset('storage/users/default.png') }}" class="user-image" alt="User Image">
+              <span class="hidden-xs">{{ auth()->guard('admin')->user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{{ asset('adminlte/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+                <img src="{{ asset('storage/users/default.png') }}" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  {{ auth()->guard('admin')->user()->name }}
+                  <small>Member since {{ \Carbon\Carbon::parse(auth()->guard('admin')->user()->created_at)->format('F d, y') }}</small>
                 </p>
               </li>
               <!-- Menu Footer-->
@@ -103,35 +103,17 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{ asset('adminlte/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+          <img src="{{ asset('storage/users/default.png') }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
-          <a href="javascript:void(0)"><i class="fa fa-circle text-success"></i> Online</a>
+          <p>{{ auth()->guard('admin')->user()->name }}</p>
+          <a href="{{ route('admin.dashboard') }}"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         
-        <li class="treeview">
-          <a href="javascript:void(0)">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="active">
-              <a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a>
-            </li>
-            <li>
-              <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> Dashboard v2</a>
-            </li>
-          </ul>
-        </li>
-
-
         <li class="treeview">
           <a href="javascript:void(0)">
             <i class="fa fa-dashboard"></i> <span>Vehicle</span>
@@ -156,7 +138,7 @@
           <a href="{{ route('admin.vehicleTypes.index') }}">
             <i class="fa fa-th"></i> <span>Vendors</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
+              <small class="label pull-right bg-green">@if(isset($vehicleType)){{ $vehicleType->count() }}@endif</small>
             </span>
           </a>
         </li>
@@ -165,7 +147,7 @@
           <a href="{{ route('admin.packages.index') }}">
             <i class="fa fa-th"></i> <span>Packages</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
+              <small class="label pull-right bg-green">@if(isset($packages)){{ $packages->count() }}@endif</small>
             </span>
           </a>
         </li>
@@ -174,14 +156,14 @@
           <a href="{{ route('admin.offers.index') }}">
             <i class="fa fa-th"></i> <span>Offers</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
+              <small class="label pull-right bg-green">@if(isset($offers)){{ $offers->count() }}@endif</small>
             </span>
           </a>
         </li>
 
         <li>
-          <a href="{{ route('admin.vehicleTypes.index') }}">
-            <i class="fa fa-th"></i> <span>Vendors</span>
+          <a href="{{ route('admin.pages.index') }}">
+            <i class="fa fa-th"></i> <span>Pages</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">new</small>
             </span>

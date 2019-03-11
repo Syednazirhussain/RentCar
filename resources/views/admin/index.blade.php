@@ -10,7 +10,7 @@
     <small>Control panel</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="javascript:void(0)"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
     <li class="active">Dashboard</li>
   </ol>
 </section>
@@ -24,14 +24,13 @@
       <!-- small box -->
       <div class="small-box bg-aqua">
         <div class="inner">
-          <h3>150</h3>
-
-          <p>New Orders</p>
+          <h3>{{ $vehicles->count() }}</h3>
+          <p>Vehicles</p>
         </div>
         <div class="icon">
-          <i class="ion ion-bag"></i>
+          <i class="ionicons ion-model-s"></i>
         </div>
-        <a href="javascript:void(0)" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="{{ route('admin.vehicles.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -39,14 +38,13 @@
       <!-- small box -->
       <div class="small-box bg-green">
         <div class="inner">
-          <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-          <p>Bounce Rate</p>
+          <h3>{{ $packages->count() }}</h3>
+          <p>Packages</p>
         </div>
         <div class="icon">
-          <i class="ion ion-stats-bars"></i>
+          <i class="ion ion-bag"></i>
         </div>
-        <a href="javascript:void(0)" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="{{ route('admin.packages.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -54,14 +52,13 @@
       <!-- small box -->
       <div class="small-box bg-yellow">
         <div class="inner">
-          <h3>44</h3>
-
-          <p>User Registrations</p>
+          <h3>{{ $vehicleType->count() }}</h3>
+          <p>Vendors</p>
         </div>
         <div class="icon">
-          <i class="ion ion-person-add"></i>
+            <i class="ionicons ion-ios-gear"></i>
         </div>
-        <a href="javascript:void(0)" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="{{ route('admin.vehicleTypes.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -69,14 +66,13 @@
       <!-- small box -->
       <div class="small-box bg-red">
         <div class="inner">
-          <h3>65</h3>
-
-          <p>Unique Visitors</p>
+          <h3>{{ $offers->count() }}</h3>
+          <p>Offers</p>
         </div>
         <div class="icon">
-          <i class="ion ion-pie-graph"></i>
+          <i class="ionicons ion-speakerphone"></i>
         </div>
-        <a href="javascript:void(0)" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="{{ route('admin.offers.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
