@@ -11,23 +11,23 @@
     <title>RCT Rent a Car</title>
 
     <!--=== Bootstrap CSS ===-->
-    <link href="{{ asset('theme/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('theme/assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <!--=== Slicknav CSS ===-->
-    <link href="{{ asset('theme/css/plugins/slicknav.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('theme/assets/css/plugins/slicknav.min.css') }}" rel="stylesheet">
     <!--=== Magnific Popup CSS ===-->
-    <link href="{{ asset('theme/css/plugins/magnific-popup.css') }}" rel="stylesheet">
+    <link href="{{ asset('theme/assets/css/plugins/magnific-popup.css') }}" rel="stylesheet">
     <!--=== Owl Carousel CSS ===-->
-    <link href="{{ asset('theme/css/plugins/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('theme/assets/css/plugins/owl.carousel.min.css') }}" rel="stylesheet">
     <!--=== Gijgo CSS ===-->
-    <link href="{{ asset('theme/css/plugins/gijgo.css') }}" rel="stylesheet">
+    <link href="{{ asset('theme/assets/css/plugins/gijgo.css') }}" rel="stylesheet">
     <!--=== FontAwesome CSS ===-->
-    <link href="{{ asset('theme/css/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('theme/assets/css/font-awesome.css') }}" rel="stylesheet">
     <!--=== Theme Reset CSS ===-->
-    <link href="{{ asset('theme/css/reset.css') }}" rel="stylesheet">
+    <link href="{{ asset('theme/assets/css/reset.css') }}" rel="stylesheet">
     <!--=== Main Style CSS ===-->
-    <link href="{{ asset('theme/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('theme/assets/style.css') }}" rel="stylesheet">
     <!--=== Responsive CSS ===-->
-    <link href="{{ asset('theme/css/responsive.css') }}" rel="stylesheet">
+    <link href="{{ asset('theme/assets/css/responsive.css') }}" rel="stylesheet">
 
     @yield('css')
 
@@ -39,7 +39,7 @@
     <div class="preloader">
         <div class="preloader-spinner">
             <div class="loader-content">
-                <img src="{{ asset('theme/img/preloader.gif') }}" alt="JSOFT">
+                <img src="{{ asset('theme/assets/img/preloader.gif') }}" alt="JSOFT">
             </div>
         </div>
     </div>
@@ -91,7 +91,7 @@
                     <!--== Logo Start ==-->
                     <div class="col-lg-4">
                         <a href="index.html" class="logo">
-                            <img src="{{ asset('theme/img/logo.png') }}" alt="JSOFT">
+                            <img src="{{ asset('theme/assets/img/logo.png') }}" alt="JSOFT">
                         </a>
                     </div>
                     <!--== Logo End ==-->
@@ -188,40 +188,40 @@
 
     <!--== Scroll Top Area Start ==-->
     <div class="scroll-top">
-        <img src="{{ asset('theme/img/scroll-top.png') }}" alt="JSOFT">
+        <img src="{{ asset('theme/assets/img/scroll-top.png') }}" alt="JSOFT">
     </div>
     <!--== Scroll Top Area End ==-->
 
     <!--=======================Javascript============================-->
     <!--=== Jquery Min Js ===-->
-    <script src="{{ asset('theme/js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/jquery-3.2.1.min.js') }}"></script>
     <!--=== Jquery Migrate Min Js ===-->
-    <script src="{{ asset('theme/js/jquery-migrate.min.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/jquery-migrate.min.js') }}"></script>
     <!--=== Popper Min Js ===-->
-    <script src="{{ asset('theme/js/popper.min.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/popper.min.js') }}"></script>
     <!--=== Bootstrap Min Js ===-->
-    <script src="{{ asset('theme/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/bootstrap.min.js') }}"></script>
     <!--=== Gijgo Min Js ===-->
-    <script src="{{ asset('theme/js/plugins/gijgo.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/plugins/gijgo.js') }}"></script>
     <!--=== Vegas Min Js ===-->
-    <script src="{{ asset('theme/js/plugins/vegas.min.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/plugins/vegas.min.js') }}"></script>
     <!--=== Isotope Min Js ===-->
-    <script src="{{ asset('theme/js/plugins/isotope.min.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/plugins/isotope.min.js') }}"></script>
     <!--=== Owl Caousel Min Js ===-->
-    <script src="{{ asset('theme/js/plugins/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/plugins/owl.carousel.min.js') }}"></script>
     <!--=== Waypoint Min Js ===-->
-    <script src="{{ asset('theme/js/plugins/waypoints.min.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/plugins/waypoints.min.js') }}"></script>
     <!--=== CounTotop Min Js ===-->
-    <script src="{{ asset('theme/js/plugins/counterup.min.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/plugins/counterup.min.js') }}"></script>
     <!--=== YtPlayer Min Js ===-->
-    <script src="{{ asset('theme/js/plugins/mb.YTPlayer.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/plugins/mb.YTPlayer.js') }}"></script>
     <!--=== Magnific Popup Min Js ===-->
-    <script src="{{ asset('theme/js/plugins/magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/plugins/magnific-popup.min.js') }}"></script>
     <!--=== Slicknav Min Js ===-->
-    <script src="{{ asset('theme/js/plugins/slicknav.min.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/plugins/slicknav.min.js') }}"></script>
 
     <!--=== Mian Js ===-->
-    <script src="{{ asset('theme/js/main.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/main.js') }}"></script>
 
     @yield('js')
 
