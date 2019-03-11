@@ -2,10 +2,8 @@
     <thead>
         <tr>
             <th>Name</th>
-        <th>Short Code</th>
-        <th>Description</th>
-        <th>Summery</th>
-            <th colspan="3">Action</th>
+            <th width="70%">Short Code</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -13,8 +11,6 @@
         <tr>
             <td>{!! $pages->name !!}</td>
             <td>{!! $pages->short_code !!}</td>
-            <td>{!! $pages->description !!}</td>
-            <td>{!! $pages->summery !!}</td>
             <td>
                 {!! Form::open(['route' => ['admin.pages.destroy', $pages->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

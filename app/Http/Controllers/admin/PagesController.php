@@ -57,6 +57,16 @@ class PagesController extends Controller
     {
         $input = $request->all();
 
+        if (strpos($input['name'], " ")) {
+            $arr = explode(" ", $input['name']);
+            foreach ($arr as $key =>  $value) {
+                $arr[$key] = strtolower($value);
+            }
+            $input['short_code'] = implode("-", $arr);
+        } else {
+            $input['short_code'] = strtolower($input['name']);
+        }
+
         $pages = $this->pagesRepository->create($input);
 
         Session::Flash('msg.success', 'Pages saved successfully.');

@@ -7,7 +7,7 @@
         </h1>
    </section>
    <div class="content">
-        @include('inlcude.messages')
+        @include('include.messages')
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
