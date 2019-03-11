@@ -51,31 +51,20 @@
         <div id="header-top" class="d-none d-xl-block">
             <div class="container">
                 <div class="row">
+
                     <!--== Single HeaderTop Start ==-->
                     <div class="col-lg-3 text-left">
-                        <i class="fa fa-map-marker"></i> 802/2, Karachi, Pakistan
-                    </div>
-                    <!--== Single HeaderTop End ==-->
-
-                    <!--== Single HeaderTop Start ==-->
-                    <div class="col-lg-3 text-center">
-                        <i class="fa fa-mobile"></i> +92 800 345 678
-                    </div>
-                    <!--== Single HeaderTop End ==-->
-
-                    <!--== Single HeaderTop Start ==-->
-                    <div class="col-lg-3 text-center">
-                        <i class="fa fa-clock-o"></i> Mon-Fri 09:00 - 17:00
+                        <i class="fa fa-mobile"></i> {{ $generalInformation->contact }}
                     </div>
                     <!--== Single HeaderTop End ==-->
 
                     <!--== Social Icons Start ==-->
                     <div class="col-lg-3 text-right">
                         <div class="header-social-icons">
-                            <a href="#"><i class="fa fa-behance"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="{{ $generalInformation->twitter }}"><i class="fa fa-twitter"></i></a>
+                            <a href="{{ $generalInformation->pinterest }}"><i class="fa fa-pinterest"></i></a>
+                            <a href="{{ $generalInformation->facebook }}"><i class="fa fa-facebook"></i></a>
+                            <a href="{{ $generalInformation->linkdin }}"><i class="fa fa-linkedin"></i></a>
                         </div>
                     </div>
                     <!--== Social Icons End ==-->
@@ -90,8 +79,8 @@
                 <div class="row">
                     <!--== Logo Start ==-->
                     <div class="col-lg-4">
-                        <a href="index.html" class="logo">
-                            <img src="{{ asset('theme/assets/img/logo.png') }}" alt="JSOFT">
+                        <a href="{{ route('site.index') }}" class="logo">
+                            <img src="{{ asset('storage/'.$generalInformation->logo) }}" alt="JSOFT">
                         </a>
                     </div>
                     <!--== Logo End ==-->
@@ -100,21 +89,19 @@
                     <div class="col-lg-8 d-none d-xl-block">
                         <nav class="mainmenu alignright">
                             <ul>
-                                <li class="active"><a href="index.html">Home</a>
-                 
-                                </li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="services.html">Services</a></li>
-                                <li><a href="packages.html">Packages</a>
+                                <li class="active"><a href="{{ route('site.index') }}">Home</a></li>
+                                <li><a href="javascript:void(0)">About</a></li>
+                                <li><a href="javascript:void(0)">Services</a></li>
+                                <li><a href="javascript:void(0)">Packages</a>
                                    
                                 </li>
                                               
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="javascript:void(0)">Contact</a></li>
 
-                                  <li><a href="#">Login/Register</a>
+                                  <li><a href="javascript:void(0)">Login/Register</a>
                                     <ul>
-                                        <li><a href="login.html">Log In</a></li>
-                                        <li><a href="register.html">Register</a></li>
+                                        <li><a href="javascript:void(0)">Log In</a></li>
+                                        <li><a href="javascript:void(0)">Register</a></li>
                                         </ul>
                                 </li>
 
@@ -145,9 +132,9 @@
                             <h2>About REDPANDA Rent a Car</h2>
                             <div class="widget-body">
 
-                                <img src="https://stsrentacar.pk/assets/web_assets/img/logo.png" width="150px" alt="STS Rent A Car">
-                                <p>At REDPANDA Rent a Car, our prime business idea is simplify travelling for you and that's why our business solegen is "TRAVELLING FOR YOU"</p>
-    							<p>For Picture Gallery <a href="https://stsrentacar.pk/gallery.html" class="">Click Here</a></p>
+                                <img src="{{ asset('storage/'.$generalInformation->logo) }}" width="150px" alt="{{ $generalInformation->name }}">
+                                <p>{{ $generalInformation->about_description }}</p>
+    							<p>For Picture Gallery <a href="javascript:void(0)">Click Here</a></p>
 
 
 
@@ -167,15 +154,15 @@
                                     <li>
                                         <p style="color: #fff">
                                             <i class="fa fa-map-marker"></i>
-                                            Office # 11, Sultan Plaza Sector 5-H, 2 Minut Chowrangi, North Karachi, Shahrah-e-Usman, Sector 5 D New Karachi, Karachi, Sindh 75850
+                                            {{ $generalInformation->address }}
                                         </p>
                                     </li>
-                                    <li><i class="fa fa-phone"></i> Helpline: 03 111 999 787</li>
-                                    <li><i class="fa fa-phone"></i>+92 21 36954714</li>
-                                    <li><i class="fa fa-envelope"></i>info@REDPANDA.pk</li>
+                                    <li><i class="fa fa-phone"></i> Helpline: {{ $generalInformation->helpline }}</li>
+                                    <li><i class="fa fa-phone"></i>{{ $generalInformation->contact }}</li>
+                                    <li><i class="fa fa-envelope"></i>{{ $generalInformation->email }}</li>
                                 </ul>
-                                <a href="https://stsrentacar.pk/tos.html" class="">Terms and Conditions</a>&nbsp;&nbsp;&nbsp;
-                                <a href="https://stsrentacar.pk/contact.html" class="map-show">Show Location</a>
+                                <a href="javascript:void(0)">Terms and Conditions</a>&nbsp;&nbsp;&nbsp;
+                                <a href="javascript:void(0)" class="map-show">Show Location</a>
                             </div>
                         </div>
                     </div>
