@@ -10,7 +10,7 @@ FreeLancer
 
 ## Setup 
 
-php artisan migrate
-php artisan db:seed
-php artisan config:cache
+php artisan migrate<br />
+php artisan db:seed<br />
+php artisan config:cache<br />
 php artisan cache:clear
