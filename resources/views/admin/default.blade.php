@@ -112,7 +112,7 @@
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION</li>
+        {{-- <li class="header">MAIN NAVIGATION</li> --}}
         
         <li class="treeview">
           <a href="javascript:void(0)">
@@ -136,7 +136,7 @@
         
         <li>
           <a href="{{ route('admin.vehicleTypes.index') }}">
-            <i class="fa fa-th"></i> <span>Vendors</span>
+            <i class="fa fa-industry"></i> <span>Vendors</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">@if(isset($vehicleType)){{ $vehicleType->count() }}@endif</small>
             </span>
@@ -145,7 +145,7 @@
 
         <li>
           <a href="{{ route('admin.packages.index') }}">
-            <i class="fa fa-th"></i> <span>Packages</span>
+            <i class="fa fa-briefcase"></i> <span>Packages</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">@if(isset($packages)){{ $packages->count() }}@endif</small>
             </span>
@@ -154,7 +154,7 @@
 
         <li>
           <a href="{{ route('admin.offers.index') }}">
-            <i class="fa fa-th"></i> <span>Offers</span>
+            <i class="ionicons ion-speakerphone"></i> <span>Offers</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">@if(isset($offers)){{ $offers->count() }}@endif</small>
             </span>
@@ -163,19 +163,13 @@
 
         <li>
           <a href="{{ route('admin.pages.index') }}">
-            <i class="fa fa-th"></i> <span>Pages</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
-            </span>
+            <i class="ionicons ion-ios-photos-outline"></i> <span>Pages</span>
           </a>
         </li>
 
         <li>
           <a href="{{ route('admin.generalInformations.index') }}">
-            <i class="fa fa-th"></i> <span>Site Setting</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
-            </span>
+            <i class="ionicons ion-ios-gear"></i> <span>Site Setting</span>
           </a>
         </li>
 
@@ -192,9 +186,9 @@
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
+      <b>Version</b> 1.0
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+    <strong>Copyright &copy; {{ date('Y') }} <a href="{{ route('site.index') }}" target="_blank">@if(isset($generalInformation)){{ $generalInformation->name }}@endif</a>.</strong> All rights
     reserved.
   </footer>
 
