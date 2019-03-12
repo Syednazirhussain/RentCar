@@ -25,6 +25,6 @@ class UpdateCustomersRequest extends FormRequest
      */
     public function rules()
     {
-        return Customers::$rules;
+        return Customers::$update_rules;
     }
 }

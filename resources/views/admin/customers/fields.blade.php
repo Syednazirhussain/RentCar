@@ -23,7 +23,7 @@
     <div class="col-md-6">
         <div class="form-group">
           <label for="nic">Nic</label>
-          <input type="text" name="nic" class="form-control" placeholder="ex. 4xxxx-xxxxxxx-x" value="@if(isset($customers)){{ $customers->nic }}@else{{ old('nic') }}@endif">
+          <input type="text" name="nic" class="form-control" placeholder="ex. 4xxxx-xxxxxxx-x" value="@if(isset($customers)){{ $customers->nic }} @else {{ old('nic') }} @endif">
         </div>
     </div>
     <div class="col-md-6">
@@ -93,13 +93,18 @@
     <div class="col-md-6">
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="text" name="email" class="form-control" placeholder="ex. john@doe.com" value="@if(isset($packages)){{ $packages->email }}@else{{ old('email') }}@endif">
+          <input type="text" name="email" class="form-control" placeholder="ex. john@doe.com" value="@if(isset($customers)){{ $customers->email }}@else{{ old('email') }}@endif">
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" name="password" class="form-control" value="@if(isset($packages)){{ $packages->password }}@else{{ old('password') }}@endif">
+          @if (isset($customers))
+            <input type="password" name="updated_password" class="form-control">
+            <span class="label label-danger">If you don't want to change password leave it blank.</span>
+          @else
+            <input type="password" name="password" class="form-control">
+          @endif
         </div>
     </div>
 </div>

@@ -99,7 +99,6 @@ Route::group(['prefix' => 'admin', 'middleware'	=> 'admin.auth'], function () {
 	Route::put('customers/{customers}', ['as'=> 'admin.customers.update', 'uses' => 'CustomersController@update']);
 	Route::patch('customers/{customers}', ['as'=> 'admin.customers.update', 'uses' => 'CustomersController@update']);
 	Route::delete('customers/{customers}', ['as'=> 'admin.customers.destroy', 'uses' => 'CustomersController@destroy']);
-	Route::get('customers/{customers}', ['as'=> 'admin.customers.show', 'uses' => 'CustomersController@show']);
 	Route::get('customers/{customers}/edit', ['as'=> 'admin.customers.edit', 'uses' => 'CustomersController@edit']);
 
 

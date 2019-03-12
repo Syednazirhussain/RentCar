@@ -65,25 +65,7 @@ class CustomersController extends Controller
         return redirect(route('admin.customers.index'));
     }
 
-    /**
-     * Display the specified Customers.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
-    public function show($id)
-    {
-        $customers = $this->customersRepository->findWithoutFail($id);
 
-        if (empty($customers)) {
-            Session::Flash('msg.error', 'Customers not found');
-
-            return redirect(route('admin.customers.index'));
-        }
-
-        return view('admin.customers.show')->with('customers', $customers);
-    }
 
     /**
      * Show the form for editing the specified Customers.
@@ -123,7 +105,9 @@ class CustomersController extends Controller
             return redirect(route('admin.customers.index'));
         }
 
-        $customers = $this->customersRepository->update($request->all(), $id);
+        $input = $this->customersRepository->customerUpdate($request);
+
+        $customers = $this->customersRepository->update($input, $id);
 
         Session::Flash('msg.success', 'Customers updated successfully.');
 

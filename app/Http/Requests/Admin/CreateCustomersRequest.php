@@ -25,6 +25,6 @@ class CreateCustomersRequest extends FormRequest
      */
     public function rules()
     {
-        return Customers::$rules;
+        return Customers::$create_rules;
     }
 }

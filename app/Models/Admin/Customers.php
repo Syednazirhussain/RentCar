@@ -54,8 +54,8 @@ class Customers extends Model
         'id' => 'integer',
         'f_name' => 'string',
         'l_name' => 'string',
-        'phone' => 'integer',
-        'nic' => 'integer',
+        'phone' => 'string',
+        'nic' => 'string',
         'nic_front_image' => 'string',
         'nic_back_image' => 'string',
         'email' => 'string',
@@ -67,13 +67,26 @@ class Customers extends Model
      *
      * @var array
      */
-    public static $rules = [
+    public static $create_rules = [
         'f_name'            => 'required|min:3|max:45|String',
         'l_name'            => 'required|min:3|max:45|String',
-        'phone'             => 'required|digits:11',
-        'nic'               => 'required|digits:13',
+        'phone'             => 'required|max:11',
+        'nic'               => 'required|max:13',
         'email'             => 'required|email',
         'password'          => 'required'
+    ];
+
+    /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public static $update_rules = [
+        'f_name'            => 'required|min:3|max:45|String',
+        'l_name'            => 'required|min:3|max:45|String',
+        'phone'             => 'required|max:11',
+        'nic'               => 'required|max:13',
+        'email'             => 'required|email'
     ];
 
     /**
