@@ -55,9 +55,7 @@ class CustomersController extends Controller
      */
     public function store(CreateCustomersRequest $request)
     {
-        dd($request->all());
-
-        $input = $request->all();
+        $input = $this->customersRepository->customerInput($request);
 
         $customers = $this->customersRepository->create($input);
 

@@ -36,4 +36,8 @@ class CustomersRepository extends BaseRepository
     {
         return Customers::class;
     }
+
+    public function customerInput(CreateCustomersRequest $input) {
+        dd($request->all());
+    }
 }

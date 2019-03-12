@@ -163,7 +163,7 @@
 
         <li>
           <a href="{{ route('admin.customers.index') }}">
-            <i class="ionicons ion-speakerphone"></i> <span>Customers</span>
+            <i class="fa fa-users"></i> <span>Customers</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">0</small>
             </span>

@@ -10,13 +10,13 @@
     <div class="col-md-6">
         <div class="form-group">
           <label for="f_name">First Name</label>
-          <input type="text" name="f_name" class="form-control" placeholder="ex. John" value="@if(isset($packages)){{ $packages->name }}@endif">
+          <input type="text" name="f_name" class="form-control" placeholder="ex. John" value="@if(isset($packages)){{ $packages->name }}@else{{ old('f_name') }}@endif">
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
           <label for="l_name">Last Name</label>
-          <input type="text" name="l_name" class="form-control" placeholder="ex. Doe" value="@if(isset($packages)){{ $packages->package_rate }}@endif">
+          <input type="text" name="l_name" class="form-control" placeholder="ex. Doe" value="@if(isset($packages)){{ $packages->l_name }}@else{{ old('l_name') }}@endif">
         </div>
     </div>
 </div>
@@ -25,13 +25,13 @@
     <div class="col-md-6">
         <div class="form-group">
           <label for="nic">Nic</label>
-          <input type="text" name="nic" class="form-control" placeholder="ex. 4xxxx-xxxxxxx-x" value="@if(isset($packages)){{ $packages->name }}@endif">
+          <input type="text" name="nic" class="form-control" placeholder="ex. 4xxxx-xxxxxxx-x" value="@if(isset($packages)){{ $packages->nic }}@else{{ old('nic') }}@endif">
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
           <label for="phone">Phone</label>
-          <input type="text" name="phone" class="form-control" placeholder="ex. 03xxxxxxxxx" value="@if(isset($packages)){{ $packages->package_rate }}@endif">
+          <input type="text" name="phone" class="form-control" placeholder="ex. 03xxxxxxxxx" value="@if(isset($packages)){{ $packages->phone }}@else{{ old('phone') }}@endif">
         </div>
     </div>
 </div>
@@ -95,13 +95,13 @@
     <div class="col-md-6">
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="text" name="email" class="form-control" placeholder="ex. john@doe.com" value="@if(isset($packages)){{ $packages->name }}@endif">
+          <input type="text" name="email" class="form-control" placeholder="ex. john@doe.com" value="@if(isset($packages)){{ $packages->email }}@else{{ old('email') }}@endif">
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="text" name="password" class="form-control" value="@if(isset($packages)){{ $packages->package_rate }}@endif">
+          <input type="password" name="password" class="form-control" value="@if(isset($packages)){{ $packages->password }}@else{{ old('password') }}@endif">
         </div>
     </div>
 </div>
