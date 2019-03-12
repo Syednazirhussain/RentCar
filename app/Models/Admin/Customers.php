@@ -70,8 +70,8 @@ class Customers extends Model
     public static $rules = [
         'f_name'            => 'required|min:3|max:45|String',
         'l_name'            => 'required|min:3|max:45|String',
-        'phone'             => 'required|numeric|min:11|max:15',
-        'nic'               => 'required|numeric|min:11|max:15',
+        'phone'             => 'required|digits:11',
+        'nic'               => 'required|digits:13',
         'email'             => 'required|email',
         'password'          => 'required'
     ];

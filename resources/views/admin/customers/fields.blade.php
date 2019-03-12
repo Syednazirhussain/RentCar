@@ -1,22 +1,20 @@
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-@if(isset($packages))
+@if(isset($customers))
     <input name="_method" type="hidden" value="PATCH">
 @endif
-
-
 
 <div class="col-sm-12 col-md-12">
     <div class="col-md-6">
         <div class="form-group">
           <label for="f_name">First Name</label>
-          <input type="text" name="f_name" class="form-control" placeholder="ex. John" value="@if(isset($packages)){{ $packages->name }}@else{{ old('f_name') }}@endif">
+          <input type="text" name="f_name" class="form-control" placeholder="ex. John" value="@if(isset($customers)){{ $customers->f_name }}@else{{ old('f_name') }}@endif">
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
           <label for="l_name">Last Name</label>
-          <input type="text" name="l_name" class="form-control" placeholder="ex. Doe" value="@if(isset($packages)){{ $packages->l_name }}@else{{ old('l_name') }}@endif">
+          <input type="text" name="l_name" class="form-control" placeholder="ex. Doe" value="@if(isset($customers)){{ $customers->l_name }}@else{{ old('l_name') }}@endif">
         </div>
     </div>
 </div>
@@ -25,13 +23,13 @@
     <div class="col-md-6">
         <div class="form-group">
           <label for="nic">Nic</label>
-          <input type="text" name="nic" class="form-control" placeholder="ex. 4xxxx-xxxxxxx-x" value="@if(isset($packages)){{ $packages->nic }}@else{{ old('nic') }}@endif">
+          <input type="text" name="nic" class="form-control" placeholder="ex. 4xxxx-xxxxxxx-x" value="@if(isset($customers)){{ $customers->nic }}@else{{ old('nic') }}@endif">
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
           <label for="phone">Phone</label>
-          <input type="text" name="phone" class="form-control" placeholder="ex. 03xxxxxxxxx" value="@if(isset($packages)){{ $packages->phone }}@else{{ old('phone') }}@endif">
+          <input type="text" name="phone" class="form-control" placeholder="ex. 03xxxxxxxxx" value="@if(isset($customers)){{ $customers->phone }}@else{{ old('phone') }}@endif">
         </div>
     </div>
 </div>
@@ -42,12 +40,12 @@
             <label for="nic_front_image">Nic Front Image</label>
             <div class="fileinput fileinput-new" data-provides="fileinput">
                 <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                    @if (isset($vehicleType))
-                      @if($vehicleType->nic_front_image != null)
-                        <input type="hidden" name="image" id="logo-hidden" value="{{ $vehicleType->nic_front_image }}">
-                        <img src="{{ asset('storage/vendors/'.$vehicleType->nic_front_image ) }}" data-src="{{ asset('storage/vendors/'.$vehicleType->nic_front_image) }}" alt="{{ $vehicleType->f_name }}" />
+                    @if (isset($customers))
+                      @if($customers->nic_front_image != null)
+                        <input type="hidden" name="image" id="logo-hidden" value="{{ $customers->nic_front_image }}">
+                        <img src="{{ asset('storage/customers/'.$customers->nic_front_image ) }}" data-src="{{ asset('storage/customers/'.$customers->nic_front_image) }}" alt="{{ $customers->f_name }}" />
                       @else
-                        <img src="{{ asset('storage/users/default.png') }}" alt="{{ $vehicleType->f_name }}"/>
+                        <img src="{{ asset('storage/image.png') }}" alt="{{ $customers->f_name }}"/>
                       @endif
                     @else
                         <img src="{{ asset('storage/image.png') }}" alt="user"/>
@@ -68,12 +66,12 @@
             <label for="nic_back_image">Nic Back Image</label>
             <div class="fileinput fileinput-new" data-provides="fileinput">
                 <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                    @if (isset($vehicleType))
-                      @if($vehicleType->nic_back_image != null)
-                        <input type="hidden" name="image" id="logo-hidden" value="{{ $vehicleType->nic_back_image }}">
-                        <img src="{{ asset('storage/vendors/'.$vehicleType->nic_back_image ) }}" data-src="{{ asset('storage/vendors/'.$vehicleType->nic_back_image) }}" alt="{{ $vehicleType->name}}" />
+                    @if (isset($customers))
+                      @if($customers->nic_back_image != null)
+                        <input type="hidden" name="image" id="logo-hidden" value="{{ $customers->nic_back_image }}">
+                        <img src="{{ asset('storage/customers/'.$customers->nic_back_image ) }}" data-src="{{ asset('storage/customers/'.$customers->nic_back_image) }}" alt="{{ $customers->f_name}}" />
                       @else
-                        <img src="{{ asset('storage/users/default.png') }}" alt="{{ $vehicleType->name}}"/>
+                        <img src="{{ asset('storage/users/default.png') }}" alt="{{ $customers->f_name}}"/>
                       @endif
                     @else
                         <img src="{{ asset('storage/image.png') }}" alt="user"/>

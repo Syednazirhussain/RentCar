@@ -4,6 +4,8 @@ namespace App\Repositories\Admin;
 
 use App\Models\Admin\Customers;
 use InfyOm\Generator\Common\BaseRepository;
+use App\Http\Requests\Admin\CreateCustomersRequest;
+use App\Http\Requests\Admin\UpdateCustomersRequest;
 
 /**
  * Class CustomersRepository
@@ -37,7 +39,25 @@ class CustomersRepository extends BaseRepository
         return Customers::class;
     }
 
-    public function customerInput(CreateCustomersRequest $input) {
-        dd($request->all());
+    public function customerInput(CreateCustomersRequest $request) {
+        $input['f_name'] = $request->input('f_name');
+        $input['l_name'] = $request->input('l_name');
+        $input['phone'] = (int) $request->input('phone');
+        $input['nic'] = (int) $request->input('nic');
+        $input['email'] = $request->input('email');
+        $input['password'] = bcrypt($request->input('password'));
+        if ($request->hasFile('nic_front_image')) {
+            $path = $request->file('nic_front_image')->store('public/customers');
+            $path = explode("/", $path);
+            $count = count($path)-1;
+            $input['nic_front_image'] = $path[$count];
+        }
+        if ($request->hasFile('nic_back_image')) {
+            $path = $request->file('nic_front_image')->store('public/customers');
+            $path = explode("/", $path);
+            $count = count($path)-1;
+            $input['nic_back_image'] = $path[$count];
+        }
+        return $input;
     }
 }

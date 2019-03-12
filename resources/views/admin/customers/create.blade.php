@@ -12,11 +12,9 @@
 
             <div class="box-body">
                 <div class="row">
-                    {!! Form::open(['route' => 'admin.customers.store']) !!}
-
+                    <form action="{{ route('admin.customers.store') }}" method="POST"  enctype="multipart/form-data">
                         @include('admin.customers.fields')
-
-                    {!! Form::close() !!}
+                    </form>
                 </div>
             </div>
         </div>

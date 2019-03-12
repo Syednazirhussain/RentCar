@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Session;
 
 class CustomersController extends Controller
 {
@@ -59,7 +60,7 @@ class CustomersController extends Controller
 
         $customers = $this->customersRepository->create($input);
 
-        Flash::success('Customers saved successfully.');
+        Session::Flash('msg.success', 'Customers saved successfully.');
 
         return redirect(route('admin.customers.index'));
     }
@@ -76,7 +77,7 @@ class CustomersController extends Controller
         $customers = $this->customersRepository->findWithoutFail($id);
 
         if (empty($customers)) {
-            Flash::error('Customers not found');
+            Session::Flash('msg.error', 'Customers not found');
 
             return redirect(route('admin.customers.index'));
         }
@@ -96,7 +97,7 @@ class CustomersController extends Controller
         $customers = $this->customersRepository->findWithoutFail($id);
 
         if (empty($customers)) {
-            Flash::error('Customers not found');
+            Session::Flash('msg.error', 'Customers not found');
 
             return redirect(route('admin.customers.index'));
         }
@@ -117,14 +118,14 @@ class CustomersController extends Controller
         $customers = $this->customersRepository->findWithoutFail($id);
 
         if (empty($customers)) {
-            Flash::error('Customers not found');
+            Session::Flash('msg.error', 'Customers not found');
 
             return redirect(route('admin.customers.index'));
         }
 
         $customers = $this->customersRepository->update($request->all(), $id);
 
-        Flash::success('Customers updated successfully.');
+        Session::Flash('msg.success', 'Customers updated successfully.');
 
         return redirect(route('admin.customers.index'));
     }
@@ -141,14 +142,14 @@ class CustomersController extends Controller
         $customers = $this->customersRepository->findWithoutFail($id);
 
         if (empty($customers)) {
-            Flash::error('Customers not found');
+            Session::Flash('msg.error', 'Customers not found');
 
             return redirect(route('admin.customers.index'));
         }
 
         $this->customersRepository->delete($id);
 
-        Flash::success('Customers deleted successfully.');
+        Session::Flash('msg.success', 'Customers deleted successfully.');
 
         return redirect(route('admin.customers.index'));
     }
