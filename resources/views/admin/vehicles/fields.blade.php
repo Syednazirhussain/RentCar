@@ -4,130 +4,127 @@
     <input name="_method" type="hidden" value="PATCH">
 @endif
 
-<div class="row">
 
-    <div class="col-sm-12 col-md-12">
-        <div class="col-md-6">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" name="name" class="form-control" placeholder="ex. Paramide" value="@if(isset($vehicles)){{ $vehicles->name }}@endif">
-            </div>
-        </div>
 
-        <div class="col-md-6">
-            <div class="form-group">
-              <label for="name">Vehicle Number</label>
-              <input type="text" name="vehicle_number" id="vehicle_number" class="form-control" placeholder="ex. Paramide" value="@if(isset($vehicles)){{ $vehicles->vehicle_number }}@endif">
-            </div>
-        </div>
-
-    </div>
-
-    <div class="col-sm-12 col-md-12">
-      <div class="col-md-6">
-          <div class="form-group">
-              <label>Model</label>
-              <select class="form-control select2" id="model" name="model" style="width: 100%;">
-              </select>
-          </div>
-      </div>
-      <div class="col-md-6">
+<div class="col-sm-12 col-md-12">
+    <div class="col-md-6">
         <div class="form-group">
-          <label>Vehicle Specification</label>
-          <select class="form-control" id="vehicle_specification" name="specifications[]" multiple="multiple" data-placeholder="Select a specification" style="width: 100%;">
-            @if (isset($vehicleSpecifications))
-              @if(isset($vehicleHasSpecifications))
-                @foreach($vehicleSpecifications as $vehicleSpecification)
-                  <option value="{{ $vehicleSpecification->id }}" 
-                    @php 
-                      foreach($vehicleHasSpecifications as $vehicleHasSpecification) {
-                        if ( $vehicleHasSpecification->vehicle_specification_id == $vehicleSpecification->id ) {
-                          echo 'selected="selected"';
-                        }
-                      }
-                    @endphp
-                  >{{ $vehicleSpecification->name }}</option>
-                @endforeach
-              @else
-                @foreach($vehicleSpecifications as $vehicleSpecification)
-                  <option value="{{ $vehicleSpecification->id }}">{{ $vehicleSpecification->name }}</option>
-                @endforeach
-              @endif
+          <label for="name">Name</label>
+          <input type="text" name="name" class="form-control" placeholder="ex. Paramide" value="@if(isset($vehicles)){{ $vehicles->name }}@endif">
+        </div>
+    </div>
 
-            @endif
+    <div class="col-md-6">
+        <div class="form-group">
+          <label for="name">Vehicle Number</label>
+          <input type="text" name="vehicle_number" id="vehicle_number" class="form-control" placeholder="ex. Paramide" value="@if(isset($vehicles)){{ $vehicles->vehicle_number }}@endif">
+        </div>
+    </div>
+
+</div>
+
+<div class="col-sm-12 col-md-12">
+  <div class="col-md-6">
+      <div class="form-group">
+          <label>Model</label>
+          <select class="form-control select2" id="model" name="model" style="width: 100%;">
           </select>
-        </div>
       </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Vehicle Specification</label>
+      <select class="form-control" id="vehicle_specification" name="specifications[]" multiple="multiple" data-placeholder="Select a specification" style="width: 100%;">
+        @if (isset($vehicleSpecifications))
+          @if(isset($vehicleHasSpecifications))
+            @foreach($vehicleSpecifications as $vehicleSpecification)
+              <option value="{{ $vehicleSpecification->id }}" 
+                @php 
+                  foreach($vehicleHasSpecifications as $vehicleHasSpecification) {
+                    if ( $vehicleHasSpecification->vehicle_specification_id == $vehicleSpecification->id ) {
+                      echo 'selected="selected"';
+                    }
+                  }
+                @endphp
+              >{{ $vehicleSpecification->name }}</option>
+            @endforeach
+          @else
+            @foreach($vehicleSpecifications as $vehicleSpecification)
+              <option value="{{ $vehicleSpecification->id }}">{{ $vehicleSpecification->name }}</option>
+            @endforeach
+          @endif
+
+        @endif
+      </select>
     </div>
-
-    <div class="col-sm-12 col-md-12">
-
-        <div class="col-md-6">
-            <div class="form-group">
-                <label>Vendor</label>
-                <select class="form-control select2" name="vendor_id" style="width: 100%;">
-                    @if (isset($vehicleTypes))
-                        @if (isset($vehicles))
-                            @foreach($vehicleTypes as $vehicleType)
-                                @if ($vehicles->vehicle_type_id == $vehicleType->id) 
-                                    <option value="{{ $vehicleType->id }}" selected="selected">{{ $vehicleType->name }}</option>
-                                @else
-                                    <option value="{{ $vehicleType->id }}">{{ $vehicleType->name }}</option>
-                                @endif
-                            @endforeach
-                        @else
-                            @foreach($vehicleTypes as $vehicleType)
-                                <option value="{{ $vehicleType->id }}">{{ $vehicleType->name }}</option>
-                            @endforeach
-                        @endif
-                    @endif
-                </select>
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="form-group">
-                <label>Vehicle Type</label>
-                <select class="form-control select2" name="vehicle_type_id" style="width: 100%;">
-                    @if (isset($vendors))
-                        @if (isset($vehicles))
-                            @foreach($vendors as $vendor)
-                                @if ($vehicles->vendor_id == $vendor->id)
-                                    <option value="{{ $vendor->id }}" selected="selected">{{ $vendor->name }}</option>
-                                @else
-                                    <option value="{{ $vendor->id }}">{{ $vendor->name }}</option>
-                                @endif
-                            @endforeach
-                        @else
-                            @foreach($vendors as $vendor)
-                                <option value="{{ $vendor->id }}">{{ $vendor->name }}</option>
-                            @endforeach
-                        @endif
-                    @endif
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-sm-12 col-md-12">
-        <div class="col-md-12">
-            <div class="form-group">
-              <label for="">Gallery</label>
-              <input type="file" name="docFiles" class="form-control uploadFiles">
-            </div>
-        </div>
-    </div>
-
-    <div class="col-sm-12 col-md-12">
-        <div class="col-md-12">
-            <button type="submit" class="btn btn-primary">@if(isset($accomodation)) <i class="fa fa-refresh"></i>  Update @else <i class="fa fa-plus"></i>  Add Vehicle @endif</button>
-            <a href="{!! route('admin.vehicles.index') !!}" class="btn btn-default"><i class="fa fa-times"></i> Cancel</a>
-        </div>
-    </div>
-
-
   </div>
 </div>
+
+<div class="col-sm-12 col-md-12">
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Vendor</label>
+            <select class="form-control select2" name="vendor_id" style="width: 100%;">
+                @if (isset($vehicleTypes))
+                    @if (isset($vehicles))
+                        @foreach($vehicleTypes as $vehicleType)
+                            @if ($vehicles->vehicle_type_id == $vehicleType->id) 
+                                <option value="{{ $vehicleType->id }}" selected="selected">{{ $vehicleType->name }}</option>
+                            @else
+                                <option value="{{ $vehicleType->id }}">{{ $vehicleType->name }}</option>
+                            @endif
+                        @endforeach
+                    @else
+                        @foreach($vehicleTypes as $vehicleType)
+                            <option value="{{ $vehicleType->id }}">{{ $vehicleType->name }}</option>
+                        @endforeach
+                    @endif
+                @endif
+            </select>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Vehicle Type</label>
+            <select class="form-control select2" name="vehicle_type_id" style="width: 100%;">
+                @if (isset($vendors))
+                    @if (isset($vehicles))
+                        @foreach($vendors as $vendor)
+                            @if ($vehicles->vendor_id == $vendor->id)
+                                <option value="{{ $vendor->id }}" selected="selected">{{ $vendor->name }}</option>
+                            @else
+                                <option value="{{ $vendor->id }}">{{ $vendor->name }}</option>
+                            @endif
+                        @endforeach
+                    @else
+                        @foreach($vendors as $vendor)
+                            <option value="{{ $vendor->id }}">{{ $vendor->name }}</option>
+                        @endforeach
+                    @endif
+                @endif
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-12 col-md-12">
+    <div class="col-md-12">
+        <div class="form-group">
+          <label for="">Gallery</label>
+          <input type="file" name="docFiles" class="form-control uploadFiles">
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-12 col-md-12">
+    <div class="col-md-12">
+        <button type="submit" class="btn btn-primary">@if(isset($accomodation)) <i class="fa fa-refresh"></i>  Update @else <i class="fa fa-plus"></i>  Add Vehicle @endif</button>
+        <a href="{!! route('admin.vehicles.index') !!}" class="btn btn-default"><i class="fa fa-times"></i> Cancel</a>
+    </div>
+</div>
+
 
 @section('js')
 

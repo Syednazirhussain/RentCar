@@ -162,6 +162,15 @@
         </li>
 
         <li>
+          <a href="{{ route('admin.customers.index') }}">
+            <i class="ionicons ion-speakerphone"></i> <span>Customers</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green">0</small>
+            </span>
+          </a>
+        </li>
+
+        <li>
           <a href="{{ route('admin.pages.index') }}">
             <i class="ionicons ion-ios-photos-outline"></i> <span>Pages</span>
           </a>
