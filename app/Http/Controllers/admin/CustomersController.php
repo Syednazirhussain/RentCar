@@ -105,7 +105,7 @@ class CustomersController extends Controller
             return redirect(route('admin.customers.index'));
         }
 
-        $input = $this->customersRepository->customerUpdate($request);
+        $input = $this->customersRepository->customerUpdate($request, $customers);
 
         $customers = $this->customersRepository->update($input, $id);
 
