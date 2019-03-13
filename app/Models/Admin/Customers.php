@@ -70,8 +70,8 @@ class Customers extends Model
     public static $create_rules = [
         'f_name'            => 'required|min:3|max:45|String',
         'l_name'            => 'required|min:3|max:45|String',
-        'phone'             => 'required|max:11',
-        'nic'               => 'required|max:13',
+        'phone'             => 'required|digits:11',
+        'nic'               => 'required|digits:13',
         'email'             => 'required|email',
         'password'          => 'required'
     ];
@@ -84,8 +84,8 @@ class Customers extends Model
     public static $update_rules = [
         'f_name'            => 'required|min:3|max:45|String',
         'l_name'            => 'required|min:3|max:45|String',
-        'phone'             => 'required|max:11',
-        'nic'               => 'required|max:13',
+        'phone'             => 'required|digits:11',
+        'nic'               => 'required|digits:13',
         'email'             => 'required|email'
     ];
 
