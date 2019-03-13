@@ -1,6 +1,1 @@
-/node_modules
-/public/storage
-/storage/*.key
-/vendor
 .env
-index.php
