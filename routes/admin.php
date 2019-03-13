@@ -102,4 +102,12 @@ Route::group(['prefix' => 'admin', 'middleware'	=> 'admin.auth'], function () {
 	Route::get('customers/{customers}/edit', ['as'=> 'admin.customers.edit', 'uses' => 'CustomersController@edit']);
 
 
+	Route::get('bookings', ['as'=> 'admin.bookings.index', 'uses' => 'BookingController@index']);
+	Route::post('bookings', ['as'=> 'admin.bookings.store', 'uses' => 'BookingController@store']);
+	Route::get('bookings/create', ['as'=> 'admin.bookings.create', 'uses' => 'BookingController@create']);
+	Route::put('bookings/{bookings}', ['as'=> 'admin.bookings.update', 'uses' => 'BookingController@update']);
+	Route::patch('bookings/{bookings}', ['as'=> 'admin.bookings.update', 'uses' => 'BookingController@update']);
+	Route::delete('bookings/{bookings}', ['as'=> 'admin.bookings.destroy', 'uses' => 'BookingController@destroy']);
+	Route::get('bookings/{bookings}/edit', ['as'=> 'admin.bookings.edit', 'uses' => 'BookingController@edit']);
+
 });

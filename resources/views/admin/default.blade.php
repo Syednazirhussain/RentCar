@@ -162,6 +162,15 @@
         </li>
 
         <li>
+          <a href="{{ route('admin.bookings.index') }}">
+            <i class="fa fa-handshake-o"></i> <span>Booking</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green">0</small>
+            </span>
+          </a>
+        </li>
+
+        <li>
           <a href="{{ route('admin.customers.index') }}">
             <i class="fa fa-users"></i> <span>Customers</span>
             <span class="pull-right-container">
