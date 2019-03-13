@@ -81,7 +81,7 @@ class CustomersRepository extends BaseRepository
         if ($request->hasFile('nic_back_image')) {
             $unlink = str_replace($_SERVER['HTTP_ORIGIN'], $_SERVER['DOCUMENT_ROOT'], asset('storage/customers/'.$customer->nic_back_image));
             unlink($unlink);
-            $path = $request->file('nic_front_image')->store('public/customers');
+            $path = $request->file('nic_back_image')->store('public/customers');
             $path = explode("/", $path);
             $count = count($path)-1;
             $input['nic_back_image'] = $path[$count];

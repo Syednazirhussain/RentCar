@@ -11,11 +11,9 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($customers, ['route' => ['admin.customers.update', $customers->id], 'method' => 'patch']) !!}
-
+                    <form action="{{ route('admin.customers.update', [$customers->id]) }}" method="POST"  enctype="multipart/form-data">
                         @include('admin.customers.fields')
-
-                   {!! Form::close() !!}
+                    </form>
                </div>
            </div>
        </div>
