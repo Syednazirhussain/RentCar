@@ -130,6 +130,8 @@ class CustomersController extends Controller
 
             return redirect(route('admin.customers.index'));
         }
+        
+        $this->customersRepository->removeCustomerImages($customers);
 
         $this->customersRepository->delete($id);
 

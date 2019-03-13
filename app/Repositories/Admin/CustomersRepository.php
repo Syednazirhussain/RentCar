@@ -42,8 +42,8 @@ class CustomersRepository extends BaseRepository
     public function customerInput(CreateCustomersRequest $request) {
         $input['f_name'] = $request->input('f_name');
         $input['l_name'] = $request->input('l_name');
-        $input['phone'] = (int) $request->input('phone');
-        $input['nic'] = (int) $request->input('nic');
+        $input['phone'] =  $request->input('phone');
+        $input['nic'] =    $request->input('nic');
         $input['email'] = $request->input('email');
         $input['password'] = bcrypt($request->input('password'));
         if ($request->hasFile('nic_front_image')) {
@@ -53,7 +53,7 @@ class CustomersRepository extends BaseRepository
             $input['nic_front_image'] = $path[$count];
         }
         if ($request->hasFile('nic_back_image')) {
-            $path = $request->file('nic_front_image')->store('public/customers');
+            $path = $request->file('nic_back_image')->store('public/customers');
             $path = explode("/", $path);
             $count = count($path)-1;
             $input['nic_back_image'] = $path[$count];
@@ -87,5 +87,12 @@ class CustomersRepository extends BaseRepository
             $input['nic_back_image'] = $path[$count];
         }
         return $input;
+    }
+
+    public function removeCustomerImages(Customers $customer) {
+        $unlink = str_replace($_SERVER['HTTP_ORIGIN'], $_SERVER['DOCUMENT_ROOT'], asset('storage/customers/'.$customer->nic_front_image));
+        unlink($unlink);
+        $unlink = str_replace($_SERVER['HTTP_ORIGIN'], $_SERVER['DOCUMENT_ROOT'], asset('storage/customers/'.$customer->nic_back_image));
+        unlink($unlink);
     }
 }
