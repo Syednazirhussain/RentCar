@@ -11,6 +11,9 @@ class ComposerStaticInitb075ce87e7f0dc70367f86de40462e1b
         '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
+        '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
+        'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
+        'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         'e23faeee409e941dc9b4c80386209c39' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
@@ -43,8 +46,11 @@ class ComposerStaticInitb075ce87e7f0dc70367f86de40462e1b
         'S' => 
         array (
             'Symfony\\Thanks\\' => 15,
+            'Symfony\\Polyfill\\Php72\\' => 23,
             'Symfony\\Polyfill\\Php70\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Polyfill\\Intl\\Idn\\' => 26,
+            'Symfony\\Polyfill\\Iconv\\' => 23,
             'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Contracts\\' => 18,
             'Symfony\\Component\\VarDumper\\' => 28,
@@ -154,6 +160,10 @@ class ComposerStaticInitb075ce87e7f0dc70367f86de40462e1b
         array (
             0 => __DIR__ . '/..' . '/symfony/thanks/src',
         ),
+        'Symfony\\Polyfill\\Php72\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php72',
+        ),
         'Symfony\\Polyfill\\Php70\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php70',
@@ -161,6 +171,14 @@ class ComposerStaticInitb075ce87e7f0dc70367f86de40462e1b
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Polyfill\\Intl\\Idn\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-intl-idn',
+        ),
+        'Symfony\\Polyfill\\Iconv\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-iconv',
         ),
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
@@ -396,6 +414,8 @@ class ComposerStaticInitb075ce87e7f0dc70367f86de40462e1b
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Admin\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/admin/AuthController.php',
+        'App\\Http\\Controllers\\Admin\\BookingController' => __DIR__ . '/../..' . '/app/Http/Controllers/admin/BookingController.php',
+        'App\\Http\\Controllers\\Admin\\CustomersController' => __DIR__ . '/../..' . '/app/Http/Controllers/admin/CustomersController.php',
         'App\\Http\\Controllers\\Admin\\GeneralInformationController' => __DIR__ . '/../..' . '/app/Http/Controllers/admin/GeneralInformationController.php',
         'App\\Http\\Controllers\\Admin\\OffersController' => __DIR__ . '/../..' . '/app/Http/Controllers/admin/OffersController.php',
         'App\\Http\\Controllers\\Admin\\PackagesController' => __DIR__ . '/../..' . '/app/Http/Controllers/admin/PackagesController.php',
@@ -418,6 +438,8 @@ class ComposerStaticInitb075ce87e7f0dc70367f86de40462e1b
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Requests\\Admin\\CreateBookingRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/CreateBookingRequest.php',
+        'App\\Http\\Requests\\Admin\\CreateCustomersRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/CreateCustomersRequest.php',
         'App\\Http\\Requests\\Admin\\CreateGeneralInformationRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/CreateGeneralInformationRequest.php',
         'App\\Http\\Requests\\Admin\\CreateOffersRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/CreateOffersRequest.php',
         'App\\Http\\Requests\\Admin\\CreatePackagesRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/CreatePackagesRequest.php',
@@ -426,6 +448,8 @@ class ComposerStaticInitb075ce87e7f0dc70367f86de40462e1b
         'App\\Http\\Requests\\Admin\\CreateVehicleTypeRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/CreateVehicleTypeRequest.php',
         'App\\Http\\Requests\\Admin\\CreateVehiclesRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/CreateVehiclesRequest.php',
         'App\\Http\\Requests\\Admin\\CreateVendorRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/CreateVendorRequest.php',
+        'App\\Http\\Requests\\Admin\\UpdateBookingRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/UpdateBookingRequest.php',
+        'App\\Http\\Requests\\Admin\\UpdateCustomersRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/UpdateCustomersRequest.php',
         'App\\Http\\Requests\\Admin\\UpdateOffersRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/UpdateOffersRequest.php',
         'App\\Http\\Requests\\Admin\\UpdatePackagesRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/UpdatePackagesRequest.php',
         'App\\Http\\Requests\\Admin\\UpdatePagesRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/UpdatePagesRequest.php',
@@ -433,6 +457,8 @@ class ComposerStaticInitb075ce87e7f0dc70367f86de40462e1b
         'App\\Http\\Requests\\Admin\\UpdateVehicleTypeRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/UpdateVehicleTypeRequest.php',
         'App\\Http\\Requests\\Admin\\UpdateVehiclesRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/UpdateVehiclesRequest.php',
         'App\\Http\\Requests\\Admin\\UpdateVendorRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/UpdateVendorRequest.php',
+        'App\\Models\\Admin\\Booking' => __DIR__ . '/../..' . '/app/Models/Admin/Booking.php',
+        'App\\Models\\Admin\\Customers' => __DIR__ . '/../..' . '/app/Models/Admin/Customers.php',
         'App\\Models\\Admin\\GeneralInformation' => __DIR__ . '/../..' . '/app/Models/Admin/GeneralInformation.php',
         'App\\Models\\Admin\\Offers' => __DIR__ . '/../..' . '/app/Models/Admin/Offers.php',
         'App\\Models\\Admin\\Packages' => __DIR__ . '/../..' . '/app/Models/Admin/Packages.php',
@@ -447,6 +473,8 @@ class ComposerStaticInitb075ce87e7f0dc70367f86de40462e1b
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Repositories\\Admin\\BookingRepository' => __DIR__ . '/../..' . '/app/Repositories/Admin/BookingRepository.php',
+        'App\\Repositories\\Admin\\CustomersRepository' => __DIR__ . '/../..' . '/app/Repositories/Admin/CustomersRepository.php',
         'App\\Repositories\\Admin\\GeneralInformationRepository' => __DIR__ . '/../..' . '/app/Repositories/Admin/GeneralInformationRepository.php',
         'App\\Repositories\\Admin\\OffersRepository' => __DIR__ . '/../..' . '/app/Repositories/Admin/OffersRepository.php',
         'App\\Repositories\\Admin\\PackagesRepository' => __DIR__ . '/../..' . '/app/Repositories/Admin/PackagesRepository.php',
@@ -4137,8 +4165,11 @@ class ComposerStaticInitb075ce87e7f0dc70367f86de40462e1b
         'Symfony\\Contracts\\Translation\\TranslatorInterface' => __DIR__ . '/..' . '/symfony/contracts/Translation/TranslatorInterface.php',
         'Symfony\\Contracts\\Translation\\TranslatorTrait' => __DIR__ . '/..' . '/symfony/contracts/Translation/TranslatorTrait.php',
         'Symfony\\Polyfill\\Ctype\\Ctype' => __DIR__ . '/..' . '/symfony/polyfill-ctype/Ctype.php',
+        'Symfony\\Polyfill\\Iconv\\Iconv' => __DIR__ . '/..' . '/symfony/polyfill-iconv/Iconv.php',
+        'Symfony\\Polyfill\\Intl\\Idn\\Idn' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/Idn.php',
         'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
         'Symfony\\Polyfill\\Php70\\Php70' => __DIR__ . '/..' . '/symfony/polyfill-php70/Php70.php',
+        'Symfony\\Polyfill\\Php72\\Php72' => __DIR__ . '/..' . '/symfony/polyfill-php72/Php72.php',
         'Symfony\\Thanks\\Command\\ThanksCommand' => __DIR__ . '/..' . '/symfony/thanks/src/Command/ThanksCommand.php',
         'Symfony\\Thanks\\GitHubClient' => __DIR__ . '/..' . '/symfony/thanks/src/GitHubClient.php',
         'Symfony\\Thanks\\Thanks' => __DIR__ . '/..' . '/symfony/thanks/src/Thanks.php',
