@@ -65,7 +65,11 @@ class Booking extends Model
      * @var array
      */
     public static $rules = [
-        
+        'customer_id' => 'required',
+        'package_id' => 'required',
+        'booking_date' => 'required|date',
+        'pickup_address' => 'required|time',
+        'dropoff_address' => 'required|time'
     ];
 
     /**

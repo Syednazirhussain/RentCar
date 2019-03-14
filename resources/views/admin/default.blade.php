@@ -117,7 +117,7 @@
         
         <li class="treeview">
           <a href="javascript:void(0)">
-            <i class="fa fa-dashboard"></i> <span>Vehicle</span>
+            <i class="fa fa-car"></i> <span>Vehicle</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -175,7 +175,7 @@
           <a href="{{ route('admin.customers.index') }}">
             <i class="fa fa-users"></i> <span>Customers</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-green">0</small>
+              <small class="label pull-right bg-green">@if(isset($customers)){{ $customers->count() }}@endif</small>
             </span>
           </a>
         </li>

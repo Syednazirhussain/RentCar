@@ -7,8 +7,10 @@ use App\Http\Requests\Admin\UpdateBookingRequest;
 use App\Repositories\Admin\BookingRepository;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Flash;
+use App\Models\Admin\Customers;
+use App\Models\Admin\Packages;
 use Prettus\Repository\Criteria\RequestCriteria;
+use Flash;
 use Response;
 use Session;
 
@@ -44,7 +46,15 @@ class BookingController extends Controller
      */
     public function create()
     {
-        return view('admin.bookings.create');
+        $customers = Customers::all();
+        $packages = Packages::all();
+
+        $data = [
+            'customers' => $customers,
+            'packages'  => $packages  
+        ];
+
+        return view('admin.bookings.create', $data);
     }
 
     /**

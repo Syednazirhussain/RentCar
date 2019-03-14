@@ -1,6 +1,6 @@
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-@if(isset($packages))
+@if(isset($packag))
     <input name="_method" type="hidden" value="PATCH">
 @endif
 
@@ -11,7 +11,7 @@
         <div class="form-group">
             <label>Customer</label>
             <select class="form-control select2" name="vendor_id" style="width: 100%;">
-                @if (isset($vehicleTypes))
+                @if (isset($customers))
                     @if (isset($vehicles))
                         @foreach($vehicleTypes as $vehicleType)
                             @if ($vehicles->vehicle_type_id == $vehicleType->id) 
@@ -21,8 +21,8 @@
                             @endif
                         @endforeach
                     @else
-                        @foreach($vehicleTypes as $vehicleType)
-                            <option value="{{ $vehicleType->id }}">{{ $vehicleType->name }}</option>
+                        @foreach($customers as $customer)
+                            <option value="{{ $customer->id }}">{{ $customer->f_name }}</option>
                         @endforeach
                     @endif
                 @endif
@@ -33,7 +33,7 @@
         <div class="form-group">
             <label>Package</label>
             <select class="form-control select2" name="vendor_id" style="width: 100%;">
-                @if (isset($vehicleTypes))
+                @if (isset($packages))
                     @if (isset($vehicles))
                         @foreach($vehicleTypes as $vehicleType)
                             @if ($vehicles->vehicle_type_id == $vehicleType->id) 
@@ -43,8 +43,8 @@
                             @endif
                         @endforeach
                     @else
-                        @foreach($vehicleTypes as $vehicleType)
-                            <option value="{{ $vehicleType->id }}">{{ $vehicleType->name }}</option>
+                        @foreach($packages as $package)
+                            <option value="{{ $package->id }}">{{ $package->name }}</option>
                         @endforeach
                     @endif
                 @endif
@@ -109,7 +109,7 @@
 
 <div class="col-sm-12 col-md-12">
     <div class="col-md-12">
-        <button type="submit" class="btn btn-primary">@if(isset($packages)) <i class="fa fa-refresh"></i>  Update @else <i class="fa fa-plus"></i>  Add Booking @endif</button>
+        <button type="submit" class="btn btn-primary">@if(isset($packag)) <i class="fa fa-refresh"></i>  Update @else <i class="fa fa-plus"></i>  Add Booking @endif</button>
         <a href="{!! route('admin.bookings.index') !!}" class="btn btn-default"><i class="fa fa-times"></i> Cancel</a>
     </div>
 </div>
