@@ -68,8 +68,8 @@
     <div class="col-md-4">
         <div class="form-group">
             <label>Pickup Time</label>
-            <div class="input-group">
-                <input type="text" name="pickup_time" id="pickup_time" class="form-control">
+            <div class="input-group bootstrap-timepicker">
+                <input type="text" name="pickup_time" id="pickup_time" class="form-control" readonly="readonly">
                 <div class="input-group-addon">
                     <i class="fa fa-clock-o"></i>
                 </div>
@@ -79,8 +79,8 @@
     <div class="col-md-4">
         <div class="form-group">
             <label>Pickup Time</label>
-            <div class="input-group">
-                <input type="text" name="dropoff_time" id="dropoff_time" class="form-control">
+            <div class="input-group bootstrap-timepicker">
+                <input type="text" name="dropoff_time" id="dropoff_time"  class="form-control" readonly="readonly">
                 <div class="input-group-addon">
                     <i class="fa fa-clock-o"></i>
                 </div>
@@ -123,17 +123,40 @@
     $('.select2').select2();
 
     //bootstrap WYSIHTML5 - text editor
-    $('#pickup_address').wysihtml5()
-
-    //bootstrap WYSIHTML5 - text editor
-    $('#dropoff_address').wysihtml5()
-
-    $(function() {
-        $('#pickup_time').timepicker();
+    $('#pickup_address').wysihtml5({
+        toolbar: {
+            "font-styles": true,
+            "emphasis": true,
+            "lists": true,
+            "html": false,
+            "link": false,
+            "image": false,
+            "color": false,
+            "blockquote": false
+        }
     });
 
-    $(function() {
-        $('#dropoff_time').timepicker();
+    //bootstrap WYSIHTML5 - text editor
+    $('#dropoff_address').wysihtml5({
+        toolbar: {
+            "font-styles": true,
+            "emphasis": true,
+            "lists": true,
+            "html": false,
+            "link": false,
+            "image": false,
+            "color": false,
+            "blockquote": false
+        }
+    });
+
+    //Timepicker
+    $('#pickup_time').timepicker({
+      //showInputs: false
+    });
+
+    $('#dropoff_time').timepicker({
+      //showInputs: false
     });
 
     $('#booking_date').daterangepicker({
