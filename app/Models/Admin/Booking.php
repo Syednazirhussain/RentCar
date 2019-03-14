@@ -68,8 +68,10 @@ class Booking extends Model
         'customer_id' => 'required',
         'package_id' => 'required',
         'booking_date' => 'required|date',
-        'pickup_address' => 'required|time',
-        'dropoff_address' => 'required|time'
+        'pickup_time'   => 'required|date_format:h:i A',
+        'dropoff_time'  => 'required|date_format:h:i A',
+        'pickup_address' => 'required',
+        'dropoff_address' => 'required'
     ];
 
     /**
@@ -77,7 +79,7 @@ class Booking extends Model
      **/
     public function package()
     {
-        return $this->belongsTo(\App\Models\Admin\Package::class);
+        return $this->belongsTo(\App\Models\Admin\Packages::class);
     }
 
     /**
@@ -85,6 +87,6 @@ class Booking extends Model
      **/
     public function customer()
     {
-        return $this->belongsTo(\App\Models\Admin\Customer::class);
+        return $this->belongsTo(\App\Models\Admin\Customers::class);
     }
 }

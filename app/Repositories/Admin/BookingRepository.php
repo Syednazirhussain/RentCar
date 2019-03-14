@@ -2,6 +2,8 @@
 
 namespace App\Repositories\Admin;
 
+use App\Http\Requests\Admin\CreateBookingRequest;
+use App\Http\Requests\Admin\UpdateBookingRequest;
 use App\Models\Admin\Booking;
 use InfyOm\Generator\Common\BaseRepository;
 
@@ -35,5 +37,27 @@ class BookingRepository extends BaseRepository
     public function model()
     {
         return Booking::class;
+    }
+
+    public function bookingInput(CreateBookingRequest $request) {
+        $input['customer_id']  = $request->input('customer_id');
+        $input['package_id']  = $request->input('package_id');
+        $input['booking_date']  = $request->input('booking_date');
+        $input['pickup_time']  = $request->input('pickup_time');
+        $input['dropoff_time']  = $request->input('dropoff_time');
+        $input['pickup_address']  = strip_tags($request->input('pickup_address'));
+        $input['dropoff_address']  = strip_tags($request->input('dropoff_address'));
+        return $input;
+    }
+
+    public function bookingUpdateInput(UpdateBookingRequest $request) {
+        $input['customer_id']  = $request->input('customer_id');
+        $input['package_id']  = $request->input('package_id');
+        $input['booking_date']  = $request->input('booking_date');
+        $input['pickup_time']  = $request->input('pickup_time');
+        $input['dropoff_time']  = $request->input('dropoff_time');
+        $input['pickup_address']  = strip_tags($request->input('pickup_address'));
+        $input['dropoff_address']  = strip_tags($request->input('dropoff_address'));
+        return $input;
     }
 }

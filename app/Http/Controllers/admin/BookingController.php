@@ -66,8 +66,7 @@ class BookingController extends Controller
      */
     public function store(CreateBookingRequest $request)
     {
-        dd($request->all());
-        $input = $request->all();
+        $input = $this->bookingRepository->bookingInput($request);
 
         $booking = $this->bookingRepository->create($input);
 
@@ -86,6 +85,8 @@ class BookingController extends Controller
     public function edit($id)
     {
         $booking = $this->bookingRepository->findWithoutFail($id);
+        $customers = Customers::all();
+        $packages = Packages::all();
 
         if (empty($booking)) {
             Session::Flash('msg.error', 'Booking not found');
@@ -93,7 +94,13 @@ class BookingController extends Controller
             return redirect(route('admin.bookings.index'));
         }
 
-        return view('admin.bookings.edit')->with('booking', $booking);
+        $data = [
+            'booking'   => $booking,
+            'customers' => $customers,
+            'packages'  => $packages  
+        ];
+
+        return view('admin.bookings.edit', $data);
     }
 
     /**
@@ -106,6 +113,7 @@ class BookingController extends Controller
      */
     public function update($id, UpdateBookingRequest $request)
     {
+        // dd($request->all());
         $booking = $this->bookingRepository->findWithoutFail($id);
 
         if (empty($booking)) {
@@ -113,6 +121,8 @@ class BookingController extends Controller
 
             return redirect(route('admin.bookings.index'));
         }
+
+        $input = $this->bookingRepository->bookingUpdateInput($request);
 
         $booking = $this->bookingRepository->update($request->all(), $id);
 

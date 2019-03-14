@@ -1,6 +1,6 @@
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-@if(isset($packag))
+@if(isset($booking))
     <input name="_method" type="hidden" value="PATCH">
 @endif
 
@@ -10,14 +10,14 @@
     <div class="col-md-6">
         <div class="form-group">
             <label>Customer</label>
-            <select class="form-control select2" name="vendor_id" style="width: 100%;">
+            <select class="form-control select2" name="customer_id" style="width: 100%;">
                 @if (isset($customers))
-                    @if (isset($vehicles))
-                        @foreach($vehicleTypes as $vehicleType)
-                            @if ($vehicles->vehicle_type_id == $vehicleType->id) 
-                                <option value="{{ $vehicleType->id }}" selected="selected">{{ $vehicleType->name }}</option>
+                    @if (isset($booking))
+                        @foreach($customers as $customer)
+                            @if ($booking->customer_id == $customer->id) 
+                                <option value="{{ $customer->id }}" selected="selected">{{ $customer->f_name }}</option>
                             @else
-                                <option value="{{ $vehicleType->id }}">{{ $vehicleType->name }}</option>
+                                <option value="{{ $customer->id }}">{{ $customer->f_name }}</option>
                             @endif
                         @endforeach
                     @else
@@ -32,14 +32,14 @@
     <div class="col-md-6">
         <div class="form-group">
             <label>Package</label>
-            <select class="form-control select2" name="vendor_id" style="width: 100%;">
+            <select class="form-control select2" name="package_id" style="width: 100%;">
                 @if (isset($packages))
-                    @if (isset($vehicles))
-                        @foreach($vehicleTypes as $vehicleType)
-                            @if ($vehicles->vehicle_type_id == $vehicleType->id) 
-                                <option value="{{ $vehicleType->id }}" selected="selected">{{ $vehicleType->name }}</option>
+                    @if (isset($booking))
+                        @foreach($packages as $package)
+                            @if ($booking->package_id == $package->id) 
+                                <option value="{{ $package->id }}" selected="selected">{{ $package->name }}</option>
                             @else
-                                <option value="{{ $vehicleType->id }}">{{ $vehicleType->name }}</option>
+                                <option value="{{ $package->id }}">{{ $package->name }}</option>
                             @endif
                         @endforeach
                     @else
@@ -61,7 +61,7 @@
                 <div class="input-group-addon">
                 <i class="fa fa-calendar"></i>
                 </div>
-                <input type="text" name="booking_date" id="booking_date" class="form-control">
+                <input type="text" name="booking_date" value="@if(isset($booking)){{ $booking->booking_date }}@endif" id="booking_date" class="form-control">
             </div>
         </div>
     </div>
@@ -69,7 +69,7 @@
         <div class="form-group">
             <label>Pickup Time</label>
             <div class="input-group bootstrap-timepicker">
-                <input type="text" name="pickup_time" id="pickup_time" class="form-control" readonly="readonly">
+                <input type="text" name="pickup_time" value="@if(isset($booking)){{ $booking->pickup_time }}@endif" id="pickup_time" class="form-control" readonly="readonly">
                 <div class="input-group-addon">
                     <i class="fa fa-clock-o"></i>
                 </div>
@@ -80,7 +80,7 @@
         <div class="form-group">
             <label>Pickup Time</label>
             <div class="input-group bootstrap-timepicker">
-                <input type="text" name="dropoff_time" id="dropoff_time"  class="form-control" readonly="readonly">
+                <input type="text" name="dropoff_time" value="@if(isset($booking)){{ $booking->dropoff_time }}@endif" id="dropoff_time"  class="form-control" readonly="readonly">
                 <div class="input-group-addon">
                     <i class="fa fa-clock-o"></i>
                 </div>
@@ -93,7 +93,7 @@
     <div class="col-md-12">
         <div class="form-group">
           <label>Pickup Address</label>
-            <textarea name="pickup_address" id="pickup_address" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">@if(isset($vehicles)){{ $vehicles->name }}@endif</textarea>
+            <textarea name="pickup_address" id="pickup_address" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">@if(isset($booking)){{ $booking->pickup_address }}@endif</textarea>
         </div>
     </div>
 </div>
@@ -102,14 +102,14 @@
     <div class="col-md-12">
         <div class="form-group">
           <label>Dropoff Adress</label>
-            <textarea name="dropoff_address" id="dropoff_address" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">@if(isset($vehicles)){{ $vehicles->name }}@endif</textarea>
+            <textarea name="dropoff_address" id="dropoff_address" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">@if(isset($booking)){{ $booking->dropoff_address }}@endif</textarea>
         </div>
     </div>
 </div>
 
 <div class="col-sm-12 col-md-12">
     <div class="col-md-12">
-        <button type="submit" class="btn btn-primary">@if(isset($packag)) <i class="fa fa-refresh"></i>  Update @else <i class="fa fa-plus"></i>  Add Booking @endif</button>
+        <button type="submit" class="btn btn-primary">@if(isset($booking)) <i class="fa fa-refresh"></i>  Update @else <i class="fa fa-plus"></i>  Add Booking @endif</button>
         <a href="{!! route('admin.bookings.index') !!}" class="btn btn-default"><i class="fa fa-times"></i> Cancel</a>
     </div>
 </div>

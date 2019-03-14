@@ -4,15 +4,15 @@
             <th>Customer</th>
             <th>Package</th>
             <th>Booking Date</th>
-            <th colspan="3">Action</th>
+            <th width="10%">Action</th>
         </tr>
     </thead>
     <tbody>
     @foreach($bookings as $booking)
         <tr>
-            <td>{!! $booking->customer_id !!}</td>
-            <td>{!! $booking->package_id !!}</td>
-            <td>{!! $booking->booking_date !!}</td>
+            <td>{!! $booking->customer->f_name !!}</td>
+            <td>{!! $booking->package->name !!}</td>
+            <td>{!! \Carbon\Carbon::parse($booking->booking_date)->diffForHumans() !!}</td>
             <td>
                 {!! Form::open(['route' => ['admin.bookings.destroy', $booking->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
