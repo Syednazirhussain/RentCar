@@ -62,8 +62,8 @@
                         <div class="display-table">
                             <div class="display-table-cell">
                                 <div class="slider-right-text">
-                                    <h1>{{ $generalInformation->title }}</h1>
-                                    <p>{{ $generalInformation->title_description }}</p>
+                                    <h1>@if(isset($generalInformation)){{ $generalInformation->title }}@else{{ 'The Title' }}@endif</h1>
+                                    <p>@if(isset($generalInformation)){{ $generalInformation->title_description }}@else{{ 'The title description' }}@endif</p>
                                 </div>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                     <div class="section-title  text-center">
                         <h2>About us</h2>
                         <span class="title-line"><i class="fa fa-car"></i></span>
-                        <p>{{ $generalInformation->about_description  }}</p>
+                        <p>@if(isset($generalInformation)){{ $generalInformation->about_description  }}@else{{ 'The about description' }}@endif</p>
                     </div>
                 </div>
                 <!-- Section Title End -->

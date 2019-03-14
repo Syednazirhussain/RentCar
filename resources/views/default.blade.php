@@ -54,17 +54,17 @@
 
                     <!--== Single HeaderTop Start ==-->
                     <div class="col-lg-3 text-left">
-                        <i class="fa fa-mobile"></i> {{ $generalInformation->contact }}
+                        <i class="fa fa-mobile"></i>@if(isset($generalInformation)) {{ $generalInformation->contact }}@else{{ '021435345345' }}@endif
                     </div>
                     <!--== Single HeaderTop End ==-->
 
                     <!--== Social Icons Start ==-->
                     <div class="col-lg-3 text-right">
                         <div class="header-social-icons">
-                            <a href="{{ $generalInformation->twitter }}"><i class="fa fa-twitter"></i></a>
-                            <a href="{{ $generalInformation->pinterest }}"><i class="fa fa-pinterest"></i></a>
-                            <a href="{{ $generalInformation->facebook }}"><i class="fa fa-facebook"></i></a>
-                            <a href="{{ $generalInformation->linkdin }}"><i class="fa fa-linkedin"></i></a>
+                            <a href="@if(isset($generalInformation)){{ $generalInformation->twitter }}@else{{ 'javascript:void(0)'}}@endif"><i class="fa fa-twitter"></i></a>
+                            <a href="@if(isset($generalInformation)){{ $generalInformation->pinterest }}@else{{ 'javascript:void(0)'}}@endif"><i class="fa fa-pinterest"></i></a>
+                            <a href="@if(isset($generalInformation)){{ $generalInformation->facebook }}@else{{ 'javascript:void(0)'}}@endif"><i class="fa fa-facebook"></i></a>
+                            <a href="@if(isset($generalInformation)){{ $generalInformation->linkdin }}@else{{ 'javascript:void(0)'}}@endif"><i class="fa fa-linkedin"></i></a>
                         </div>
                     </div>
                     <!--== Social Icons End ==-->
@@ -80,7 +80,9 @@
                     <!--== Logo Start ==-->
                     <div class="col-lg-4">
                         <a href="{{ route('site.index') }}" class="logo">
+                            @if(isset($generalInformation))
                             <img src="{{ asset('storage/'.$generalInformation->logo) }}" alt="JSOFT">
+                            @endif
                         </a>
                     </div>
                     <!--== Logo End ==-->
@@ -132,8 +134,10 @@
                             <h2>About REDPANDA Rent a Car</h2>
                             <div class="widget-body">
 
+                                @if(isset($generalInformation))
                                 <img src="{{ asset('storage/'.$generalInformation->logo) }}" width="150px" alt="{{ $generalInformation->name }}">
-                                <p>{{ $generalInformation->about_description }}</p>
+                                @endif
+                                <p>@if(isset($generalInformation)){{ $generalInformation->about_description }}@else{{ 'The about description' }}@endif</p>
     							<p>For Picture Gallery <a href="javascript:void(0)">Click Here</a></p>
 
 
@@ -154,12 +158,12 @@
                                     <li>
                                         <p style="color: #fff">
                                             <i class="fa fa-map-marker"></i>
-                                            {{ $generalInformation->address }}
+                                            @if(isset($generalInformation)){{ $generalInformation->address }}@else{{ 'The address' }}@endif
                                         </p>
                                     </li>
-                                    <li><i class="fa fa-phone"></i> Helpline: {{ $generalInformation->helpline }}</li>
-                                    <li><i class="fa fa-phone"></i>{{ $generalInformation->contact }}</li>
-                                    <li><i class="fa fa-envelope"></i>{{ $generalInformation->email }}</li>
+                                    <li><i class="fa fa-phone"></i> Helpline: @if(isset($generalInformation)){{ $generalInformation->helpline }}@else{{ 'Helpline' }}@endif</li>
+                                    <li><i class="fa fa-phone"></i>@if(isset($generalInformation)){{ $generalInformation->contact }}@else{{ 'The contact' }}@endif</li>
+                                    <li><i class="fa fa-envelope"></i>@if(isset($generalInformation)){{ $generalInformation->email }}@else{{ 'The email' }}@endif</li>
                                 </ul>
                                 <a href="javascript:void(0)">Terms and Conditions</a>&nbsp;&nbsp;&nbsp;
                                 <a href="javascript:void(0)" class="map-show">Show Location</a>
