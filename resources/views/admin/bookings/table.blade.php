@@ -1,4 +1,4 @@
-<table class="table table-responsive" id="bookings-table">
+<table class="table table-responsive" id="bookings">
     <thead>
         <tr>
             <th>Customer</th>

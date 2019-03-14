@@ -12,11 +12,9 @@
 
             <div class="box-body">
                 <div class="row">
-                    {!! Form::open(['route' => 'admin.bookings.store']) !!}
-
+                    <form action="{{ route('admin.bookings.store') }}" method="POST">
                         @include('admin.bookings.fields')
-
-                    {!! Form::close() !!}
+                    </form>
                 </div>
             </div>
         </div>

@@ -24,3 +24,17 @@
     </div>
 @endsection
 
+@section('js')
+
+<script type="text/javascript">
+    $('#bookings').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+</script>
+
+@endsection

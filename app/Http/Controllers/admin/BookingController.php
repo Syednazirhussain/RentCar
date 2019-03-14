@@ -56,6 +56,7 @@ class BookingController extends Controller
      */
     public function store(CreateBookingRequest $request)
     {
+        dd($request->all());
         $input = $request->all();
 
         $booking = $this->bookingRepository->create($input);

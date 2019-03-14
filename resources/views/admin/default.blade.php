@@ -32,7 +32,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <!-- Select2 -->
   <link rel="stylesheet" href="{{ asset('adminlte/bower_components/select2/dist/css/select2.min.css') }}">
-  
+  <link rel="stylesheet" href="{{ asset('adminlte/plugins/timepicker/bootstrap-timepicker.min.css') }}">
+
   <link href="{{ asset('adminlte/plugins_new/jasny-bootstrap/css/jasny-bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('adminlte/fileuploader/src/jquery.fileuploader.css') }}" media="all" rel="stylesheet">
   <link href="{{ asset('adminlte/fileuploader/css/jquery.fileuploader-theme-thumbnails.css') }}" media="all" rel="stylesheet">
@@ -441,6 +442,10 @@
 <script src="{{ asset('adminlte/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('adminlte/dist/js/demo.js') }}"></script>
+
+<!-- bootstrap time picker -->
+<script src="{{ asset('adminlte/plugins/timepicker/bootstrap-timepicker.min.js') }}"></script>
+
 <!-- Select2 -->
 <script src="{{ asset('adminlte/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
 <!-- CK Editor -->
