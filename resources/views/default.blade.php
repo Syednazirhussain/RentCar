@@ -64,12 +64,12 @@
                      <div class="dlab-topbar-right topbar-social">
                         <ul>
                            <li>
-                              <a href="javascript:void(0);"><i class="fa fa-envelope-o"></i> Support@website.com</a>
+                              <a href="javascript:void(0);"><i class="fa fa-envelope-o"></i> @if(isset($generalInformation)){{ $generalInformation->email }} @endif</a>
                            </li>
-                           <li><a href="javascript:void(0);" class="site-button-link facebook hover"><i class="fa fa-facebook"></i></a></li>
-                           <li><a href="javascript:void(0);" class="site-button-link google-plus hover"><i class="fa fa-google-plus"></i></a></li>
-                           <li><a href="javascript:void(0);" class="site-button-link twitter hover"><i class="fa fa-twitter"></i></a></li>
-                           <li><a href="javascript:void(0);" class="site-button-link linkedin hover"><i class="fa fa-linkedin"></i></a></li>
+                           <li><a href="@if(isset($generalInformation)){{ $generalInformation->facebook }}@else {{ 'javascript:void(0);' }}@endif" class="site-button-link facebook hover"><i class="fa fa-facebook"></i></a></li>
+                           <li><a href="@if(isset($generalInformation)){{ $generalInformation->instagram}}@else {{ 'javascript:void(0);' }}@endif" class="site-button-link google-plus hover"><i class="fa fa-instagram"></i></a></li>
+                           <li><a href="@if(isset($generalInformation)){{ $generalInformation->twitter}}@else {{ 'javascript:void(0);' }}@endif" class="site-button-link twitter hover"><i class="fa fa-twitter"></i></a></li>
+                           <li><a href="@if(isset($generalInformation)){{ $generalInformation->linkdin}}@else {{ 'javascript:void(0);' }}@endif" class="site-button-link linkedin hover"><i class="fa fa-linkedin"></i></a></li>
                         </ul>
                      </div>
                   </div>
@@ -82,7 +82,7 @@
                      <!-- website logo -->
                      <div class="logo-header mostion">
                         <a href="javascript:void(0);">
-                           <img src="{{ asset('/theme/assets/images/logo-light.png') }}" class="logo" alt=""></a>
+                           <img src="@if(isset($generalInformation)){{ asset('storage/'.$generalInformation->logo) }} @else {{ asset('/theme/assets/images/logo-light.png') }} @endif" class="logo" alt=""></a>
                      </div>
                      <!-- nav toggle button -->
                      <button data-target=".header-nav" data-toggle="collapse" type="button" class="navbar-toggle collapsed" aria-expanded="false" > 
@@ -138,8 +138,8 @@
                         <div class="widget widget_services border-0">
                            <h5 class="m-b30 text-white">About REDPANDA Rent a Car</h5>
                            <div class="widget-body">
-                              <img src="https://stsrentacar.pk/assets/web_assets/img/logo.png" width="150px" alt="STS Rent A Car">
-                              <p>At REDPANDA Rent a Car, our prime business idea is simplify travelling for you and that's why our business solegen is "TRAVELLING FOR YOU"</p>
+                              <img src="@if(isset($generalInformation)){{ asset('storage/'.$generalInformation->logo) }} @else {{ asset('/theme/assets/images/logo-light.png') }} @endif" width="150px" alt="STS Rent A Car">
+                              <p>@if(isset($generalInformation)){{ $generalInformation->footer_description  }}@endif</p>
                            </div>
                         </div>
                      </div>
@@ -147,9 +147,9 @@
                         <div class="widget widget_getintuch">
                            <h5 class="m-b30 text-white ">Contact us</h5>
                            <ul>
-                              <li><i class="fa fa-map-marker"></i><strong>address</strong> demo address #8901 Marmora Road Chi Minh City, Vietnam </li>
-                              <li><i class="fa fa-phone"></i><strong>phone</strong>0800-123456 (24/7 Support Line)</li>
-                              <li><i class="fa fa-envelope"></i><strong>email</strong>info@example.com</li>
+                              <li><i class="fa fa-map-marker"></i><strong>address</strong> @if(isset($generalInformation)){{ $generalInformation->address  }}@endif</li>
+                              <li><i class="fa fa-phone"></i><strong>phone</strong>@if(isset($generalInformation)){{ $generalInformation->helpline  }}@endif (24/7 Support Line)</li>
+                              <li><i class="fa fa-envelope"></i><strong>email</strong>@if(isset($generalInformation)){{ $generalInformation->email  }}@endif</li>
                            </ul>
                         </div>
                      </div>

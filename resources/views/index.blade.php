@@ -77,7 +77,7 @@
        <!-- Form -->   
        <div class="form-slide">
           <div class="container">
-             <form class="search-car" action="http://carzone.dexignlab.com/xhtml/new-car-search-result-list.html" method="post">
+             <form class="search-car" action="javascript:void(0);" method="post">
                 <div class="form-head">
                    <h2>Search the right car</h2>
                 </div>
@@ -89,29 +89,22 @@
                          <div  id="budgetDiv" class="new_form_div">
                             <div class="input-group">
                                <select class="form-control">
-                                  <option>Select Budget</option>
-                                  <option>1 Lakh - 5 Lakh</option>
-                                  <option>5 Lakh - 10 Lakh</option>
-                                  <option>10 Lakh - 20 Lakh</option>
-                                  <option>20 Lakh - 50 Lakh</option>
-                                  <option>50 Lakh - 1 Crore</option>
-                                  <option>Above 1 Crore</option>
+                                  <option>Select Vendor</option>
+                                  @if(isset($vehicleTypes))
+                                    @foreach($vehicleTypes as $vehicleType)
+                                      <option value="{{ $vehicleType->id }}">{{ $vehicleType->name }}</option>
+                                    @endforeach
+                                  @endif
                                </select>
                             </div>
                             <div class="input-group">
                                <select class="form-control">
                                   <option>All Vehicle Types</option>
-                                  <option>Hatchback</option>
-                                  <option>Sedans</option>
-                                  <option>MUV</option>
-                               </select>
-                            </div>
-                            <div class="input-group">
-                               <select class="form-control">
-                                  <option>All Vehicle Types</option>
-                                  <option>Hatchback</option>
-                                  <option>Sedans</option>
-                                  <option>MUV</option>
+                                  @if(isset($vendors))
+                                    @foreach($vendors as $vendor)
+                                      <option value="{{ $vendor->id }}">{{ $vendor->name }}</option>
+                                    @endforeach
+                                  @endif
                                </select>
                             </div>
                          </div>
@@ -138,10 +131,10 @@
                 <div class="col-md-5">
                    <div class="">
                       <h3 class="h3 text-uppercase m-b10 m-t0">About us </h3>
-                      <p class="p-t0">Everything you need to build an amazing dealership website.</p>
+                      <p class="p-t0">@if(isset($generalInformation)){{ $generalInformation->title }}@endif</p>
                    </div>
                    <div class="about-us-info">
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                      <p>@if(isset($generalInformation)){{ $generalInformation->about_description }}@endif</p>
                       <div class="media media-info">
                          <div class="media-left">
                             <a href="javascript:void(0);">
@@ -150,7 +143,7 @@
                          </div>
                          <div class="media-body p-l15">
                             <h4 class="font-weight-700 text-uppercase text-primary m-b10">Have any question ?</h4>
-                            <h2 class="media-heading open-sans font-weight-700">01 123 456 789</h2>
+                            <h2 class="media-heading open-sans font-weight-700">@if(isset($generalInformation)){{ $generalInformation->contact }}@endif</h2>
                          </div>
                       </div>
                       <div class="m-t30">

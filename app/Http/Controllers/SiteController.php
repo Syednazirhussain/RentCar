@@ -15,6 +15,7 @@ class SiteController extends Controller
     	$vehicleTypes = VehicleType::all();
     	$generalInformation = GeneralInformation::where('code', 'site-setting')->first();
 
+    	// dd($generalInformation->toArray());
 
     	return view('index', compact('generalInformation', 'vehicleTypes', 'vendors'));
     }
