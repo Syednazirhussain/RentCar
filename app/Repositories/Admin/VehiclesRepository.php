@@ -141,4 +141,8 @@ class VehiclesRepository
         }
     }
 
+    public function delete(Vehicles $vehicle) {
+        return $vehicle->delete();
+    }
+
 }

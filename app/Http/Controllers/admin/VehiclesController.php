@@ -14,6 +14,7 @@ use App\Models\Admin\Vendor;
 use App\Models\Admin\VehicleType;
 use App\Models\Admin\VehicleSpecification;
 use App\Models\Admin\VehicleHasSpecification;
+use Illuminate\Support\Facades\Storage;
 use Response;
 use Session;
 
@@ -161,16 +162,17 @@ class VehiclesController extends Controller
 
             $url = asset('storage/vehicles');
             $url2 = public_path()."/storage/vehicles";
-            
+
             $i = 0;
             foreach ($imagesFiles as $file) 
             {
                 $images[$i]['name'] = $file;
                 $images[$i]['file'] = $url.'/'.$file;
-                $images[$i]['size'] = filesize($url2.'/'.$file);
+                $images[$i]['size'] = Storage::size('public/vehicles/'.$file);
                 $images[$i]['type'] = mime_content_type($url2.'/'.$file);
                 $i++;
             }
+
         }
 
         $data = [
@@ -264,7 +266,7 @@ class VehiclesController extends Controller
      */
     public function destroy($id)
     {
-        $vehicles = $this->vehiclesRepository->findWithoutFail($id);
+        $vehicles = Vehicles::findOrFail($id);
 
         if (empty($vehicles)) {
             Session::Flash('msg.error', 'Vehicles not found');
@@ -272,9 +274,11 @@ class VehiclesController extends Controller
             return redirect(route('admin.vehicles.index'));
         }
 
-        $this->vehiclesRepository->delete($id);
-
-        Flash::success('Vehicles deleted successfully.');
+        if ($this->vehiclesRepository->delete($vehicles)) {
+            Flash::success('msg.success', 'Vehicles deleted successfully.');
+        } else {
+            Session::Flash('msg.error', 'Vehicles deleted successfully.');
+        }
 
         return redirect(route('admin.vehicles.index'));
     }
