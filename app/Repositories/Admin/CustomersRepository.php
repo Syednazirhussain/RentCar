@@ -72,7 +72,9 @@ class CustomersRepository extends BaseRepository
         }
         if ($request->hasFile('nic_front_image')) {
             $unlink = str_replace($_SERVER['HTTP_ORIGIN'], $_SERVER['DOCUMENT_ROOT'], asset('storage/customers/'.$customer->nic_front_image));
-            unlink($unlink);
+            if (file_exists($unlink)) {
+                unlink($unlink);
+            }
             $path = $request->file('nic_front_image')->store('public/customers');
             $path = explode("/", $path);
             $count = count($path)-1;
@@ -80,7 +82,9 @@ class CustomersRepository extends BaseRepository
         }
         if ($request->hasFile('nic_back_image')) {
             $unlink = str_replace($_SERVER['HTTP_ORIGIN'], $_SERVER['DOCUMENT_ROOT'], asset('storage/customers/'.$customer->nic_back_image));
-            unlink($unlink);
+            if (file_exists($unlink)) {
+                unlink($unlink);
+            }
             $path = $request->file('nic_back_image')->store('public/customers');
             $path = explode("/", $path);
             $count = count($path)-1;
@@ -91,8 +95,12 @@ class CustomersRepository extends BaseRepository
 
     public function removeCustomerImages(Customers $customer) {
         $unlink = str_replace($_SERVER['HTTP_ORIGIN'], $_SERVER['DOCUMENT_ROOT'], asset('storage/customers/'.$customer->nic_front_image));
-        unlink($unlink);
+        if (file_exists($unlink)) {
+            unlink($unlink);
+        }
         $unlink = str_replace($_SERVER['HTTP_ORIGIN'], $_SERVER['DOCUMENT_ROOT'], asset('storage/customers/'.$customer->nic_back_image));
-        unlink($unlink);
+        if (file_exists($unlink)) {
+            unlink($unlink);
+        }
     }
 }

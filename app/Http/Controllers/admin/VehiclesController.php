@@ -199,7 +199,9 @@ class VehiclesController extends Controller
             $remove_index =  array_search($request->input('image'), $picture);
             unset($picture[$remove_index]);
             $unlink = str_replace($_SERVER['HTTP_ORIGIN'], $_SERVER['DOCUMENT_ROOT'], asset('storage/vehicles/'.$request->input('image')));
-            unlink($unlink);
+            if (file_exists($unlink)) {
+                unlink($unlink);
+            }
         }
 
         $images = implode('|', $picture);

@@ -64,7 +64,9 @@ class VehicleTypeRepository
         if ($request->hasFile('logo')) {
 
             $unlink = str_replace($_SERVER['HTTP_ORIGIN'], $_SERVER['DOCUMENT_ROOT'], asset('storage/vendors/'.$request->image));
-            unlink($unlink);
+            if (file_exists($unlink)) {
+                unlink($unlink);
+            }
             $path = $request->file('logo')->store('public/vendors');
             $path = explode("/", $path);
             $count = count($path)-1;
