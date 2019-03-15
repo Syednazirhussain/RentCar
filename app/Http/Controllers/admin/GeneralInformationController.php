@@ -62,12 +62,12 @@ class GeneralInformationController extends Controller
         $generalInformation->about_description = $request->input('about_description');
         $generalInformation->footer_description = $request->input('footer_description');
         if ($request->hasFile('logo')) {
-
-            if ($generalInformation->logo != null) {            
+            if ($generalInformation->logo != null) {
                 $unlink = str_replace($_SERVER['HTTP_ORIGIN'], $_SERVER['DOCUMENT_ROOT'], asset('storage/'.$request->image));
-                unlink($unlink);
+                if (file_exists($unlink)) {
+                    unlink($unlink);
+                }
             }
-
             $path = $request->file('logo')->store('public');
             $path = explode("/", $path);
             $count = count($path)-1;
