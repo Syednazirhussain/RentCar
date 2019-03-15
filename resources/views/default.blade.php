@@ -1,221 +1,217 @@
 <!DOCTYPE html>
-<html class="no-js" lang="zxx">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--=== Favicon ===-->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-
-    <title>RCT Rent a Car</title>
-
-    <!--=== Bootstrap CSS ===-->
-    <link href="{{ asset('theme/assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    <!--=== Slicknav CSS ===-->
-    <link href="{{ asset('theme/assets/css/plugins/slicknav.min.css') }}" rel="stylesheet">
-    <!--=== Magnific Popup CSS ===-->
-    <link href="{{ asset('theme/assets/css/plugins/magnific-popup.css') }}" rel="stylesheet">
-    <!--=== Owl Carousel CSS ===-->
-    <link href="{{ asset('theme/assets/css/plugins/owl.carousel.min.css') }}" rel="stylesheet">
-    <!--=== Gijgo CSS ===-->
-    <link href="{{ asset('theme/assets/css/plugins/gijgo.css') }}" rel="stylesheet">
-    <!--=== FontAwesome CSS ===-->
-    <link href="{{ asset('theme/assets/css/font-awesome.css') }}" rel="stylesheet">
-    <!--=== Theme Reset CSS ===-->
-    <link href="{{ asset('theme/assets/css/reset.css') }}" rel="stylesheet">
-    <!--=== Main Style CSS ===-->
-    <link href="{{ asset('theme/assets/style.css') }}" rel="stylesheet">
-    <!--=== Responsive CSS ===-->
-    <link href="{{ asset('theme/assets/css/responsive.css') }}" rel="stylesheet">
-
-    @yield('css')
-
-</head>
-
-<body class="loader-active">
-
-    <!--== Preloader Area Start ==-->
-    <div class="preloader">
-        <div class="preloader-spinner">
-            <div class="loader-content">
-                <img src="{{ asset('theme/assets/img/preloader.gif') }}" alt="JSOFT">
+<!-- Meta -->
+<html lang="en">
+   <head>
+      <!-- Page Title Here -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="carzone" />
+      <meta name="author" content="syed nazir hussain" />
+      <meta name="robots" content="rent a car" />
+      <meta name="description" content="CareZone is a Clean, Modern and Big Car Dealer, Car Portal, Second Hand Car Portal, Compare Car and Car Specification Web Portal HTML 5 Template. CarZone is a ready made Wire-frame for HTML File with all required pages." />
+      <meta name="format-detection" content="telephone=no">
+      <!-- Favicons Icon -->
+      <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/theme/assets/images/favicon.png') }}" />
+      <link rel="icon" href="{{ asset('/theme/assets/images/favicon.ico') }}" type="image/x-icon" />
+      <!-- Page Title Here -->
+      <title>CarZone</title>
+      <!-- Mobile Specific -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Stylesheets -->
+      <link rel="stylesheet" type="text/css" href="{{ asset('/theme/assets/css/bootstrap.min.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ asset('/theme/assets/css/fontawesome/css/font-awesome.min.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ asset('/theme/assets/css/flaticon/css/flaticon.min.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ asset('/theme/assets/css/owl.carousel.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ asset('/theme/assets/css/bootstrap-select.min.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ asset('/theme/assets/css/magnific-popup.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ asset('/theme/assets/css/animate.min.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ asset('/theme/assets/plugins/rangeslider/rangeslider.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ asset('/theme/assets/css/style.min.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ asset('/theme/assets/css/templete.css') }}">
+      <link class="skin" rel="stylesheet" type="text/css" href="{{ asset('/theme/assets/css/skin/skin-1.css') }}">
+      <!-- Google fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900|Open+Sans:300,400,600,700,800|Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+      <!-- Google Analytic Code -->
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120204426-2"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'UA-120204426-2');
+      </script>
+      <!-- Google Analytic Code --><!-- Revolution Slider Css -->
+      <link rel="stylesheet" type="text/css" href="{{ asset('/theme/assets/plugins/revolution/v5.4.3/css/settings.css') }}">
+      <!-- Revolution Navigation Style -->
+      <link rel="stylesheet" type="text/css" href="{{ asset('/theme/assets/plugins/revolution/v5.4.3/css/navigation.css') }}">
+      @yield('css')
+   </head>
+   <body id="bg">
+      <div class="page-wraper">
+         <div id="loading-area"></div>
+         <!-- header -->
+         <header class="site-header header-transparent">
+            <div class="top-bar">
+               <div class="container">
+                  <div class="row">
+                     <div class="dlab-topbar-left">
+                        <ul>
+                           <li><a href="javascript:void(0);" >Get On Road Price</a></li>
+                           <li><a href="javascript:void(0);" >Ask a Question</a></li>
+                        </ul>
+                     </div>
+                     <div class="dlab-topbar-right topbar-social">
+                        <ul>
+                           <li>
+                              <a href="javascript:void(0);"><i class="fa fa-envelope-o"></i> Support@website.com</a>
+                           </li>
+                           <li><a href="javascript:void(0);" class="site-button-link facebook hover"><i class="fa fa-facebook"></i></a></li>
+                           <li><a href="javascript:void(0);" class="site-button-link google-plus hover"><i class="fa fa-google-plus"></i></a></li>
+                           <li><a href="javascript:void(0);" class="site-button-link twitter hover"><i class="fa fa-twitter"></i></a></li>
+                           <li><a href="javascript:void(0);" class="site-button-link linkedin hover"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
             </div>
-        </div>
-    </div>
-    <!--== Preloader Area End ==-->
-
-    <!--== Header Area Start ==-->
-    <header id="header-area" class="fixed-top">
-        <!--== Header Top Start ==-->
-        <div id="header-top" class="d-none d-xl-block">
-            <div class="container">
-                <div class="row">
-
-                    <!--== Single HeaderTop Start ==-->
-                    <div class="col-lg-3 text-left">
-                        <i class="fa fa-mobile"></i>@if(isset($generalInformation)) {{ $generalInformation->contact }}@else{{ '021435345345' }}@endif
-                    </div>
-                    <!--== Single HeaderTop End ==-->
-
-                    <!--== Social Icons Start ==-->
-                    <div class="col-lg-3 text-right">
-                        <div class="header-social-icons">
-                            <a href="@if(isset($generalInformation)){{ $generalInformation->twitter }}@else{{ 'javascript:void(0)'}}@endif"><i class="fa fa-twitter"></i></a>
-                            <a href="@if(isset($generalInformation)){{ $generalInformation->pinterest }}@else{{ 'javascript:void(0)'}}@endif"><i class="fa fa-pinterest"></i></a>
-                            <a href="@if(isset($generalInformation)){{ $generalInformation->facebook }}@else{{ 'javascript:void(0)'}}@endif"><i class="fa fa-facebook"></i></a>
-                            <a href="@if(isset($generalInformation)){{ $generalInformation->linkdin }}@else{{ 'javascript:void(0)'}}@endif"><i class="fa fa-linkedin"></i></a>
+            <!-- main header -->
+            <div class="sticky-header main-bar-wraper">
+               <div class="main-bar clearfix ">
+                  <div class="container clearfix">
+                     <!-- website logo -->
+                     <div class="logo-header mostion">
+                        <a href="javascript:void(0);">
+                           <img src="{{ asset('/theme/assets/images/logo-light.png') }}" class="logo" alt=""></a>
+                     </div>
+                     <!-- nav toggle button -->
+                     <button data-target=".header-nav" data-toggle="collapse" type="button" class="navbar-toggle collapsed" aria-expanded="false" > 
+                     <i class="fa fa-bars"></i>
+                     </button>
+                     <!-- extra nav -->
+                     <div class="extra-nav">
+                        <div class="extra-cell">
+                           <button id="quik-search-btn" type="button" class="site-button-link"><i class="fa fa-search"></i></button>
                         </div>
-                    </div>
-                    <!--== Social Icons End ==-->
-                </div>
+                     </div>
+                     <!-- Quik search -->
+                     <div class="dlab-quik-search bg-primary ">
+                        <form action="javascript:void(0);">
+                           <input name="search" value="" type="text" class="form-control" placeholder="Type to search">
+                           <span id="quik-search-remove"><i class="fa fa-close"></i></span>
+                        </form>
+                     </div>
+                     <!-- main nav -->
+                     <div class="header-nav navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                           <li class="active has-mega-menu demos"> <a href="javascript:void(0);">Home</a></li>
+                           <li><a href="javascript:void(0);">About</a>
+                           </li>
+                           <li><a href="javascript:void(0);">Services</a>
+                           </li>
+                           <li><a href="javascript:void(0);">Packages</a>
+                           </li>
+                           <li><a href="javascript:void(0);">Contact</a>
+                           </li>
+                           <li>
+                              <a href="javascript:void(0);">Login/Register</a>
+                              <ul class="sub-menu">
+                                 <li><a href="javascript:void(0);">Login</a></li>
+                                 <li><a href="javascript:void(0);">Register</a></li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
             </div>
-        </div>
-        <!--== Header Top End ==-->
-
-        <!--== Header Bottom Start ==-->
-        <div id="header-bottom">
-            <div class="container">
-                <div class="row">
-                    <!--== Logo Start ==-->
-                    <div class="col-lg-4">
-                        <a href="{{ route('site.index') }}" class="logo">
-                            @if(isset($generalInformation))
-                            <img src="{{ asset('storage/'.$generalInformation->logo) }}" alt="JSOFT">
-                            @endif
-                        </a>
-                    </div>
-                    <!--== Logo End ==-->
-
-                    <!--== Main Menu Start ==-->
-                    <div class="col-lg-8 d-none d-xl-block">
-                        <nav class="mainmenu alignright">
-                            <ul>
-                                <li class="active"><a href="{{ route('site.index') }}">Home</a></li>
-                                <li><a href="javascript:void(0)">About</a></li>
-                                <li><a href="javascript:void(0)">Services</a></li>
-                                <li><a href="javascript:void(0)">Packages</a>
-                                   
-                                </li>
-                                              
-                                <li><a href="javascript:void(0)">Contact</a></li>
-
-                                  <li><a href="javascript:void(0)">Login/Register</a>
-                                    <ul>
-                                        <li><a href="javascript:void(0)">Log In</a></li>
-                                        <li><a href="javascript:void(0)">Register</a></li>
-                                        </ul>
-                                </li>
-
-                            </ul>
-                        </nav>
-                    </div>
-                    <!--== Main Menu End ==-->
-                </div>
-            </div>
-        </div>
-        <!--== Header Bottom End ==-->
-    </header>
-    <!--== Header Area End ==-->
-
-    @yield('content')
-
-    
-
-    <!--== Footer Area Start ==-->
-   <section id="footer-area">
-        <!-- Footer Widget Start -->
-        <div class="footer-widget-area">
-            <div class="container">
-                <div class="row">
-                    <!-- Single Footer Widget Start -->
-                    <div class="col-lg-6 col-md-6">
-                        <div class="single-footer-widget">
-                            <h2>About REDPANDA Rent a Car</h2>
-                            <div class="widget-body">
-
-                                @if(isset($generalInformation))
-                                <img src="{{ asset('storage/'.$generalInformation->logo) }}" width="150px" alt="{{ $generalInformation->name }}">
-                                @endif
-                                <p>@if(isset($generalInformation)){{ $generalInformation->about_description }}@else{{ 'The about description' }}@endif</p>
-    							<p>For Picture Gallery <a href="javascript:void(0)">Click Here</a></p>
-
-
-
-                            </div>
+            <!-- main header END -->
+         </header>
+         <!-- header END -->
+         @yield('content')
+         <!-- Footer -->
+         <footer class="site-footer text-uppercase" style="display: block; height: 504px;">
+            <div class="footer-top">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-4 col-sm-6 footer-col-4">
+                        <div class="widget widget_services border-0">
+                           <h5 class="m-b30 text-white">About REDPANDA Rent a Car</h5>
+                           <div class="widget-body">
+                              <img src="https://stsrentacar.pk/assets/web_assets/img/logo.png" width="150px" alt="STS Rent A Car">
+                              <p>At REDPANDA Rent a Car, our prime business idea is simplify travelling for you and that's why our business solegen is "TRAVELLING FOR YOU"</p>
+                           </div>
                         </div>
-                    </div>
-                    <!-- Single Footer Widget End -->
-
-                  
-
-                    <!-- Single Footer Widget Start -->
-                    <div class="col-lg-6 col-md-6">
-                        <div class="single-footer-widget">
-                            <h2>Get touch with RedPanda Rent a Car</h2>
-                            <div class="widget-body">
-                                <ul class="get-touch">
-                                    <li>
-                                        <p style="color: #fff">
-                                            <i class="fa fa-map-marker"></i>
-                                            @if(isset($generalInformation)){{ $generalInformation->address }}@else{{ 'The address' }}@endif
-                                        </p>
-                                    </li>
-                                    <li><i class="fa fa-phone"></i> Helpline: @if(isset($generalInformation)){{ $generalInformation->helpline }}@else{{ 'Helpline' }}@endif</li>
-                                    <li><i class="fa fa-phone"></i>@if(isset($generalInformation)){{ $generalInformation->contact }}@else{{ 'The contact' }}@endif</li>
-                                    <li><i class="fa fa-envelope"></i>@if(isset($generalInformation)){{ $generalInformation->email }}@else{{ 'The email' }}@endif</li>
-                                </ul>
-                                <a href="javascript:void(0)">Terms and Conditions</a>&nbsp;&nbsp;&nbsp;
-                                <a href="javascript:void(0)" class="map-show">Show Location</a>
-                            </div>
+                     </div>
+                     <div class="col-md-4 col-sm-6 footer-col-4">
+                        <div class="widget widget_getintuch">
+                           <h5 class="m-b30 text-white ">Contact us</h5>
+                           <ul>
+                              <li><i class="fa fa-map-marker"></i><strong>address</strong> demo address #8901 Marmora Road Chi Minh City, Vietnam </li>
+                              <li><i class="fa fa-phone"></i><strong>phone</strong>0800-123456 (24/7 Support Line)</li>
+                              <li><i class="fa fa-envelope"></i><strong>email</strong>info@example.com</li>
+                           </ul>
                         </div>
-                    </div>
-                    <!-- Single Footer Widget End -->
-                </div>
+                     </div>
+                     <div class="col-md-4 col-sm-6 footer-col-4 ">
+                        <div class="widget">
+                           <h5 class="m-b30 text-white">Subscribe To Our Newsletter</h5>
+                           <p class="text-capitalize m-b20">Lorem Ipsum is simply dummy text of the printing and typesetting industry has been the industry's standard dummy text ever since the..</p>
+                           <div class="subscribe-form m-b20">
+                              <form role="search" method="post">
+                                 <div class="input-group">
+                                    <input name="text" class="form-control" placeholder="Your Email Id" type="text">
+                                    <span class="input-group-btn">
+                                    <button type="submit" class="site-button radius-xl">Subscribe</button>
+                                    </span> 
+                                 </div>
+                              </form>
+                           </div>
+                           <ul class="list-inline m-a0">
+                              <li><a href="javascript:void(0);" class="site-button facebook circle "><i class="fa fa-facebook"></i></a></li>
+                              <li><a href="javascript:void(0);" class="site-button google-plus circle "><i class="fa fa-google-plus"></i></a></li>
+                              <li><a href="javascript:void(0);" class="site-button linkedin circle "><i class="fa fa-linkedin"></i></a></li>
+                              <li><a href="javascript:void(0);" class="site-button instagram circle "><i class="fa fa-instagram"></i></a></li>
+                              <li><a href="javascript:void(0);" class="site-button twitter circle "><i class="fa fa-twitter"></i></a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-        </div>  
-    </section>
-    <!--== Footer Area End ==-->
+            <!-- footer bottom part --> 
+         </footer>
+         <!-- Footer END-->
+         <!-- scroll top button -->
+         <button class="scroltop fa fa-chevron-up" ></button>
+      </div>
+      <!-- JavaScript  files ========================================= -->
+      <script src="{{ asset('/theme/assets/js/combine.js') }}"></script>   
+      <script src="{{ asset('/theme/assets/js/wow.js') }}"></script>
+      <!-- wow.min js -->
+      <script src="{{ asset('/theme/assets/js/dz.ajax.js') }}"></script>
+      <!-- revolution JS FILES -->
+      <script src="{{ asset('/theme/assets/plugins/revolution/v5.4.3/js/jquery.themepunch.tools.min.js') }}"></script>
+      <script src="{{ asset('/theme/assets/plugins/revolution/v5.4.3/js/jquery.themepunch.revolution.min.js') }}"></script>
+      <!-- Slider revolution 5.0 Extensions  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+      <script src="{{ asset('/theme/assets/plugins/revolution/v5.4.3/js/extensions/revolution.extension.actions.min.js') }}"></script>
+      <script src="{{ asset('/theme/assets/plugins/revolution/v5.4.3/js/extensions/revolution.extension.carousel.min.js') }}"></script>
+      <script src="{{ asset('/theme/assets/plugins/revolution/v5.4.3/js/extensions/revolution.extension.kenburn.min.js') }}"></script>
+      <script src="{{ asset('/theme/assets/plugins/revolution/v5.4.3/js/extensions/revolution.extension.layeranimation.min.js') }}"></script>
+      <script src="{{ asset('/theme/assets/plugins/revolution/v5.4.3/js/extensions/revolution.extension.migration.min.js') }}"></script>
+      <script src="{{ asset('/theme/assets/plugins/revolution/v5.4.3/js/extensions/revolution.extension.parallax.min.js') }}"></script>
+      <script src="{{ asset('/theme/assets/plugins/revolution/v5.4.3/js/extensions/revolution.extension.video.min.js') }}"></script>
+      <script src="{{ asset('/theme/assets/plugins/revolution/v5.4.3/js/extensions/revolution.extension.slideanims.min.js') }}"></script>
+      <script  src="{{ asset('/theme/assets/js/rev.slider.js') }}"></script>
+      <!-- custom fuctions  -->
+      <script>
+         jQuery(document).ready(function() {
+             'use strict';
+             dz_rev_slider_1();  
+         }); /*ready*/
+      </script>
+   </body>
 
-    <!--== Scroll Top Area Start ==-->
-    <div class="scroll-top">
-        <img src="{{ asset('theme/assets/img/scroll-top.png') }}" alt="JSOFT">
-    </div>
-    <!--== Scroll Top Area End ==-->
-
-    <!--=======================Javascript============================-->
-    <!--=== Jquery Min Js ===-->
-    <script src="{{ asset('theme/assets/js/jquery-3.2.1.min.js') }}"></script>
-    <!--=== Jquery Migrate Min Js ===-->
-    <script src="{{ asset('theme/assets/js/jquery-migrate.min.js') }}"></script>
-    <!--=== Popper Min Js ===-->
-    <script src="{{ asset('theme/assets/js/popper.min.js') }}"></script>
-    <!--=== Bootstrap Min Js ===-->
-    <script src="{{ asset('theme/assets/js/bootstrap.min.js') }}"></script>
-    <!--=== Gijgo Min Js ===-->
-    <script src="{{ asset('theme/assets/js/plugins/gijgo.js') }}"></script>
-    <!--=== Vegas Min Js ===-->
-    <script src="{{ asset('theme/assets/js/plugins/vegas.min.js') }}"></script>
-    <!--=== Isotope Min Js ===-->
-    <script src="{{ asset('theme/assets/js/plugins/isotope.min.js') }}"></script>
-    <!--=== Owl Caousel Min Js ===-->
-    <script src="{{ asset('theme/assets/js/plugins/owl.carousel.min.js') }}"></script>
-    <!--=== Waypoint Min Js ===-->
-    <script src="{{ asset('theme/assets/js/plugins/waypoints.min.js') }}"></script>
-    <!--=== CounTotop Min Js ===-->
-    <script src="{{ asset('theme/assets/js/plugins/counterup.min.js') }}"></script>
-    <!--=== YtPlayer Min Js ===-->
-    <script src="{{ asset('theme/assets/js/plugins/mb.YTPlayer.js') }}"></script>
-    <!--=== Magnific Popup Min Js ===-->
-    <script src="{{ asset('theme/assets/js/plugins/magnific-popup.min.js') }}"></script>
-    <!--=== Slicknav Min Js ===-->
-    <script src="{{ asset('theme/assets/js/plugins/slicknav.min.js') }}"></script>
-
-    <!--=== Mian Js ===-->
-    <script src="{{ asset('theme/assets/js/main.js') }}"></script>
-
-    @yield('js')
-
-</body>
-
+   @yield('js')
+   <!-- Mirrored from carzone.dexignlab.com/xhtml/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Mar 2019 07:41:13 GMT -->
 </html>
