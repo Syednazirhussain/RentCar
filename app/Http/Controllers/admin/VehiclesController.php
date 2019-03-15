@@ -179,7 +179,7 @@ class VehiclesController extends Controller
             'vehicleTypes'              => $vehicleType,
             'vehicleSpecifications'     => $vehicleSpecification,
             'vehicleHasSpecifications'  => $vehicleHasSpecifications,
-            'imagesFiles'   => $images
+            'imagesFiles'               => $images
         ];
 
         return view('admin.vehicles.edit', $data);

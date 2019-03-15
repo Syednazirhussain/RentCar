@@ -69,7 +69,7 @@
                 @if (isset($vehicleTypes))
                     @if (isset($vehicles))
                         @foreach($vehicleTypes as $vehicleType)
-                            @if ($vehicles->vehicle_type_id == $vehicleType->id) 
+                            @if ($vehicles->vendor_id== $vehicleType->id) 
                                 <option value="{{ $vehicleType->id }}" selected="selected">{{ $vehicleType->name }}</option>
                             @else
                                 <option value="{{ $vehicleType->id }}">{{ $vehicleType->name }}</option>
@@ -92,7 +92,7 @@
                 @if (isset($vendors))
                     @if (isset($vehicles))
                         @foreach($vendors as $vendor)
-                            @if ($vehicles->vendor_id == $vendor->id)
+                            @if ($vehicles->vehicle_type_id == $vendor->id)
                                 <option value="{{ $vendor->id }}" selected="selected">{{ $vendor->name }}</option>
                             @else
                                 <option value="{{ $vendor->id }}">{{ $vendor->name }}</option>
