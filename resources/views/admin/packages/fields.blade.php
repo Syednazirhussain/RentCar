@@ -24,7 +24,7 @@
 <div class="col-sm-12 col-md-12">
     <div class="col-md-6">
         <div class="form-group">
-            <label for="name">Package Start Time</label>
+            <label for="name">Package Start Date</label>
             <div class="input-group date">
                 <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
@@ -35,7 +35,7 @@
     </div>
     <div class="col-md-6">
         <div class="form-group">
-            <label for="name">Package End Time</label>
+            <label for="name">Package End Date</label>
             <div class="input-group date">
                 <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>

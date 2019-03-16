@@ -2,11 +2,11 @@
     <thead>
         <tr>
             <th>Name</th>
-        <th>Package Start Time</th>
-        <th>Package End Time</th>
-        <th>Package Overtime Rate</th>
-        <th>Package Rate</th>
-        <th>Package Extra Fuel</th>
+            <th>Package Start Date</th>
+            <th>Package End Date</th>
+            <th>Package Overtime Rate</th>
+            <th>Package Rate</th>
+            <th>Package Extra Fuel</th>
             <th colspan="3">Action</th>
         </tr>
     </thead>
