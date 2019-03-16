@@ -55,15 +55,18 @@ class VehiclesController extends Controller
      */
     public function create()
     {
+        $vehicleTypes = Vendor::all();   
         $vendors = VehicleType::all();
-        $vehicleType = Vendor::all();   
         $vehicleSpecification = VehicleSpecification::all();
+
 
         $data = [
             'vendors'               => $vendors,
-            'vehicleTypes'          => $vehicleType,
+            'vehicleTypes'          => $vehicleTypes,
             'vehicleSpecifications'  => $vehicleSpecification
         ];
+
+        // dd($data);
 
         return view('admin.vehicles.create', $data);
     }
@@ -77,11 +80,12 @@ class VehiclesController extends Controller
      */
     public function store(CreateVehiclesRequest $request)
     {
-        if ($this->vehiclesRepository->create($request)) {
-            Session::Flash('msg.success', 'Vehicles saved successfully.');
-        } else {
-            Session::Flash('msg.error', 'Vehicles were not saved.'); 
-        }
+        $input = $this->vehiclesRepository->vehicleCreateInput($request);
+        $vehicle = $this->vehiclesRepository->create($input);
+        
+        $this->vehiclesRepository->addVehicleDependency($vehicle);        
+
+        Session::Flash('msg.success', 'Vehicle saved successfully.');
 
         return redirect(route('admin.vehicles.index'));
     }
@@ -240,20 +244,20 @@ class VehiclesController extends Controller
      */
     public function update($id, UpdateVehiclesRequest $request)
     {
-        $vehicles = Vehicles::findOrFail($id);
+        $vehicle = $this->vehiclesRepository->findWithoutFail($id);
 
-        if (empty($vehicles)) {
+        if (empty($vehicle)) {
             Session::Flash('msg.error', 'Vehicles not found');
 
             return redirect(route('admin.vehicles.index'));
         }
 
-        if ($this->vehiclesRepository->update($request, $id)) {
-            Session::Flash('msg.success', 'Vehicles updated successfully.');
-        } else {
-            Session::Flash('msg.error', 'Vehicles were not updated.');
-        }
+        $input = $this->vehiclesRepository->vehicleUpdateInput($request, $vehicle);
 
+        $this->vehiclesRepository->update($input, $id);
+
+        Session::Flash('msg.success', 'Vehicles updated successfully.');
+        
         return redirect(route('admin.vehicles.index'));
     }
 
@@ -266,19 +270,19 @@ class VehiclesController extends Controller
      */
     public function destroy($id)
     {
-        $vehicles = Vehicles::findOrFail($id);
+        $vehicle = $this->vehiclesRepository->findWithoutFail($id);
 
-        if (empty($vehicles)) {
+        if (empty($vehicle)) {
             Session::Flash('msg.error', 'Vehicles not found');
 
             return redirect(route('admin.vehicles.index'));
         }
 
-        if ($this->vehiclesRepository->delete($vehicles)) {
-            Flash::success('msg.success', 'Vehicles deleted successfully.');
-        } else {
-            Session::Flash('msg.error', 'Vehicles deleted successfully.');
-        }
+        $this->vehiclesRepository->removeVehicleImages($vehicle);
+
+        $this->vehiclesRepository->delete($id);
+
+        Session::Flash('msg.success', 'Vehicles deleted successfully.');
 
         return redirect(route('admin.vehicles.index'));
     }

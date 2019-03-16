@@ -10,7 +10,7 @@
 	<div class="col-md-12">
 	  <div class="form-group">
 	      <label for="title">Name</label>
-	      <input type="text" name="name" class="form-control" value="@if(isset($vendor)){{ $vendor->name }}@endif">
+	      <input type="text" name="name" class="form-control" value="@if(isset($vendor)){{ $vendor->name }}@else {{ old('name') }} @endif">
 	  </div>
 	</div>
 

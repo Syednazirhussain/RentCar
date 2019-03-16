@@ -51,7 +51,6 @@ class VehicleType extends Model
      */
     public static $rules = [
         'name'  => 'required|min:3,max:45',
-        'logo'  => 'required'        
     ];
 
     /**

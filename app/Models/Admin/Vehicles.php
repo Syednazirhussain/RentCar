@@ -65,7 +65,7 @@ class Vehicles extends Model
      */
     public static $rules = [
         'name'  => 'required|min:3',
-        'vehicle_number'    => 'required|alpha_dash',
+        'vehicle_number'    => 'required|Regex:/^[A-Z]{3}[-][0-9]{3}$/i',
         'model'     => 'required|numeric',
         'vehicle_type_id'   => 'required|integer',
         'vendor_id'   => 'required|integer'  
@@ -76,7 +76,7 @@ class Vehicles extends Model
      **/
     public function vendor()
     {
-        return $this->belongsTo(\App\Models\Admin\Vendor::class);
+        return $this->belongsTo(\App\Models\Admin\VehicleType::class);
     }
 
     /**
@@ -84,7 +84,7 @@ class Vehicles extends Model
      **/
     public function vehicleType()
     {
-        return $this->belongsTo(\App\Models\Admin\VehicleType::class);
+        return $this->belongsTo(\App\Models\Admin\Vendor::class);
     }
 
     /**
