@@ -58,6 +58,7 @@ class Pages extends Model
      */
     public static $rules = [
         'name'          => 'required',
+        'short_code'    => 'unique:pages,short_code',
         'description'   => 'required'
     ];
 

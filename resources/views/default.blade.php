@@ -88,12 +88,6 @@
                      <button data-target=".header-nav" data-toggle="collapse" type="button" class="navbar-toggle collapsed" aria-expanded="false" > 
                      <i class="fa fa-bars"></i>
                      </button>
-                     <!-- extra nav -->
-                     <div class="extra-nav">
-                        <div class="extra-cell">
-                           <button id="quik-search-btn" type="button" class="site-button-link"><i class="fa fa-search"></i></button>
-                        </div>
-                     </div>
                      <!-- Quik search -->
                      <div class="dlab-quik-search bg-primary ">
                         <form action="javascript:void(0);">
@@ -107,11 +101,18 @@
                            <li class="active has-mega-menu demos"> <a href="javascript:void(0);">Home</a></li>
                            <li><a href="javascript:void(0);">About</a>
                            </li>
-                           <li><a href="javascript:void(0);">Services</a>
+                           <li>
+                              <a href="javascript:void(0);">Packages</a>
+                              <ul class="sub-menu">
+                                 @if(isset($packages))
+                                    @foreach($packages as $package)
+                                       <li><a href="javascript:void(0);"></a>{{ trim($package->name, '"') }}</li>
+                                    @endforeach
+                                 @endif
+                              </ul>
                            </li>
-                           <li><a href="javascript:void(0);">Packages</a>
-                           </li>
-                           <li><a href="javascript:void(0);">Contact</a>
+                           <li>
+                              <a href="javascript:void(0);">Contact</a>
                            </li>
                            <li>
                               <a href="javascript:void(0);">Login/Register</a>
@@ -168,11 +169,10 @@
                               </form>
                            </div>
                            <ul class="list-inline m-a0">
-                              <li><a href="javascript:void(0);" class="site-button facebook circle "><i class="fa fa-facebook"></i></a></li>
-                              <li><a href="javascript:void(0);" class="site-button google-plus circle "><i class="fa fa-google-plus"></i></a></li>
-                              <li><a href="javascript:void(0);" class="site-button linkedin circle "><i class="fa fa-linkedin"></i></a></li>
-                              <li><a href="javascript:void(0);" class="site-button instagram circle "><i class="fa fa-instagram"></i></a></li>
-                              <li><a href="javascript:void(0);" class="site-button twitter circle "><i class="fa fa-twitter"></i></a></li>
+                              <li><a href="@if(isset($generalInformation)){{ $generalInformation->facebook }}@else {{ 'javascript:void(0);' }}@endif" class="site-button facebook circle"><i class="fa fa-facebook"></i></a></li>
+                              <li><a href="@if(isset($generalInformation)){{ $generalInformation->instagram}}@else {{ 'javascript:void(0);' }}@endif" class="site-button google-plus circle"><i class="fa fa-instagram"></i></a></li>
+                              <li><a href="@if(isset($generalInformation)){{ $generalInformation->twitter}}@else {{ 'javascript:void(0);' }}@endif" class="site-button twitter circle"><i class="fa fa-twitter"></i></a></li>
+                              <li><a href="@if(isset($generalInformation)){{ $generalInformation->linkdin}}@else {{ 'javascript:void(0);' }}@endif" class="site-button linkedin circle"><i class="fa fa-linkedin"></i></a></li>
                            </ul>
                         </div>
                      </div>

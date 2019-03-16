@@ -40,7 +40,6 @@ class BookingRepository extends BaseRepository
     }
 
     public function bookingInput(CreateBookingRequest $request) {
-        // dd( strtotime($request->input('pickup_time')) );
         $input['customer_id']  = $request->input('customer_id');
         $input['package_id']  = $request->input('package_id');
         $input['booking_date']  = $request->input('booking_date');

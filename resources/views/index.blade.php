@@ -167,9 +167,9 @@
           <div class="section-head">
              <h3 class="h3 text-uppercase">For your quick look</h3>
              <ul class="nav theme-tabs">
-                <li role="presentation" class="active"><a data-toggle="tab"  aria-controls="upcoming"  href="#upcoming">UPCOMING</a></li>
-                <li role="presentation" ><a data-toggle="tab"  aria-controls="popular" href="#popular">POPULAR</a></li>
-                <li role="presentation" ><a data-toggle="tab"  aria-controls="latest" href="#latest">LATEST</a></li>
+                <li role="presentation" class="active">
+                  <a data-toggle="tab"  aria-controls="upcoming"  href="#upcoming">UPCOMING</a>
+                </li>
              </ul>
           </div>
           <div class="section-content ">
@@ -178,242 +178,41 @@
                    <div class="tab-content">
                       <div id="upcoming"  class="tab-pane active clearfix">
                          <div class="col-md-12 owl-carousel owl-btn-style-2 quick-look">
-                            <div class="item">
-                               <div class="dlab-feed-list">
-                                  <div class="dlab-media"> 
-                                     <a href="javascript:void(0);"><img src="{{ asset('/theme/assets/images/our-work/work/pic1.jpg') }}" alt=""></a> 
-                                  </div>
-                                  <div class="dlab-info">
-                                     <h4 class="dlab-title"><a href="javascript:void(0);">Hyundai santa fe sport </a></h4>
-                                     <div class="dlab-separator bg-black"></div>
-                                     <p class="dlab-price"><del>$40,152</del> <span class="text-primary">$26,598</span></p>
-                                  </div>
-                                  <div class="icon-box-btn text-center">
-                                     <ul class="clearfix">
-                                        <li>2017</li>
-                                        <li>Manual</li>
-                                        <li>210 hp </li>
-                                     </ul>
-                                  </div>
-                               </div>
-                            </div>
-                            <div class="item">
-                               <div class="dlab-feed-list">
-                                  <div class="dlab-media"> 
-                                     <a href="javascript:void(0);"><img src="{{ asset('/theme/assets/images/our-work/work/pic2.jpg') }}" alt=""></a> 
-                                  </div>
-                                  <div class="dlab-info">
-                                     <h4 class="dlab-title"><a href="javascript:void(0);">Hyundai santa fe sport </a></h4>
-                                     <div class="dlab-separator bg-black"></div>
-                                     <p class="dlab-price"><del>$40,152</del> <span class="text-primary">$26,598</span></p>
-                                  </div>
-                                  <div class="icon-box-btn text-center">
-                                     <ul class="clearfix">
-                                        <li>2017</li>
-                                        <li>Manual</li>
-                                        <li>210 hp </li>
-                                     </ul>
-                                  </div>
-                               </div>
-                            </div>
-                            <div class="item">
-                               <div class="dlab-feed-list">
-                                  <div class="dlab-media"> 
-                                     <a href="javascript:void(0);"><img src="{{ asset('/theme/assets/images/our-work/work/pic3.jpg') }}" alt=""></a> 
-                                  </div>
-                                  <div class="dlab-info">
-                                     <h4 class="dlab-title"><a href="javascript:void(0);">Hyundai santa fe sport </a></h4>
-                                     <div class="dlab-separator bg-black"></div>
-                                     <p class="dlab-price"><del>$40,152</del> <span class="text-primary">$26,598</span></p>
-                                  </div>
-                                  <div class="icon-box-btn text-center">
-                                     <ul class="clearfix">
-                                        <li>2017</li>
-                                        <li>Manual</li>
-                                        <li>210 hp </li>
-                                     </ul>
-                                  </div>
-                               </div>
-                            </div>
-                            <div class="item">
-                               <div class="dlab-feed-list">
-                                  <div class="dlab-media"> 
-                                     <a href="javascript:void(0);"><img src="{{ asset('/theme/assets/images/our-work/work/pic4.jpg') }}" alt=""></a> 
-                                  </div>
-                                  <div class="dlab-info">
-                                     <h4 class="dlab-title"><a href="javascript:void(0);">Hyundai santa fe sport </a></h4>
-                                     <div class="dlab-separator bg-black"></div>
-                                     <p class="dlab-price"><del>$40,152</del> <span class="text-primary">$26,598</span></p>
-                                  </div>
-                                  <div class="icon-box-btn text-center">
-                                     <ul class="clearfix">
-                                        <li>2017</li>
-                                        <li>Manual</li>
-                                        <li>210 hp </li>
-                                     </ul>
-                                  </div>
-                               </div>
-                            </div>
-                         </div>
-                      </div>
-                      <div id="popular"  class="tab-pane clearfix fade">
-                         <div class="col-md-12 owl-carousel owl-btn-style-2 quick-look">
-                            <div class="item">
-                               <div class="dlab-feed-list">
-                                  <div class="dlab-media"> 
-                                     <a href="javascript:void(0);"><img src="{{ asset('/theme/assets/images/our-work/work/pic3.jpg') }}" alt=""></a> 
-                                  </div>
-                                  <div class="dlab-info">
-                                     <h4 class="dlab-title"><a href="javascript:void(0);">Hyundai santa fe sport </a></h4>
-                                     <div class="dlab-separator bg-black"></div>
-                                     <p class="dlab-price"><del>$40,152</del> <span class="text-primary">$26,598</span></p>
-                                  </div>
-                                  <div class="icon-box-btn text-center">
-                                     <ul class="clearfix">
-                                        <li>2017</li>
-                                        <li>Manual</li>
-                                        <li>210 hp </li>
-                                     </ul>
-                                  </div>
-                               </div>
-                            </div>
-                            <div class="item">
-                               <div class="dlab-feed-list">
-                                  <div class="dlab-media"> 
-                                     <a href="javascript:void(0);"><img src="{{ asset('/theme/assets/images/our-work/work/pic4.jpg') }}" alt=""></a> 
-                                  </div>
-                                  <div class="dlab-info">
-                                     <h4 class="dlab-title"><a href="javascript:void(0);">Hyundai santa fe sport </a></h4>
-                                     <div class="dlab-separator bg-black"></div>
-                                     <p class="dlab-price"><del>$40,152</del> <span class="text-primary">$26,598</span></p>
-                                  </div>
-                                  <div class="icon-box-btn text-center">
-                                     <ul class="clearfix">
-                                        <li>2017</li>
-                                        <li>Manual</li>
-                                        <li>210 hp </li>
-                                     </ul>
-                                  </div>
-                               </div>
-                            </div>
-                            <div class="item">
-                               <div class="dlab-feed-list">
-                                  <div class="dlab-media"> 
-                                     <a href="javascript:void(0);"><img src="{{ asset('/theme/assets/images/our-work/work/pic1.jpg') }}" alt=""></a> 
-                                  </div>
-                                  <div class="dlab-info">
-                                     <h4 class="dlab-title"><a href="javascript:void(0);">Hyundai santa fe sport </a></h4>
-                                     <div class="dlab-separator bg-black"></div>
-                                     <p class="dlab-price"><del>$40,152</del> <span class="text-primary">$26,598</span></p>
-                                  </div>
-                                  <div class="icon-box-btn text-center">
-                                     <ul class="clearfix">
-                                        <li>2017</li>
-                                        <li>Manual</li>
-                                        <li>210 hp </li>
-                                     </ul>
-                                  </div>
-                               </div>
-                            </div>
-                            <div class="item">
-                               <div class="dlab-feed-list">
-                                  <div class="dlab-media"> 
-                                     <a href="javascript:void(0);"><img src="{{ asset('/theme/assets/images/our-work/work/pic2.jpg') }}" alt=""></a> 
-                                  </div>
-                                  <div class="dlab-info">
-                                     <h4 class="dlab-title"><a href="javascript:void(0);">Hyundai santa fe sport </a></h4>
-                                     <div class="dlab-separator bg-black"></div>
-                                     <p class="dlab-price"><del>$40,152</del> <span class="text-primary">$26,598</span></p>
-                                  </div>
-                                  <div class="icon-box-btn text-center">
-                                     <ul class="clearfix">
-                                        <li>2017</li>
-                                        <li>Manual</li>
-                                        <li>210 hp </li>
-                                     </ul>
-                                  </div>
-                               </div>
-                            </div>
-                         </div>
-                      </div>
-                      <div id="latest"  class="tab-pane clearfix fade">
-                         <div class="col-md-12 owl-carousel owl-btn-style-2 quick-look">
-                            <div class="item">
-                               <div class="dlab-feed-list">
-                                  <div class="dlab-media"> 
-                                     <a href="javascript:void(0);"><img src="{{ asset('/theme/assets/images/our-work/work/pic2.jpg') }}" alt=""></a> 
-                                  </div>
-                                  <div class="dlab-info">
-                                     <h4 class="dlab-title"><a href="javascript:void(0);">Hyundai santa fe sport </a></h4>
-                                     <div class="dlab-separator bg-black"></div>
-                                     <p class="dlab-price"><del>$40,152</del> <span class="text-primary">$26,598</span></p>
-                                  </div>
-                                  <div class="icon-box-btn text-center">
-                                     <ul class="clearfix">
-                                        <li>2017</li>
-                                        <li>Manual</li>
-                                        <li>210 hp </li>
-                                     </ul>
-                                  </div>
-                               </div>
-                            </div>
-                            <div class="item">
-                               <div class="dlab-feed-list">
-                                  <div class="dlab-media"> 
-                                     <a href="javascript:void(0);"><img src="{{ asset('/theme/assets/images/our-work/work/pic3.jpg') }}" alt=""></a> 
-                                  </div>
-                                  <div class="dlab-info">
-                                     <h4 class="dlab-title"><a href="javascript:void(0);">Hyundai santa fe sport </a></h4>
-                                     <div class="dlab-separator bg-black"></div>
-                                     <p class="dlab-price"><del>$40,152</del> <span class="text-primary">$26,598</span></p>
-                                  </div>
-                                  <div class="icon-box-btn text-center">
-                                     <ul class="clearfix">
-                                        <li>2017</li>
-                                        <li>Manual</li>
-                                        <li>210 hp </li>
-                                     </ul>
-                                  </div>
-                               </div>
-                            </div>
-                            <div class="item">
-                               <div class="dlab-feed-list">
-                                  <div class="dlab-media"> 
-                                     <a href="javascript:void(0);"><img src="{{ asset('/theme/assets/images/our-work/work/pic1.jpg') }}" alt=""></a> 
-                                  </div>
-                                  <div class="dlab-info">
-                                     <h4 class="dlab-title"><a href="javascript:void(0);">Hyundai santa fe sport </a></h4>
-                                     <div class="dlab-separator bg-black"></div>
-                                     <p class="dlab-price"><del>$40,152</del> <span class="text-primary">$26,598</span></p>
-                                  </div>
-                                  <div class="icon-box-btn text-center">
-                                     <ul class="clearfix">
-                                        <li>2017</li>
-                                        <li>Manual</li>
-                                        <li>210 hp </li>
-                                     </ul>
-                                  </div>
-                               </div>
-                            </div>
-                            <div class="item">
-                               <div class="dlab-feed-list">
-                                  <div class="dlab-media"> 
-                                     <a href="javascript:void(0);"><img src="{{ asset('/theme/assets/images/our-work/work/pic4.jpg') }}" alt=""></a> 
-                                  </div>
-                                  <div class="dlab-info">
-                                     <h4 class="dlab-title"><a href="javascript:void(0);">Hyundai santa fe sport </a></h4>
-                                     <div class="dlab-separator bg-black"></div>
-                                     <p class="dlab-price"><del>$40,152</del> <span class="text-primary">$26,598</span></p>
-                                  </div>
-                                  <div class="icon-box-btn text-center">
-                                     <ul class="clearfix">
-                                        <li>2017</li>
-                                        <li>Manual</li>
-                                        <li>210 hp </li>
-                                     </ul>
-                                  </div>
-                               </div>
-                            </div>
+                          @if(isset($vehicles))
+                            @foreach($vehicles as $vehicle)
+                              @php
+                                $images = explode("|", $vehicle->vehicle_images);
+                                if (count($images) > 0) {
+                                  $last_index = count($images) - 1;
+                                  $image = $images[$last_index];
+                                }
+                              @endphp
+                              <div class="item">
+                                 <div class="dlab-feed-list">
+                                    <div class="dlab-media">
+                                      @if(isset($image))
+                                        <a href="javascript:void(0);">
+                                          <img src="{{ asset('storage/vehicles/'.$image) }}" alt="">
+                                        </a>
+                                      @endif
+                                    </div>
+                                    <div class="dlab-info">
+                                      <h4 class="dlab-title">
+                                        <a href="javascript:void(0);">{{ $vehicle->name }}</a>
+                                      </h4>
+                                      <div class="dlab-separator bg-black"></div>
+                                    </div>
+                                    <div class="icon-box-btn text-center">
+                                       <ul class="clearfix">
+                                          <li>{{ $vehicle->model }}</li>
+                                          {{-- <li>Manual</li>
+                                          <li>210 hp </li> --}}
+                                       </ul>
+                                    </div>
+                                 </div>
+                              </div>
+                            @endforeach
+                          @endif
                          </div>
                       </div>
                    </div>
@@ -428,36 +227,19 @@
        <div class="container">
           <div class="section-content">
              <div class="client-logo-carousel owl-carousel mfp-gallery gallery owl-btn-center-lr">
-                <div class="item">
-                   <div class="ow-client-logo">
-                      <div class="client-logo"><a href="javascript:void(0);"><img src="{{ asset('/theme/assets/images/client-logo/logo1.jpg') }}" alt=""></a></div>
-                   </div>
-                </div>
-                <div class="item">
-                   <div class="ow-client-logo">
-                      <div class="client-logo"> <a href="javascript:void(0);"><img src="{{ asset('/theme/assets/images/client-logo/logo2.jpg') }}" alt=""></a> </div>
-                   </div>
-                </div>
-                <div class="item">
-                   <div class="ow-client-logo">
-                      <div class="client-logo"> <a href="javascript:void(0);"><img src="{{ asset('/theme/assets/images/client-logo/logo3.jpg') }}" alt=""></a> </div>
-                   </div>
-                </div>
-                <div class="item">
-                   <div class="ow-client-logo">
-                      <div class="client-logo"> <a href="javascript:void(0);"><img src="{{ asset('/theme/assets/images/client-logo/logo4.jpg') }}" alt=""></a> </div>
-                   </div>
-                </div>
-                <div class="item">
-                   <div class="ow-client-logo">
-                      <div class="client-logo"> <a href="javascript:void(0);"><img src="{{ asset('/theme/assets/images/client-logo/logo5.jpg') }}" alt=""></a> </div>
-                   </div>
-                </div>
-                <div class="item">
-                   <div class="ow-client-logo">
-                      <div class="client-logo"> <a href="javascript:void(0);"><img src="{{ asset('/theme/assets/images/client-logo/logo2.jpg') }}" alt=""></a> </div>
-                   </div>
-                </div>
+                @if(isset($vehicleTypes))
+                  @foreach($vehicleTypes as $vehicleType)
+                    <div class="item">
+                       <div class="ow-client-logo">
+                          <div class="client-logo">
+                            <a href="javascript:void(0);">
+                              <img src="{{ asset('storage/vendors/'.$vehicleType->logo) }}" alt="">
+                            </a>
+                          </div>
+                       </div>
+                    </div>
+                  @endforeach
+                @endif
              </div>
           </div>
        </div>

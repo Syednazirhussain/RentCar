@@ -52,7 +52,7 @@
 	</div>
 
 	<div class="col-md-12">
-	  <button type="submit" class="btn btn-primary">@if(isset($vehicleType)) <i class="fa fa-refresh"></i>  Update @else <i class="fa fa-plus"></i>  Add Vendorss @endif</button>
+	  <button type="submit" class="btn btn-primary">@if(isset($vehicleType)) <i class="fa fa-refresh"></i>  Update @else <i class="fa fa-plus"></i>  Add Vendors @endif</button>
 	  <a href="{!! route('admin.vehicleTypes.index') !!}" class="btn btn-default"><i class="fa fa-times"></i> Cancel</a>
 	</div>
 </div>
