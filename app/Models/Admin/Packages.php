@@ -63,9 +63,9 @@ class Packages extends Model
         'name'                      => 'required',
         'package_start_time'        => 'required|date',
         'package_end_time'          => 'required|date',
-        'package_overtime_rate'     => 'required',
-        'package_rate'              => 'required',
-        'package_extra_fuel'        => 'required'  
+        'package_overtime_rate'     => 'required|numeric',
+        'package_rate'              => 'required|numeric',
+        'package_extra_fuel'        => 'required|numeric'  
     ];
 
     /**

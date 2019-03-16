@@ -19,7 +19,7 @@ class AuthController extends Controller
 			return redirect()->route('admin.dashboard');
 		} else {
 			Session::Flash('msg.error', 'Invalid Credentials');
-			return redirect()->back();
+			return redirect()->back()->withInput();
 		}
 	}
 

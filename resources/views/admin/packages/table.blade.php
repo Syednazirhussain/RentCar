@@ -2,8 +2,8 @@
     <thead>
         <tr>
             <th>Name</th>
-            <th>Package Start Date</th>
-            <th>Package End Date</th>
+            <th>Package Start At</th>
+            <th>Package End At</th>
             <th>Package Overtime Rate</th>
             <th>Package Rate</th>
             <th>Package Extra Fuel</th>
@@ -14,8 +14,8 @@
     @foreach($packages as $packages)
         <tr>
             <td>{!! $packages->name !!}</td>
-            <td>{!! $packages->package_start_time !!}</td>
-            <td>{!! $packages->package_end_time !!}</td>
+            <td>{!! \Carbon\Carbon::parse($packages->package_start_time)->diffForHumans() !!}</td>
+            <td>{!! \Carbon\Carbon::parse($packages->package_end_time)->diffForHumans() !!}</td>
             <td>{!! $packages->package_overtime_rate !!}</td>
             <td>{!! $packages->package_rate !!}</td>
             <td>{!! $packages->package_extra_fuel !!}</td>

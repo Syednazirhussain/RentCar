@@ -61,7 +61,7 @@
                 <div class="input-group-addon">
                 <i class="fa fa-calendar"></i>
                 </div>
-                <input type="text" name="booking_date" value="@if(isset($booking)){{ $booking->booking_date }}@endif" id="booking_date" class="form-control">
+                <input type="text" name="booking_date" value="@if(isset($booking)){{ $booking->booking_date }}@else{{old('booking_date')}}@endif" id="booking_date" class="form-control">
             </div>
         </div>
     </div>
@@ -80,7 +80,7 @@
         <div class="form-group">
             <label>Pickup Time</label>
             <div class="input-group bootstrap-timepicker">
-                <input type="text" name="dropoff_time" value="@if(isset($booking)){{ $booking->dropoff_time }}@endif" id="dropoff_time"  class="form-control" readonly="readonly">
+                <input type="text" name="dropoff_time" value="@if(isset($booking)){{ $booking->dropoff_time }}@else{{old('dropoff_time')}}@endif" id="dropoff_time"  class="form-control" readonly="readonly">
                 <div class="input-group-addon">
                     <i class="fa fa-clock-o"></i>
                 </div>
@@ -93,7 +93,7 @@
     <div class="col-md-12">
         <div class="form-group">
           <label>Pickup Address</label>
-            <textarea name="pickup_address" id="pickup_address" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">@if(isset($booking)){{ $booking->pickup_address }}@endif</textarea>
+            <textarea name="pickup_address" id="pickup_address" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">@if(isset($booking)){{ $booking->pickup_address }}@else{{old('pickup_address')}}@endif</textarea>
         </div>
     </div>
 </div>
@@ -102,7 +102,7 @@
     <div class="col-md-12">
         <div class="form-group">
           <label>Dropoff Adress</label>
-            <textarea name="dropoff_address" id="dropoff_address" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">@if(isset($booking)){{ $booking->dropoff_address }}@endif</textarea>
+            <textarea name="dropoff_address" id="dropoff_address" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">@if(isset($booking)){{ $booking->dropoff_address }}@else{{old('dropoff_address')}}@endif</textarea>
         </div>
     </div>
 </div>

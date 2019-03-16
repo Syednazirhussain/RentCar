@@ -86,7 +86,7 @@ class Customers extends Model
         'l_name'            => 'required|min:3|max:45|String',
         'phone'             => 'required|digits:11',
         'nic'               => 'required|digits:13',
-        'email'             => 'required|email'
+        'email'             => 'required|email|unique:customers,email'
     ];
 
     /**

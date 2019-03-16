@@ -10,13 +10,13 @@
     <div class="col-md-6">
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" name="name" class="form-control" placeholder="ex. Airport pick n drop" value="@if(isset($packages)){{ $packages->name }}@endif">
+          <input type="text" name="name" class="form-control" placeholder="ex. Airport pick n drop" value="@if(isset($packages)){{ $packages->name }}@else{{old('name')}}@endif">
         </div>
     </div>
 <div class="col-md-6">
         <div class="form-group">
           <label for="name">Package Rate</label>
-          <input type="text" name="package_rate" class="form-control" placeholder="ex. 50/km" value="@if(isset($packages)){{ $packages->package_rate }}@endif">
+          <input type="text" name="package_rate" class="form-control" placeholder="ex. 50 PKR/km" value="@if(isset($packages)){{ $packages->package_rate }}@else{{old('package_rate')}}@endif">
         </div>
     </div>
 </div>
@@ -24,23 +24,23 @@
 <div class="col-sm-12 col-md-12">
     <div class="col-md-6">
         <div class="form-group">
-            <label for="name">Package Start Date</label>
+            <label for="name">Package Start At</label>
             <div class="input-group date">
                 <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                 </div>
-                <input type="text" class="form-control pull-right" name="package_start_time" id="start_date" value="@if(isset($packages)){{ $packages->package_start_time }}@endif">
+                <input type="text" class="form-control pull-right" name="package_start_time" id="start_date" value="@if(isset($packages)){{ $packages->package_start_time }}@else{{old('package_start_time')}}@endif">
             </div>
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
-            <label for="name">Package End Date</label>
+            <label for="name">Package End At</label>
             <div class="input-group date">
                 <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                 </div>
-                <input type="text" class="form-control pull-right" name="package_end_time" id="end_date" value="@if(isset($packages)){{ $packages->package_end_time }}@endif">
+                <input type="text" class="form-control pull-right" name="package_end_time" id="end_date" value="@if(isset($packages)){{ $packages->package_end_time }}@else {{old('package_end_time')}} @endif">
             </div>
         </div>
     </div>
@@ -50,13 +50,13 @@
     <div class="col-md-6">
         <div class="form-group">
           <label for="name">Package Overtime Rate</label>
-          <input type="text" name="package_overtime_rate" class="form-control" placeholder="ex. 500/hr." value="@if(isset($packages)){{ $packages->package_overtime_rate }}@endif">
+          <input type="text" name="package_overtime_rate" class="form-control" placeholder="ex. 500 PKR/hr" value="@if(isset($packages)){{ $packages->package_overtime_rate }}@else{{old('package_overtime_rate')}}@endif">
         </div>
     </div>
 <div class="col-md-6">
         <div class="form-group">
           <label for="name">Package Extra Fuel</label>
-          <input type="text" name="package_extra_fuel" class="form-control" placeholder="ex. 200/km" value="@if(isset($packages)){{ $packages->package_extra_fuel }}@endif">
+          <input type="text" name="package_extra_fuel" class="form-control" placeholder="ex. 200 PKR/km" value="@if(isset($packages)){{ $packages->package_extra_fuel }}@else{{old('package_extra_fuel')}}@endif">
         </div>
     </div>
 </div>
