@@ -35,6 +35,7 @@ class Packages extends Model
 
     public $fillable = [
         'name',
+        'vehicle_id',
         'package_start_time',
         'package_end_time',
         'package_overtime_rate',
@@ -49,6 +50,7 @@ class Packages extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'vehicle_id' => 'integer',
         'name' => 'string',
         'package_rate' => 'float',
         'package_extra_fuel' => 'float'
@@ -61,8 +63,9 @@ class Packages extends Model
      */
     public static $rules = [
         'name'                      => 'required',
-        'package_start_time'        => 'required|date',
-        'package_end_time'          => 'required|date',
+        'vehicle_id'                => 'required|integer',
+        // 'package_start_time'        => 'required|date',
+        // 'package_end_time'          => 'required|date',
         'package_overtime_rate'     => 'required|numeric',
         'package_rate'              => 'required|numeric',
         'package_extra_fuel'        => 'required|numeric'  
@@ -74,5 +77,13 @@ class Packages extends Model
     public function bookings()
     {
         return $this->hasMany(\App\Models\Admin\Booking::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function vehicle()
+    {
+        return $this->belongsTo(\App\Models\Admin\Vehicles::class);
     }
 }

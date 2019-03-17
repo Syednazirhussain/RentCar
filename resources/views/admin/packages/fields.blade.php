@@ -21,7 +21,7 @@
     </div>
 </div>
 
-<div class="col-sm-12 col-md-12">
+{{-- <div class="col-sm-12 col-md-12">
     <div class="col-md-6">
         <div class="form-group">
             <label for="name">Package Start At</label>
@@ -44,7 +44,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 <div class="col-sm-12 col-md-12">
     <div class="col-md-6">
@@ -61,6 +61,32 @@
     </div>
 </div>
 
+<div class="col-sm-12 col-md-12">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="name">Select Vehicle</label>
+            <select name="vehicle_id" id="vehicle_id" class="form-control">
+                @if(isset($vehicles))
+                    @if(isset($packages))
+                        @foreach($vehicles as $vehicle)
+                            @if($packages->vehicle_id == $vehicle->id)
+                                <option value="{{ $vehicle->id }}" selected="selected">{{ $vehicle->name }}</option>
+                            @else
+                                <option value="{{ $vehicle->id }}">{{ $vehicle->name }}</option>
+                            @endif
+                        @endforeach
+                    @else
+                        @foreach($vehicles as $vehicle)
+                            <option value="{{ $vehicle->id }}">{{ $vehicle->name }}</option>
+                        @endforeach
+                    @endif
+                @endif
+            </select>
+        </div>
+    </div>
+</div>
+
+
 
 <div class="col-sm-12 col-md-12">
     <div class="col-md-12">
@@ -75,6 +101,11 @@
 <script type="text/javascript">
 
     var package_id = '{{ (isset($packages)) ? $packages->id : 0 }}';
+
+    $('#vehicle_id').select2({
+        placeholder: "Select a vehicle",
+        // allowClear: true
+    });
 
     if (package_id != 0) {
 

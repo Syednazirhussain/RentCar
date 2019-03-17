@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\UpdatePackagesRequest;
 use App\Repositories\Admin\PackagesRepository;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Admin\Vehicles;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
@@ -44,7 +45,8 @@ class PackagesController extends Controller
      */
     public function create()
     {
-        return view('admin.packages.create');
+        $vehicles = Vehicles::all();
+        return view('admin.packages.create', compact('vehicles'));
     }
 
     /**
@@ -102,7 +104,9 @@ class PackagesController extends Controller
             return redirect(route('admin.packages.index'));
         }
 
-        return view('admin.packages.edit')->with('packages', $packages);
+        $vehicles = Vehicles::all();
+
+        return view('admin.packages.edit', compact('vehicles'))->with('packages', $packages);
     }
 
     /**
