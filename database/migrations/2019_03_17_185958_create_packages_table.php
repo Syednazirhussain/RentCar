@@ -16,6 +16,7 @@ class CreatePackagesTable extends Migration {
 		{
 			$table->integer('id', true);
 			$table->string('name', 191)->nullable();
+			$table->integer('vehicle_id')->nullable()->index('vehicle_id');
 			$table->dateTime('package_start_time')->nullable();
 			$table->dateTime('package_end_time')->nullable();
 			$table->float('package_overtime_rate', 10, 0)->nullable();

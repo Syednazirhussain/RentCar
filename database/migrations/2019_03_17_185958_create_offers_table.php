@@ -16,8 +16,8 @@ class CreateOffersTable extends Migration {
 		{
 			$table->integer('id', true);
 			$table->string('name', 191)->nullable();
-			$table->text('description')->nullable();
-			$table->binary('summery')->nullable();
+			$table->text('description', 65535)->nullable();
+			$table->binary('summery', 65535)->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

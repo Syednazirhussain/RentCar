@@ -19,12 +19,12 @@ class CreateGeneralInformationTable extends Migration {
 			$table->string('short_name', 191)->nullable();
 			$table->string('title', 191)->nullable();
 			$table->text('title_description', 65535)->nullable();
-			$table->text('about_description')->nullable();
+			$table->text('about_description', 65535)->nullable();
 			$table->string('logo', 191)->nullable();
-			$table->text('footer_description')->nullable();
+			$table->text('footer_description', 65535)->nullable();
 			$table->string('helpline', 191)->nullable();
 			$table->string('contact', 191)->nullable();
-			$table->text('address')->nullable();
+			$table->text('address', 65535)->nullable();
 			$table->string('email', 191)->nullable();
 			$table->text('instagram', 65535)->nullable();
 			$table->text('pinterest', 65535)->nullable();

@@ -18,8 +18,8 @@ class CreateBookingTable extends Migration {
 			$table->integer('customer_id')->nullable()->index('customer_id');
 			$table->integer('package_id')->nullable()->index('package_id');
 			$table->date('booking_date')->nullable();
-			$table->time('pickup_time')->nullable();
-			$table->time('dropoff_time')->nullable();
+			$table->text('pickup_time', 65535)->nullable();
+			$table->text('dropoff_time', 65535)->nullable();
 			$table->string('pickup_address', 191)->nullable();
 			$table->string('dropoff_address', 191)->nullable();
 			$table->timestamps();
