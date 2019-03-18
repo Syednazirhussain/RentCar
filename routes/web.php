@@ -13,7 +13,7 @@
 
 Route::get('/', ['as'	=> 'site.index', 'uses'	=> 'SiteController@index']);
 Route::get('/services', ['as'	=> 'site.service', 'uses'	=> 'SiteController@service']);
-Route::get('/{page_code}', ['as'	=> 'site.pages', 'uses'	=> 'SiteController@pages']);
+Route::get('pages/{page_code}', ['as'	=> 'site.pages', 'uses'	=> 'SiteController@pages']);
 
 
 
