@@ -23,95 +23,15 @@ class PagesController extends Controller
     }
 
     /**
-     * Display a listing of the Pages.
+     * Display a page information.
      *
-     * @param Request $request
+     * @param Page Code
      * @return Response
      */
-    public function index(Request $request)
+    public function index($page_code)
     {
-        $this->pagesRepository->pushCriteria(new RequestCriteria($request));
-        $pages = $this->pagesRepository->all();
-
-        return view('admin.pages.index')->with('pages', $pages);
-    }
-
-    /**
-     * Show the form for creating a new Pages.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        return view('admin.pages.create');
-    }
-
-    /**
-     * Store a newly created Pages in storage.
-     *
-     * @param CreatePagesRequest $request
-     *
-     * @return Response
-     */
-    public function store(CreatePagesRequest $request)
-    {
-        $input = $request->all();
-
-        if (strpos($input['name'], " ")) {
-            $arr = explode(" ", $input['name']);
-            foreach ($arr as $key =>  $value) {
-                $arr[$key] = strtolower($value);
-            }
-            $input['short_code'] = implode("-", $arr);
-        } else {
-            $input['short_code'] = strtolower($input['name']);
-        }
-
-        $pages = $this->pagesRepository->create($input);
-
-        Session::Flash('msg.success', 'Pages saved successfully.');
-
-        return redirect(route('admin.pages.index'));
-    }
-
-    /**
-     * Display the specified Pages.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
-    public function show($id)
-    {
-        $pages = $this->pagesRepository->findWithoutFail($id);
-
-        if (empty($pages)) {
-            Session::Flash('msg.error', 'Pages not found');
-
-            return redirect(route('admin.pages.index'));
-        }
-
-        return view('admin.pages.show')->with('pages', $pages);
-    }
-
-    /**
-     * Show the form for editing the specified Pages.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
-    public function edit($id)
-    {
-        $pages = $this->pagesRepository->findWithoutFail($id);
-
-        if (empty($pages)) {
-            Session::Flash('msg.error', 'Pages not found');
-
-            return redirect(route('admin.pages.index'));
-        }
-
-        return view('admin.pages.edit')->with('pages', $pages);
+        $page = $this->pagesRepository->getPageByCode($page_code);
+        return view('admin.pages.edit')->with('page', $page);
     }
 
     /**
@@ -126,40 +46,20 @@ class PagesController extends Controller
     {
         $pages = $this->pagesRepository->findWithoutFail($id);
 
+
         if (empty($pages)) {
             Session::Flash('msg.error', 'Pages not found');
 
             return redirect(route('admin.pages.index'));
         }
+
+        $short_code = $pages->short_code;
 
         $pages = $this->pagesRepository->update($request->all(), $id);
 
         Session::Flash('msg.success', 'Pages updated successfully.');
 
-        return redirect(route('admin.pages.index'));
+        return redirect(route('admin.page.index', [$short_code]));
     }
 
-    /**
-     * Remove the specified Pages from storage.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        $pages = $this->pagesRepository->findWithoutFail($id);
-
-        if (empty($pages)) {
-            Session::Flash('msg.error', 'Pages not found');
-
-            return redirect(route('admin.pages.index'));
-        }
-
-        $this->pagesRepository->delete($id);
-
-        Session::Flash('msg.success', 'Pages deleted successfully.');
-
-        return redirect(route('admin.pages.index'));
-    }
 }

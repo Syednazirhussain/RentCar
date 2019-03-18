@@ -33,4 +33,10 @@ class PagesRepository extends BaseRepository
     {
         return Pages::class;
     }
+
+    public function getPageByCode($code) {
+        if (!is_null($code) && !empty($code)) {
+            return Pages::where('short_code', $code)->first();
+        }
+    }   
 }

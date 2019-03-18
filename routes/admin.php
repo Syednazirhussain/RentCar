@@ -83,15 +83,6 @@ Route::group(['prefix' => 'admin', 'middleware'	=> 'admin.auth'], function () {
 	Route::get('generalInformations', ['as'=> 'admin.generalInformations.index', 'uses' => 'GeneralInformationController@index']);
 	Route::post('generalInformations', ['as'=> 'admin.generalInformations.store', 'uses' => 'GeneralInformationController@store']);
 
-	Route::get('pages', ['as'=> 'admin.pages.index', 'uses' => 'PagesController@index']);
-	Route::post('pages', ['as'=> 'admin.pages.store', 'uses' => 'PagesController@store']);
-	Route::get('pages/create', ['as'=> 'admin.pages.create', 'uses' => 'PagesController@create']);
-	Route::put('pages/{pages}', ['as'=> 'admin.pages.update', 'uses' => 'PagesController@update']);
-	Route::patch('pages/{pages}', ['as'=> 'admin.pages.update', 'uses' => 'PagesController@update']);
-	Route::delete('pages/{pages}', ['as'=> 'admin.pages.destroy', 'uses' => 'PagesController@destroy']);
-	Route::get('pages/{pages}', ['as'=> 'admin.pages.show', 'uses' => 'PagesController@show']);
-	Route::get('pages/{pages}/edit', ['as'=> 'admin.pages.edit', 'uses' => 'PagesController@edit']);
-
 
 	Route::get('customers', ['as'=> 'admin.customers.index', 'uses' => 'CustomersController@index']);
 	Route::post('customers', ['as'=> 'admin.customers.store', 'uses' => 'CustomersController@store']);
@@ -120,7 +111,8 @@ Route::group(['prefix' => 'admin', 'middleware'	=> 'admin.auth'], function () {
 	Route::get('services/{services}', ['as'=> 'admin.services.show', 'uses' => 'ServicesController@show']);
 	Route::get('services/{services}/edit', ['as'=> 'admin.services.edit', 'uses' => 'ServicesController@edit']);
 
-
+	Route::get('pages/{page_code}', ['as'=> 'admin.page.index', 'uses' => 'PagesController@index']);
+	Route::patch('pages/{pages}', ['as'=> 'admin.page.update', 'uses' => 'PagesController@update']);
 
 
 });

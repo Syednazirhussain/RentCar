@@ -11,7 +11,7 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($pages, ['route' => ['admin.pages.update', $pages->id], 'method' => 'patch']) !!}
+                   {!! Form::model($page, ['route' => ['admin.page.update', $page->id], 'method' => 'POST']) !!}
 
                         @include('admin.pages.fields')
 

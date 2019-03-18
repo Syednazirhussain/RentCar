@@ -186,10 +186,21 @@
           </a>
         </li>
 
-        <li>
-          <a href="{{ route('admin.pages.index') }}">
+        <li class="treeview">
+          <a href="javascript:void(0)">
             <i class="ionicons ion-ios-photos-outline"></i> <span>Pages</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
           </a>
+          <ul class="treeview-menu">
+            <li>
+              <a href="{{ route('admin.page.index', ['about']) }}"><i class="fa fa-circle-o"></i> About</a>
+            </li>
+            <li>
+              <a href="{{ route('admin.page.index', ['term-n-conditions']) }}"><i class="fa fa-circle-o"></i> Term n Conditions</a>
+            </li>
+          </ul>
         </li>
 
         <li>
