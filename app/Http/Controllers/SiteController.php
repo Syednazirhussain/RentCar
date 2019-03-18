@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use Illuminate\Http\Request;
+use App\Models\Admin\Pages;
 use App\Models\Admin\Vendor;
 use App\Models\Admin\Services;
 use App\Models\Admin\Vehicles;
@@ -28,6 +30,23 @@ class SiteController extends Controller
     	$services			= Services::all();
 
     	return view('service', compact('generalInformation', 'services'));
+    }
+
+    public function pages($page_code) {
+        if (!empty($page_code) && !is_null($page_code)) {
+            $page = Pages::where('short_code', $page_code)->first();
+
+            if (empty($page)) {
+                Session::Flash('msg.error', 'Page not found');
+                return redirect()->back();
+            }
+            
+            $generalInformation = GeneralInformation::where('code', 'site-setting')->first();
+
+            return view('pages', compact('generalInformation', 'page'));
+        } 
+
+        return redirect()->back();
     }
 
     

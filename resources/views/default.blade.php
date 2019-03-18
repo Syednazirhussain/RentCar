@@ -100,7 +100,7 @@
                         <ul class="nav navbar-nav">
                            <li class="active has-mega-menu demos"> <a href="{{ route('site.index') }}">Home</a></li>
                            <li>
-                              <a href="javascript:void(0);">About</a>
+                              <a href="{{ route('site.pages', ['about']) }}">About</a>
                            </li>
                            <li>
                               <a href="{{ route('site.service') }}">Services</a>
@@ -160,18 +160,7 @@
                      </div>
                      <div class="col-md-4 col-sm-6 footer-col-4 ">
                         <div class="widget">
-                           <h5 class="m-b30 text-white">Subscribe To Our Newsletter</h5>
-                           <p class="text-capitalize m-b20">Lorem Ipsum is simply dummy text of the printing and typesetting industry has been the industry's standard dummy text ever since the..</p>
-                           <div class="subscribe-form m-b20">
-                              <form role="search" method="post">
-                                 <div class="input-group">
-                                    <input name="text" class="form-control" placeholder="Your Email Id" type="text">
-                                    <span class="input-group-btn">
-                                    <button type="submit" class="site-button radius-xl">Subscribe</button>
-                                    </span> 
-                                 </div>
-                              </form>
-                           </div>
+                           <p class="text-capitalize"> <a href="{{ route('site.pages', ['term-n-conditions']) }}">Term & Conditions</a> </p>
                            <ul class="list-inline m-a0">
                               <li><a href="@if(isset($generalInformation)){{ $generalInformation->facebook }}@else {{ 'javascript:void(0);' }}@endif" class="site-button facebook circle"><i class="fa fa-facebook"></i></a></li>
                               <li><a href="@if(isset($generalInformation)){{ $generalInformation->instagram}}@else {{ 'javascript:void(0);' }}@endif" class="site-button google-plus circle"><i class="fa fa-instagram"></i></a></li>
