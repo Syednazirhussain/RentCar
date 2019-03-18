@@ -3,7 +3,7 @@
 @section('css')
 
 <style>
-    .section-full > .about-us > .bg-white > .content-inner-2 {
+    .content-inner-2 {
         background-image: '{{ asset('/theme/assets/images/background/about-us.jpg') }}'
     }
 </style>

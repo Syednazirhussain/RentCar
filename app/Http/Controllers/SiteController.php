@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admin\Vendor;
+use App\Models\Admin\Services;
 use App\Models\Admin\Vehicles;
 use App\Models\Admin\Packages;
 use App\Models\Admin\VehicleType;
@@ -20,5 +21,12 @@ class SiteController extends Controller
     	$generalInformation = GeneralInformation::where('code', 'site-setting')->first();
 
     	return view('index', compact('generalInformation', 'vehicleTypes', 'vendors', 'packages', 'vehicles'));
+    }
+
+    public function service() {
+    	$generalInformation = GeneralInformation::where('code', 'site-setting')->first();
+    	$services			= Services::all();
+
+    	return view('service', compact('generalInformation', 'services'));
     }
 }

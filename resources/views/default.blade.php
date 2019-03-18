@@ -99,7 +99,11 @@
                      <div class="header-nav navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                            <li class="active has-mega-menu demos"> <a href="javascript:void(0);">Home</a></li>
-                           <li><a href="javascript:void(0);">About</a>
+                           <li>
+                              <a href="javascript:void(0);">About</a>
+                           </li>
+                           <li>
+                              <a href="{{ route('site.service') }}">Services</a>
                            </li>
                            <li>
                               <a href="javascript:void(0);">Packages</a>
@@ -203,6 +207,9 @@
       <script src="{{ asset('/theme/assets/plugins/revolution/v5.4.3/js/extensions/revolution.extension.video.min.js') }}"></script>
       <script src="{{ asset('/theme/assets/plugins/revolution/v5.4.3/js/extensions/revolution.extension.slideanims.min.js') }}"></script>
       <script  src="{{ asset('/theme/assets/js/rev.slider.js') }}"></script>
+      
+      <script src="{{ asset('/theme/assets/js/combine.js') }}"></script>
+      <script src="{{ asset('/theme/assets/js/jquery.searchable-1.0.0.min.js') }}"></script>
       <!-- custom fuctions  -->
       <script>
          jQuery(document).ready(function() {
