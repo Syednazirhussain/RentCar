@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Session;
-use Illuminate\Http\Request;
-use App\Models\Admin\Pages;
-use App\Models\Admin\Vendor;
-use App\Models\Admin\Services;
-use App\Models\Admin\Vehicles;
-use App\Models\Admin\Packages;
-use App\Models\Admin\VehicleType;
 use App\Models\Admin\GeneralInformation;
+use App\Models\Admin\Packages;
+use App\Models\Admin\Pages;
+use App\Models\Admin\Services;
+use App\Models\Admin\VehicleType;
+use App\Models\Admin\Vehicles;
+use App\Models\Admin\Vendor;
+use Illuminate\Http\Request;
+use Mail;
+use Session;
 
 class SiteController extends Controller
 {
@@ -45,6 +46,34 @@ class SiteController extends Controller
 
             return view('pages', compact('generalInformation', 'page'));
         } 
+
+        return redirect()->back();
+    }
+
+    public function contact() {
+        $generalInformation = GeneralInformation::where('code', 'site-setting')->first();
+
+        return view('contact', compact('generalInformation'));
+    }
+
+    public function contact_request(Request $request) {
+
+        $validate = $request->validate([
+            'name'      => 'required',
+            'phone'     => 'required|numeric',
+            'email'     => 'required|email',
+            'subject'   => 'required',
+            'messages'   => 'required',
+        ]);
+
+        $data = $request->except('_token');
+        $generalInformation = GeneralInformation::where('code', 'site-setting')->first();
+
+        Mail::send('emails.contact', $data, function ($message) use ($data) {
+            $message->to('syednazir13@gmail.com')->subject($data['subject']);
+        });
+        
+        Session::Flash('msg.success', 'Your message has been sent to administrator.');
 
         return redirect()->back();
     }

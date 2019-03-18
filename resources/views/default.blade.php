@@ -116,7 +116,7 @@
                               </ul>
                            </li>
                            <li>
-                              <a href="javascript:void(0);">Contact</a>
+                              <a href="{{ route('site.contact') }}">Contact</a>
                            </li>
                            <li>
                               <a href="javascript:void(0);">Login/Register</a>
@@ -199,6 +199,13 @@
       
       <script src="{{ asset('/theme/assets/js/combine.js') }}"></script>
       <script src="{{ asset('/theme/assets/js/jquery.searchable-1.0.0.min.js') }}"></script>
+
+          <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
+    </script>
+      <script>
+         var captcha_site_key = "{{ config('rentcar.RECAPTCHA.SITE_KEY') }}";
+      </script>
       <!-- custom fuctions  -->
       <script>
          jQuery(document).ready(function() {
