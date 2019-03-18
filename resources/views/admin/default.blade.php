@@ -181,6 +181,12 @@
         </li>
 
         <li>
+          <a href="{{ route('admin.services.index') }}">
+            <i class="ionicons ion-ios-photos-outline"></i> <span>Services</span>
+          </a>
+        </li>
+
+        <li>
           <a href="{{ route('admin.pages.index') }}">
             <i class="ionicons ion-ios-photos-outline"></i> <span>Pages</span>
           </a>

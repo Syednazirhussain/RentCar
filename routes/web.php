@@ -14,3 +14,6 @@
 Route::get('/', ['as'	=> 'site.index', 'uses'	=> 'SiteController@index']);
 
 
+
+
+
