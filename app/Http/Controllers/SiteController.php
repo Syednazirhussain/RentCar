@@ -29,4 +29,6 @@ class SiteController extends Controller
 
     	return view('service', compact('generalInformation', 'services'));
     }
+
+    
 }

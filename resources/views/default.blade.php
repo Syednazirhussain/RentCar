@@ -98,7 +98,7 @@
                      <!-- main nav -->
                      <div class="header-nav navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                           <li class="active has-mega-menu demos"> <a href="javascript:void(0);">Home</a></li>
+                           <li class="active has-mega-menu demos"> <a href="{{ route('site.index') }}">Home</a></li>
                            <li>
                               <a href="javascript:void(0);">About</a>
                            </li>
