@@ -48,6 +48,7 @@ class VehiclesRepository extends BaseRepository
         $input['vendor_id']             = $request->input('vendor_id');
         $input['vehicle_type_id']       = $request->input('vehicle_type_id');
         $this->vehicle_specifications   = $request->input('specifications');
+
         if($request->hasFile('docFiles'))
         {
             $files = $request->docFiles;
@@ -73,6 +74,7 @@ class VehiclesRepository extends BaseRepository
     }
 
     public function addVehicleDependency(Vehicles $vehicle) {
+                // dd($this->vehicle_specifications);
         $vehicle_id = $vehicle->id;
         foreach ($this->vehicle_specifications as $specification) {
             VehicleHasSpecification::updateOrCreate(

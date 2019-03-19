@@ -55,8 +55,8 @@ class VehiclesController extends Controller
      */
     public function create()
     {
-        $vehicleTypes = Vendor::all();   
-        $vendors = VehicleType::all();
+        $vehicleTypes = VehicleType::all();   
+        $vendors = Vendor::all();
         $vehicleSpecification = VehicleSpecification::all();
 
 
@@ -153,8 +153,8 @@ class VehiclesController extends Controller
             return redirect(route('admin.vehicles.index'));
         }
 
-        $vendors = VehicleType::all();
-        $vehicleType = Vendor::all();
+        $vehicleTypes = VehicleType::all();   
+        $vendors = Vendor::all();
         $vehicleSpecification = VehicleSpecification::all();
         $vehicleHasSpecifications = VehicleHasSpecification::where('vehicle_id', $id)->get();
 
@@ -182,7 +182,7 @@ class VehiclesController extends Controller
         $data = [
             'vehicles'                  => $vehicles,
             'vendors'                   => $vendors,
-            'vehicleTypes'              => $vehicleType,
+            'vehicleTypes'              => $vehicleTypes,
             'vehicleSpecifications'     => $vehicleSpecification,
             'vehicleHasSpecifications'  => $vehicleHasSpecifications,
             'imagesFiles'               => $images

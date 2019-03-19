@@ -65,29 +65,6 @@
     <div class="col-md-6">
         <div class="form-group">
             <label>Vendor</label>
-            <select class="form-control select2" name="vendor_id" style="width: 100%;">
-                @if (isset($vendors))
-                    @if (isset($vehicles))
-                        @foreach($vendors as $vendor)
-                            @if ($vehicles->vendor_id== $vendor->id) 
-                                <option value="{{ $vendor->id }}" selected="selected">{{ $vendor->name }}</option>
-                            @else
-                                <option value="{{ $vendor->id }}">{{ $vendor->name }}</option>
-                            @endif
-                        @endforeach
-                    @else
-                        @foreach($vendors as $vendor)
-                            <option value="{{ $vendor->id }}">{{ $vendor->name }}</option>
-                        @endforeach
-                    @endif
-                @endif
-            </select>
-        </div>
-    </div>
-
-    <div class="col-md-6">
-        <div class="form-group">
-            <label>Vehicle Type</label>
             <select class="form-control select2" name="vehicle_type_id" style="width: 100%;">
                 @if (isset($vehicleTypes))
                     @if (isset($vehicles))
@@ -101,6 +78,29 @@
                     @else
                         @foreach($vehicleTypes as $vehicleType)
                             <option value="{{ $vehicleType->id }}">{{ $vehicleType->name }}</option>
+                        @endforeach
+                    @endif
+                @endif
+            </select>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Vehicle Type</label>
+            <select class="form-control select2" name="vendor_id" style="width: 100%;">
+                @if (isset($vendors))
+                    @if (isset($vehicles))
+                        @foreach($vendors as $vendor)
+                            @if ($vehicles->vendor_id == $vendor->id) 
+                                <option value="{{ $vendor->id }}" selected="selected">{{ $vendor->name }}</option>
+                            @else
+                                <option value="{{ $vendor->id }}">{{ $vendor->name }}</option>
+                            @endif
+                        @endforeach
+                    @else
+                        @foreach($vendors as $vendor)
+                            <option value="{{ $vendor->id }}">{{ $vendor->name }}</option>
                         @endforeach
                     @endif
                 @endif

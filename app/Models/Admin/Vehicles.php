@@ -76,7 +76,7 @@ class Vehicles extends Model
      **/
     public function vendor()
     {
-        return $this->belongsTo(\App\Models\Admin\VehicleType::class);
+        return $this->belongsTo(\App\Models\Admin\Vendor::class);
     }
 
     /**
@@ -84,7 +84,7 @@ class Vehicles extends Model
      **/
     public function vehicleType()
     {
-        return $this->belongsTo(\App\Models\Admin\Vendor::class);
+        return $this->belongsTo(\App\Models\Admin\VehicleType::class);
     }
 
     /**
