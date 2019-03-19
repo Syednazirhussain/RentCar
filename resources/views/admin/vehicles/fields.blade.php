@@ -10,14 +10,14 @@
     <div class="col-md-6">
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" name="name" class="form-control" placeholder="ex. Paramide" value="@if(isset($vehicles)){{ $vehicles->name }}@else {{ old('name') }}@endif">
+          <input type="text" name="name" class="form-control" placeholder="ex. Cultus" value="@if(isset($vehicles)){{ $vehicles->name }}@else {{ old('name') }}@endif">
         </div>
     </div>
 
     <div class="col-md-6">
         <div class="form-group">
           <label for="name">Vehicle Number</label>
-          <input type="text" name="vehicle_number" id="vehicle_number" class="form-control" placeholder="ex. Paramide" value="@if(isset($vehicles)){{ $vehicles->vehicle_number }}@else {{ old('vehicle_number') }} @endif">
+          <input type="text" name="vehicle_number" id="vehicle_number" class="form-control" placeholder="ex. AGG-347" value="@if(isset($vehicles)){{ $vehicles->vehicle_number }}@else {{ old('vehicle_number') }} @endif">
         </div>
     </div>
 

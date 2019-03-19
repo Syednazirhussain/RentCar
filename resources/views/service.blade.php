@@ -16,7 +16,7 @@
 <!-- Content -->
 <div class="page-content">
     <!-- inner page banner -->
-    <div class="dlab-bnr-inr overlay-black-middle">
+    <div class="dlab-bnr-inr overlay-black-middle" style="background-image:url('{{ asset('/theme/assets/images/banner/bnr3.jpg') }}');">
         <div class="container">
             <div class="dlab-bnr-inr-entry">
                 <h1 class="text-white">Services</h1>
@@ -40,7 +40,7 @@
   <div class="container">
 
     @if(isset($services))
-      {{ $flag = 0 }}
+      @php $flag = 0; @endphp
       @foreach($services as $service)
 
         @if( $flag != 0 && ( $flag%2 != 0) )

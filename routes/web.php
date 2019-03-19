@@ -17,6 +17,9 @@ Route::get('/contact', ['as'	=> 'site.contact', 'uses'	=> 'SiteController@contac
 Route::post('/contact/request', ['as'	=> 'site.contact.request', 'uses'	=> 'SiteController@contact_request']);
 Route::get('pages/{page_code}', ['as'	=> 'site.pages', 'uses'	=> 'SiteController@pages']);
 
+Route::get('/packages', ['as'	=> 'site.packages', 'uses'	=> 'SiteController@packages']);
+
+
 
 
 

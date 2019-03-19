@@ -74,53 +74,7 @@
              <!-- END REVOLUTION SLIDER -->
           </div>
        </div>
-       <!-- Form -->   
-       <div class="form-slide">
-          <div class="container">
-             <form class="search-car" action="javascript:void(0);" method="post">
-                <div class="form-head">
-                   <h2>Search the right car</h2>
-                </div>
-                <!-- TABS -->
-                <div class="form-find-area">
-                   <div class="tab-content">
-                      <!-- NEW CAR -->
-                      <div id="new-car"  class="tab-pane active clearfix">
-                         <div  id="budgetDiv" class="new_form_div">
-                            <div class="input-group">
-                               <select class="form-control">
-                                  <option>Select Vendor</option>
-                                  @if(isset($vehicleTypes))
-                                    @foreach($vehicleTypes as $vehicleType)
-                                      <option value="{{ $vehicleType->id }}">{{ $vehicleType->name }}</option>
-                                    @endforeach
-                                  @endif
-                               </select>
-                            </div>
-                            <div class="input-group">
-                               <select class="form-control">
-                                  <option>All Vehicle Types</option>
-                                  @if(isset($vendors))
-                                    @foreach($vendors as $vendor)
-                                      <option value="{{ $vendor->id }}">{{ $vendor->name }}</option>
-                                    @endforeach
-                                  @endif
-                               </select>
-                            </div>
-                         </div>
-                         <div class="input-group">
-                            <button class="site-button button-lg btn-block" type="submit">SEARCH</button>
-                         </div>
-                         <div class="input-group text-center">
-                            <a class="site-button-link" href="javascript:void(0);">ADVANCED SEARCH <i class="fa fa-angle-right"></i></a>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-             </form>
-          </div>
-       </div>
-       <!-- Form END -->   
+
     </div>
     <!-- Slider END -->
     <!-- About Us -->

@@ -1,21 +1,12 @@
 @extends('default')
 
-@section('css')
-
-<style>
-    .dlab-bnr-inr, .overlay-black-middle {
-        background-image: '{{ asset('/theme/assets/images/background/bg4.jpg') }}'
-    }
-</style>
-
-@endsection
 
 @section('content')
 
     <!-- Content -->
     <div class="page-content">
         <!-- inner page banner -->
-        <div class="dlab-bnr-inr overlay-black-middle">
+        <div class="dlab-bnr-inr overlay-black-middle" style="background-image:url('{{ asset('/theme/assets/images/background/bg4.jpg') }}');">
             <div class="container">
                 <div class="dlab-bnr-inr-entry">
                     <h1 class="text-white">Contact Us</h1>

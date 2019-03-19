@@ -23,7 +23,7 @@ class SiteController extends Controller
     	$vehicleTypes = VehicleType::all();
     	$generalInformation = GeneralInformation::where('code', 'site-setting')->first();
 
-    	return view('index', compact('generalInformation', 'vehicleTypes', 'vendors', 'packages', 'vehicles'));
+    	return view('index', compact('generalInformation', 'vehicleTypes', 'vehicles'));
     }
 
     public function service() {
@@ -76,6 +76,13 @@ class SiteController extends Controller
         Session::Flash('msg.success', 'Your message has been sent to administrator.');
 
         return redirect()->back();
+    }
+
+    public function packages() {
+        $generalInformation = GeneralInformation::where('code', 'site-setting')->first();
+        $packages           = Packages::all();
+ 
+        return view('package', compact('generalInformation'));
     }
 
     

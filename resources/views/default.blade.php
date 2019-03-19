@@ -106,14 +106,7 @@
                               <a href="{{ route('site.service') }}">Services</a>
                            </li>
                            <li>
-                              <a href="javascript:void(0);">Packages</a>
-                              <ul class="sub-menu">
-                                 @if(isset($packages))
-                                    @foreach($packages as $package)
-                                       <li><a href="javascript:void(0);"></a>{{ trim($package->name, '"') }}</li>
-                                    @endforeach
-                                 @endif
-                              </ul>
+                              <a href="{{ route('site.packages') }}">Packages</a>
                            </li>
                            <li>
                               <a href="{{ route('site.contact') }}">Contact</a>
@@ -178,8 +171,8 @@
          <!-- scroll top button -->
          <button class="scroltop fa fa-chevron-up" ></button>
       </div>
+      <script src="{{ asset('/theme/assets/js/jquery.min.js') }}" type="text/javascript"></script>
       <!-- JavaScript  files ========================================= -->
-      <script src="{{ asset('/theme/assets/js/combine.js') }}"></script>   
       <script src="{{ asset('/theme/assets/js/wow.js') }}"></script>
       <!-- wow.min js -->
       <script src="{{ asset('/theme/assets/js/dz.ajax.js') }}"></script>

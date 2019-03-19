@@ -15,7 +15,7 @@
 <!-- Content -->
 <div class="page-content">
     <!-- inner page banner -->
-    <div class="dlab-bnr-inr overlay-black-middle">
+    <div class="dlab-bnr-inr overlay-black-middle" style="background-image:url('{{ asset('/theme/assets/images/background/bg4.jpg') }}');">
         <div class="container">
             <div class="dlab-bnr-inr-entry">
                 <h1 class="text-white">@if(isset($page)){{ $page->name }}@else{{ 'Page Title' }}@endif</h1>
