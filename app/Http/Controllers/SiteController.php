@@ -6,6 +6,7 @@ use App\Models\Admin\GeneralInformation;
 use App\Models\Admin\Packages;
 use App\Models\Admin\Pages;
 use App\Models\Admin\Services;
+use App\Models\Admin\VehicleSpecification;
 use App\Models\Admin\VehicleType;
 use App\Models\Admin\Vehicles;
 use App\Models\Admin\Vendor;
@@ -79,10 +80,23 @@ class SiteController extends Controller
     }
 
     public function packages() {
-        $generalInformation = GeneralInformation::where('code', 'site-setting')->first();
-        $packages           = Packages::all();
- 
-        return view('package', compact('generalInformation'));
+        $generalInformation     = GeneralInformation::where('code', 'site-setting')->first();
+        $packages               = Packages::with([
+                                    'vehicle',
+                                    'vehicle.vendor',
+                                    'vehicle.vehicleType'
+                                  ])->get();
+        $vehicleTypes           = Vendor::all();
+        $vendors                = VehicleType::all();
+
+        $data = [
+            'vendors'               => $vendors,
+            'vehicleTypes'          => $vehicleTypes,
+            'packages'              => $packages,
+            'generalInformation'    => $generalInformation
+        ];
+
+        return view('package', $data);
     }
 
     
