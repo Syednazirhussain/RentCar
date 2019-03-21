@@ -92,6 +92,6 @@ class Vehicles extends Model
      **/
     public function vehicleHasSpecifications()
     {
-        return $this->hasMany(\App\Models\Admin\VehicleHasSpecification::class);
+        return $this->hasMany(\App\Models\Admin\VehicleHasSpecification::class,'vehicle_id', 'id');
     }
 }

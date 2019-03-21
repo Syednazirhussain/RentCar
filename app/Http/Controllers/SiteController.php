@@ -81,13 +81,13 @@ class SiteController extends Controller
 
     public function packages() {
         $generalInformation     = GeneralInformation::where('code', 'site-setting')->first();
+        $vehicleTypes           = Vendor::all();
+        $vendors                = VehicleType::all();
         $packages               = Packages::with([
                                     'vehicle',
                                     'vehicle.vendor',
                                     'vehicle.vehicleType'
-                                  ])->get();
-        $vehicleTypes           = Vendor::all();
-        $vendors                = VehicleType::all();
+                                  ])->paginate(2);
 
         $data = [
             'vendors'               => $vendors,
@@ -97,6 +97,33 @@ class SiteController extends Controller
         ];
 
         return view('package', $data);
+    }
+
+    public function booking($package_id) {
+        $generalInformation     = GeneralInformation::where('code', 'site-setting')->first();
+        $package                = Packages::where('id', $package_id)
+                                    ->with([
+                                        'vehicle',
+                                        'vehicle.vendor',
+                                        'vehicle.vehicleType',
+                                        'vehicle.vehicleHasSpecifications.vehicleSpecification'
+                                    ])->first();
+
+        // dd($package->vehicle->vendor->name);
+
+        
+        $data = [
+            'package'              => $package,
+            'generalInformation'    => $generalInformation,
+        ];
+
+        if (!is_null($package->vehicle->vehicle_images)) {
+            $vehicle_images = explode("|", $package->vehicle->vehicle_images);
+        }
+
+        $data['images']     = $vehicle_images;
+
+        return view('booking', $data);
     }
 
     

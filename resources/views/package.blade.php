@@ -164,7 +164,7 @@
                                     </div>
                                     <div class="dlab-post-readmore">
                                        <h2 class="m-a0 pull-left m-r15 open-sans">PKR {{ $package->package_rate }}</h2>
-                                       <a href="javascript:void(0)" title="Booking it" class="site-button">Book it</a> 
+                                       <a href="{{ route('site.booking', [$package->id]) }}" title="Booking it" class="site-button">Book it</a> 
                                     </div>
                                     <div class="dlab-post-tags">
                                        <div class="post-tags"> 
@@ -183,15 +183,7 @@
                   <!-- blog grid END -->
 
                   <!-- Pagination  -->
-                  <div class="pagination-bx col-lg-12 clearfix ">
-                     <ul class="pagination">
-                        <li class="previous"><a href="javascript:void(0)"><i class="fa fa-angle-double-left"></i></a></li>
-                        <li class="active"><a href="javascript:void(0)">1</a></li>
-                        <li><a href="javascript:void(0)">2</a></li>
-                        <li><a href="javascript:void(0)">3</a></li>
-                        <li class="next"><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i></a></li>
-                     </ul>
-                  </div>
+                  @if(isset($packages)){{ $packages->links('vendor.pagination.theme_pagination') }}@endif
                   <!-- Pagination END -->
 
                </div>
