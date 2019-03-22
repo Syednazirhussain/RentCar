@@ -166,25 +166,26 @@
                      @if(auth()->guard('customer')->check())       
                      <form action="{{ route('customer.booking') }}" method="POST">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="package_id" value="@if(isset($package)){{ $package->id }}@endif">
                         <div class="form-group">
                             <label class="control-label">Booking Date <span class="required">*</span></label>
-                            <input name="booking_date" type="date" class="form-control">
+                            <input name="booking_date" value="{{ old('booking_date') }}" type="date" class="form-control">
                         </div>
                         <div class="form-group">
                             <label class="control-label">Pickup Time <span class="required">*</span></label>
-                            <input name="pickup_time" type="time" class="form-control">
+                            <input name="pickup_time" value="{{ old('pickup_time') }}" type="time" class="form-control">
                         </div>
                         <div class="form-group">
                             <label class="control-label">Dropoff Time</label>
-                            <input name="dropoff_time" type="time" class="form-control">
+                            <input name="dropoff_time" value="{{ old('dropoff_time') }}" type="time" class="form-control">
                         </div>
                         <div class="form-group">
                             <label class="control-label">Pickup Address <span class="required">*</span></label>
-                            <textarea name="pickup_address" class="form-control" style="resize: none;"></textarea>
+                            <textarea name="pickup_address" class="form-control" style="resize: none;">{{ old('pickup_address') }}</textarea>
                         </div>
                         <div class="form-group">
                             <label class="control-label">DropOff Address <span class="required">*</span></label>
-                            <textarea name="dropoff_address" class="form-control"  style="resize: none;"></textarea>
+                            <textarea name="dropoff_address" class="form-control"  style="resize: none;">{{ old('dropoff_address') }}</textarea>
                         </div>
                         <div class="clearfix">
                           <input type="submit" class="btn-primary site-button btn-block" value="Book Now">

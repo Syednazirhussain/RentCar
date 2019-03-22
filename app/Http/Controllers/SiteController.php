@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin\Booking;
 use App\Models\Admin\GeneralInformation;
 use App\Models\Admin\Packages;
 use App\Models\Admin\Pages;
@@ -10,7 +11,9 @@ use App\Models\Admin\VehicleSpecification;
 use App\Models\Admin\VehicleType;
 use App\Models\Admin\Vehicles;
 use App\Models\Admin\Vendor;
+use Auth;
 use Illuminate\Http\Request;
+use Laracasts\Flash\Flash;
 use Mail;
 use Session;
 
@@ -75,7 +78,7 @@ class SiteController extends Controller
         $generalInformation = GeneralInformation::where('code', 'site-setting')->first();
 
         Mail::send('emails.contact', $data, function ($message) use ($data) {
-            $message->to('syednazir13@gmail.com')->subject($data['subject']);
+            $message->to(config('rentcar.FROM_MAIL_ADDRESS'))->subject($data['subject']);
         });
         
         Session::Flash('msg.success', 'Your message has been sent to administrator.');
@@ -130,13 +133,55 @@ class SiteController extends Controller
     public function booking_attempt(Request $request) {
         $request->validate([
             'booking_date'      => 'required|date',
-            'pickup_time'       => 'required|time',
+            'package_id'        => 'required|integer',
+            'pickup_time'       => 'required',
             'pickup_address'    => 'required|String',
             'dropoff_address'   => 'required|String',
         ]);
 
-        
-        dd($request->all());
+        $customer_id = Auth::guard('customer')->user()->id;
+
+        $check_input = [
+            'customer_id'   => $customer_id,
+            'package_id'    => $request->input('package_id'),
+            'booking_date'  => $request->input('booking_date')
+        ];
+
+        $input = [
+            'pickup_time'       => $request->input('pickup_time'),
+            'dropoff_time'      => $request->input('dropoff_time'),
+            'pickup_address'    => $request->input('pickup_address'),
+            'dropoff_address'   => $request->input('dropoff_address')
+        ];
+
+        $booking = Booking::updateOrCreate($check_input, $input);
+
+        if (!empty($booking)) {
+
+            $name = Auth::guard('customer')->user()->f_name." ".Auth::guard('customer')->user()->l_name;
+            $package_id = $request->input('package_id');
+
+            $data = [
+                'name'              => $name,
+                'package'           => Packages::find($package_id)->name,
+                'email'             => Auth::guard('customer')->user()->email,
+                'phone'             => Auth::guard('customer')->user()->phone,
+                'pickup_time'       => $booking->pickup_time,
+                'pickup_address'    => $booking->pickup_address,
+                'dropoff_address'   => $booking->dropoff_address
+            ];
+
+            // Mail::send('emails.booking', $data, function ($message) use ($data) {
+            //     $message->to(config('rentcar.FROM_MAIL_ADDRESS'))->subject(config('rentcar.BOOKING.SUBJECT'));
+            // });
+
+            Session::Flash('msg.success', 'Your details were successfully delieved.!');
+
+        } else {
+            Session::Flash('msg.error', 'There is some problem while creating booking.');
+        }
+
+        return redirect()->back();
     }
 
     
