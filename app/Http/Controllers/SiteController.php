@@ -74,16 +74,36 @@ class SiteController extends Controller
             'messages'   => 'required',
         ]);
 
-        $data = $request->except('_token');
-        $generalInformation = GeneralInformation::where('code', 'site-setting')->first();
+        if ($request->has('g-recaptcha-response') && !empty($request->has('g-recaptcha-response'))) {
 
-        Mail::send('emails.contact', $data, function ($message) use ($data) {
-            $message->to(config('rentcar.FROM_MAIL_ADDRESS'))->subject($data['subject']);
-        });
-        
-        Session::Flash('msg.success', 'Your message has been sent to administrator.');
+            $captcha_response   = $request->input('g-recaptcha-response');
+            $secret             = config('rentcar.RECAPTCHA.SECRET_KEY');
+            $captcha_verify_url = config('rentcar.RECAPTCHA.VERIFY_BASE_URL');
 
-        return redirect()->back();
+            $url =  $captcha_verify_url.'secret='.$secret.'&response='.$captcha_response;
+
+            $verifyResponse = file_get_contents($url);
+            $responseData = json_decode($verifyResponse);
+            if ($responseData->success) {
+
+                $data = $request->except('_token');
+                $generalInformation = GeneralInformation::where('code', 'site-setting')->first();
+
+                Mail::send('emails.contact', $data, function ($message) use ($data) {
+                    $message->to(config('rentcar.FROM_MAIL_ADDRESS'))->subject($data['subject']);
+                });
+                
+                Session::Flash('msg.success', 'Your message has been sent to administrator.');
+                return redirect()->back();
+
+            } else {
+                $error = ['Robot verification failed, please try again.'];
+                return redirect()->back()->withErrors($error);
+            }
+        } else {
+            $error = ['Please click on the reCAPTCHA box.'];
+            return redirect()->back()->withErrors($error);
+        }
     }
 
     public function packages() {
@@ -171,9 +191,9 @@ class SiteController extends Controller
                 'dropoff_address'   => $booking->dropoff_address
             ];
 
-            // Mail::send('emails.booking', $data, function ($message) use ($data) {
-            //     $message->to(config('rentcar.FROM_MAIL_ADDRESS'))->subject(config('rentcar.BOOKING.SUBJECT'));
-            // });
+            Mail::send('emails.booking', $data, function ($message) use ($data) {
+                $message->to(config('rentcar.FROM_MAIL_ADDRESS'))->subject(config('rentcar.BOOKING.SUBJECT'));
+            });
 
             Session::Flash('msg.success', 'Your details were successfully delieved.!');
 

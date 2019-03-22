@@ -109,7 +109,13 @@
                                   </div>
                               </div>
                           </div>
-
+                          <div class="col-md-12">
+                              <div class="form-group">
+                                  <div class="input-group">
+                                      <div id="captcha"></div>
+                                  </div>
+                              </div>
+                          </div>
                           <div class="col-md-12">
                               <input type="submit" value="Submit" class="site-button" />
                           </div>
@@ -126,11 +132,23 @@
 
 @section('js')
 
-<script>
-  
-  console.log(captcha_site_key);
+<script type="text/javascript">
 
+    console.log(captcha_site_key);
 
+    var onloadCallback = function() {
+        grecaptcha.render('captcha', {
+          'sitekey' : captcha_site_key,
+          'callback' : verifyCallback,
+        });
+    };
+
+    verifyCallback = function(response) {
+
+        $('#captcha_response').val(response);
+        console.log(response);
+    }
+    
 </script>
 
 @endsection
