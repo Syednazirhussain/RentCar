@@ -1,5 +1,17 @@
 @extends('default')
 
+@section('css')
+
+<style type="text/css">
+  .required {
+    color: red;
+    font-size: 20px
+  }
+</style>
+
+
+@endsection
+
 
 @section('content')
 
@@ -142,11 +154,7 @@
                          </div>
                       </div>
                    </div>
-
-
                 </div>
-
-
 
                 <div class="col-sm-6 col-md-5 col-lg-4">
                   <div class="car-dl-info m-b30">
@@ -154,22 +162,32 @@
                         <h2 class="m-t0 m-b5">@if(isset($package)){{ $package->name }}@endif</h2>
                         <span>Price @if(isset($package)){{ $package->package_rate }}@endif</span>   
                      </div>
+                     @include('include.messages')
                      @if(auth()->guard('customer')->check())       
-                     <form>
+                     <form action="{{ route('customer.booking') }}" method="POST">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
-                           <input value="" class="form-control" placeholder="Name">
-                        </div>   
-                        <div class="form-group">
-                           <input value="" class="form-control" placeholder="Mobile Number">
+                            <label class="control-label">Booking Date <span class="required">*</span></label>
+                            <input name="booking_date" type="date" class="form-control">
                         </div>
-                        <div class="text-left">
-                           <div class="search-content">
-                              <input id="send-details1" type="checkbox">
-                              <label for="send-details1" class="search-content-area">Send details on email </label>
-                           </div>
+                        <div class="form-group">
+                            <label class="control-label">Pickup Time <span class="required">*</span></label>
+                            <input name="pickup_time" type="time" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Dropoff Time</label>
+                            <input name="dropoff_time" type="time" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Pickup Address <span class="required">*</span></label>
+                            <textarea name="pickup_address" class="form-control" style="resize: none;"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">DropOff Address <span class="required">*</span></label>
+                            <textarea name="dropoff_address" class="form-control"  style="resize: none;"></textarea>
                         </div>
                         <div class="clearfix">
-                           <button type="button" class="btn-primary site-button btn-block">Book now</button>
+                          <input type="submit" class="btn-primary site-button btn-block" value="Book Now">
                         </div>
                      </form>
                      @else

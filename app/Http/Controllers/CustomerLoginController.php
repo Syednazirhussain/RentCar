@@ -40,7 +40,14 @@ class CustomerLoginController extends Controller
     	]);
 
     	if (Auth::guard('customer')->attempt(['email'	=> $request->input('email'), 'password'	=> $request->input('password')])) {
+
     		Session::Flash('msg.success', 'Login succeded.');
+            
+            if ( $request->session()->has('booking_url') ) {
+                $booking_url = $request->session()->get('booking_url');
+                return redirect($booking_url);
+            }
+
     	} else {
     		Session::Flash('msg.error', 'Invalid credentials');
     	}

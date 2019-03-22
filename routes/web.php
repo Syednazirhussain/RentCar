@@ -18,6 +18,7 @@ Route::post('/contact/request', ['as'	=> 'site.contact.request', 'uses'	=> 'Site
 Route::get('pages/{page_code}', ['as'	=> 'site.pages', 'uses'	=> 'SiteController@pages']);
 Route::get('/packages', ['as'	=> 'site.packages', 'uses'	=> 'SiteController@packages']);
 Route::get('/booking/{package_id}', ['as'	=> 'site.booking', 'uses'	=> 'SiteController@booking']);
+Route::post('/booking', ['as'	=> 'customer.booking', 'uses'	=> 'SiteController@booking_attempt']);
 
 Route::get('/login', ['as'	=> 'customer.login', 'uses'	=> 'CustomerLoginController@login']);
 Route::post('/login', ['as'	=> 'customer.login_attempt', 'uses'	=> 'CustomerLoginController@login_attempt']);

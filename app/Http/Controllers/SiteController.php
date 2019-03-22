@@ -16,6 +16,10 @@ use Session;
 
 class SiteController extends Controller
 {
+    public function __construct() {
+        $this->middleware('customer.auth')->only('booking_attempt');
+    }
+
     public function index() {
     	
     	$vehicles = Vehicles::all();
@@ -121,6 +125,18 @@ class SiteController extends Controller
         $data['images']     = $vehicle_images;
 
         return view('booking', $data);
+    }
+
+    public function booking_attempt(Request $request) {
+        $request->validate([
+            'booking_date'      => 'required|date',
+            'pickup_time'       => 'required|time',
+            'pickup_address'    => 'required|String',
+            'dropoff_address'   => 'required|String',
+        ]);
+
+        
+        dd($request->all());
     }
 
     
