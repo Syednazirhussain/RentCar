@@ -108,9 +108,6 @@ class SiteController extends Controller
                                         'vehicle.vehicleType',
                                         'vehicle.vehicleHasSpecifications.vehicleSpecification'
                                     ])->first();
-
-        // dd($package->vehicle->vendor->name);
-
         
         $data = [
             'package'              => $package,

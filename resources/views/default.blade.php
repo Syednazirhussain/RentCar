@@ -114,8 +114,8 @@
                            <li>
                               <a href="javascript:void(0);">Login/Register</a>
                               <ul class="sub-menu">
-                                 <li><a href="javascript:void(0);">Login</a></li>
-                                 <li><a href="javascript:void(0);">Register</a></li>
+                                 <li><a href="{{ route('customer.login') }}">Login</a></li>
+                                 <li><a href="{{ route('customer.register') }}">Register</a></li>
                               </ul>
                            </li>
                         </ul>
