@@ -41,35 +41,35 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input name="f_name" type="text" class="form-control" placeholder="Enter first name">
+                                            <input name="f_name" type="text" value="{{ old('f_name') }}" class="form-control" placeholder="Enter first name">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="input-group"> 
-                                            <input name="l_name" type="text" class="form-control" placeholder="Enter last name">
+                                            <input name="l_name" type="text" value="{{ old('l_name') }}" class="form-control" placeholder="Enter last name">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input name="phone" type="text" class="form-control" placeholder="Phone">
+                                            <input name="phone" type="text" value="{{ old('phone') }}" class="form-control" placeholder="Phone">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input name="nic" type="text" class="form-control" placeholder="CNIC">
+                                            <input name="nic" type="text" value="{{ old('nic') }}" class="form-control" placeholder="CNIC">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input name="email" type="email" class="form-control" placeholder="Email">
+                                            <input name="email" type="email" value="{{ old('email') }}" class="form-control" placeholder="Email">
                                         </div>
                                     </div>
                                 </div>

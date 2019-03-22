@@ -111,13 +111,19 @@
                            <li>
                               <a href="{{ route('site.contact') }}">Contact</a>
                            </li>
-                           <li>
-                              <a href="javascript:void(0);">Login/Register</a>
-                              <ul class="sub-menu">
-                                 <li><a href="{{ route('customer.login') }}">Login</a></li>
-                                 <li><a href="{{ route('customer.register') }}">Register</a></li>
-                              </ul>
-                           </li>
+                           @if(auth()->guard('customer')->check())
+                              <li>
+                                 <a href="{{ route('customer.logout') }}">Logout</a>
+                              </li>
+                           @else
+                              <li>
+                                 <a href="javascript:void(0);">Login/Register</a>
+                                 <ul class="sub-menu">
+                                    <li><a href="{{ route('customer.login') }}">Login</a></li>
+                                    <li><a href="{{ route('customer.register') }}">Register</a></li>
+                                 </ul>
+                              </li>
+                           @endif
                         </ul>
                      </div>
                   </div>

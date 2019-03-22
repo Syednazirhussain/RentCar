@@ -20,6 +20,10 @@ Route::get('/packages', ['as'	=> 'site.packages', 'uses'	=> 'SiteController@pack
 Route::get('/booking/{package_id}', ['as'	=> 'site.booking', 'uses'	=> 'SiteController@booking']);
 
 Route::get('/login', ['as'	=> 'customer.login', 'uses'	=> 'CustomerLoginController@login']);
+Route::post('/login', ['as'	=> 'customer.login_attempt', 'uses'	=> 'CustomerLoginController@login_attempt']);
+Route::get('/logout', ['as'	=> 'customer.logout', 'uses'	=> 'CustomerLoginController@logout']);
+
+
 Route::get('/register', ['as'	=> 'customer.register', 'uses'	=> 'CustomerLoginController@register']);
 Route::post('/register', ['as'	=> 'customer.register.attempt', 'uses'	=> 'CustomerLoginController@register_attempt']);
 

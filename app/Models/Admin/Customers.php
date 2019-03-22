@@ -3,6 +3,8 @@
 namespace App\Models\Admin;
 
 use Eloquent as Model;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
@@ -21,9 +23,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string nic_back_image
  * @property string password
  */
-class Customers extends Model
+class Customers extends Model implements AuthenticatableContract
 {
-    use SoftDeletes;
+    use Authenticatable, SoftDeletes;
 
     public $table = 'customers';
     

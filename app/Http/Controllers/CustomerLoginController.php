@@ -2,18 +2,55 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Customers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
+use App\Repositories\Admin\CustomersRepository;
+use Flash;
+use Session;
 
 class CustomerLoginController extends Controller
-{
-    public function login(Request $request) {
+{	
+	/** @var  CustomersRepository */
+    private $customersRepository;
 
-		$request->session()->put('booking_url', URL::previous());
+    public function __construct(CustomersRepository $customersRepo)
+    {
+		$this->middleware('customer.auth')->only('logout');
+        $this->customersRepository = $customersRepo;
+    }
+
+    public function login(Request $request) {
+    	if( strpos( URL::previous(), 'booking' ) !== false) {
+			$request->session()->put('booking_url', URL::previous());
+		}
     	return view('login');
-    	
+    }
+
+    public function login_attempt(Request $request) {
+    	$request->validate([
+    		'email'		=> 'required|email',
+    		'password'	=> 'required|min:6'
+    	],
+    	[
+    		'email.required'	=> 'Please provide your email',
+    		'password.required'	=> 'Please provide your password'
+    	]);
+
+    	if (Auth::guard('customer')->attempt(['email'	=> $request->input('email'), 'password'	=> $request->input('password')])) {
+    		Session::Flash('msg.success', 'Login succeded.');
+    	} else {
+    		Session::Flash('msg.error', 'Invalid credentials');
+    	}
+
+    	return redirect()->back();
+    }
+
+    public function logout() {
+    	Auth::guard('customer')->logout();
+    	return redirect()->route('site.index');
     }
 
     public function register() {
@@ -21,8 +58,6 @@ class CustomerLoginController extends Controller
     }
 
     public function register_attempt(Request $request) {
-
-    	dd($request->all());
 
     	$request->validate([
 	        'f_name'            => 'required|min:3|max:45|String',
@@ -53,10 +88,21 @@ class CustomerLoginController extends Controller
 			$responseData = json_decode($verifyResponse);
 			if ($responseData->success) {
 
-				Customers::updateOrCreate(
-				    ['departure' => 'Oakland', 'destination' => 'San Diego'],
-				    ['price' => $request->input('email')]
+				$input = [
+					'f_name'	=> $request->input('f_name'),
+					'l_name'	=> $request->input('l_name'),
+					'phone'		=> $request->input('phone'),
+					'nic'		=> $request->input('nic'),
+					'password'	=> bcrypt($request->input('password')),
+				];
+
+				$customer = Customers::updateOrCreate(
+				    ['email' => $request->input('email')],
+				    $input
 				);
+
+		        Auth::guard('customer')->login($customer);
+		        return redirect()->route('site.index');
 
 
 			} else {

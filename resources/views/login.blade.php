@@ -3,9 +3,9 @@
 
 @section('content')
 
-<!-- Content -->
+
 <div class="page-content">
-     <!-- inner page banner -->
+
      <div class="dlab-bnr-inr overlay-black-middle" style="background-image:url('{{ asset('/theme/assets/images/banner/bnr3.jpg') }}');">
          <div class="container">
              <div class="dlab-bnr-inr-entry">
@@ -13,8 +13,7 @@
          </div>
          </div>
      </div>
-     <!-- inner page banner END -->
-     <!-- Breadcrumb row -->
+
      <div class="breadcrumb-row">
          <div class="container">
              <ul class="list-inline">
@@ -23,25 +22,26 @@
              </ul>
          </div>
      </div>
-     <!-- Breadcrumb row END -->
+
      <div class="section-full p-t50 bg-white content-inner">
          <div class="container">
             
-            <!-- Side bar END -->
             <div class="col-xs-12 col-sm-4 col-md-4 col-sm-offset-4 col-md-offset-4">
+                @include('include.messages')
                <div class="car-dl-info m-b30">
                   <div class="price">
                      <h2 class="m-t0 m-b5">Login</h2>
                   </div>         
-                  <form>
+                  <form id="login" action="{{ route('customer.login_attempt') }}" method="POST">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                      <div class="form-group">
-                        <input name="email" class="form-control" placeholder="Email">
+                        <input type="text" name="email" value="{{ old('email') }}" class="form-control" placeholder="Email">
                      </div>   
                      <div class="form-group">
-                        <input name="password" class="form-control" placeholder="Password">
+                        <input type="password" name="password" value="{{ old('password') }}" class="form-control" placeholder="Password">
                      </div>
                      <div class="clearfix">
-                        <button type="submit" class="btn-primary site-button btn-block">Login</button>
+                        <button type="submit" id="btn_login" class="btn-primary site-button btn-block">Login</button>
                      </div>
                   </form>
                </div>
@@ -51,6 +51,17 @@
          </div>
      </div>
 </div>
-<!-- Content END-->
+
+@endsection
+
+@section('js')
+
+<script type="text/javascript">
+
+    $('#login').submit(function() {
+        $('#btn_login').prop('disabled', true);
+    });
+    
+</script>
 
 @endsection
