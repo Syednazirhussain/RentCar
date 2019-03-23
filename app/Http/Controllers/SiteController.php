@@ -127,6 +127,9 @@ class SiteController extends Controller
     }
 
     public function booking($package_id) {
+
+        $package = Packages::findOrFail($package_id);
+
         $generalInformation     = GeneralInformation::where('code', 'site-setting')->first();
         $package                = Packages::where('id', $package_id)
                                     ->with([
@@ -183,7 +186,7 @@ class SiteController extends Controller
 
             $data = [
                 'name'              => $name,
-                'package'           => Packages::find($package_id)->name,
+                'package'           => Packages::findOrFail($package_id)->name,
                 'email'             => Auth::guard('customer')->user()->email,
                 'phone'             => Auth::guard('customer')->user()->phone,
                 'pickup_time'       => $booking->pickup_time,
