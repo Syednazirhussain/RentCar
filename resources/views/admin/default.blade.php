@@ -153,14 +153,14 @@
           </a>
         </li>
 
-        <li>
+{{--         <li>
           <a href="{{ route('admin.offers.index') }}">
             <i class="ionicons ion-speakerphone"></i> <span>Offers</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">@if(isset($offers)){{ $offers->count() }}@endif</small>
             </span>
           </a>
-        </li>
+        </li> --}}
 
         <li>
           <a href="{{ route('admin.bookings.index') }}">

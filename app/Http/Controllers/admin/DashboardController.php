@@ -5,7 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Customers;
 use App\Models\Admin\GeneralInformation;
-use App\Models\Admin\Offers;
+use App\Models\Admin\Booking;
 use App\Models\Admin\Packages;
 use App\Models\Admin\VehicleType;
 use App\Models\Admin\Vehicles;
@@ -22,9 +22,9 @@ class DashboardController extends Controller
     	$vehicles = Vehicles::all();
     	$packages = Packages::all();
     	$customers = Customers::all();
-    	$offers = Offers::all();
+        $bookings = Booking::all();
 
-    	return view('admin.index', compact('vehicles', 'packages', 'offers', 'vehicleType', 'vendors', 'generalInformation', 'customers'));
+    	return view('admin.index', compact('vehicles', 'packages', 'vehicleType', 'vendors', 'generalInformation', 'customers', 'bookings'));
     }
 
 }

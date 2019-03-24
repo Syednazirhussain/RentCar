@@ -65,13 +65,13 @@
       <!-- small box -->
       <div class="small-box bg-red">
         <div class="inner">
-          <h3>{{ $offers->count() }}</h3>
-          <p>Offers</p>
+          <h3>{{ $bookings->count() }}</h3>
+          <p>Booking</p>
         </div>
         <div class="icon">
-          <i class="ionicons ion-speakerphone"></i>
+          <i class="fa fa-handshake-o"></i>
         </div>
-        <a href="{{ route('admin.offers.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="{{ route('admin.bookings.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->

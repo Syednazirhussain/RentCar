@@ -7,6 +7,12 @@
     height: 100px
   }
 
+  .img-service {
+    height: 300px;
+    width: 500px
+  }
+
+
 </style>
 
 @endsection
@@ -49,9 +55,9 @@
             <div class="col-md-6 col-sm-6">
               <div class="img-responsive">              
                 @if($service->image != null)
-                  <img class="img-thumbnail"  src="{{ asset('storage/services/'.$service->image) }}" alt="{{ $service->title }}">
+                  <img class="img-thumbnail img-service"  src="{{ asset('storage/services/'.$service->image) }}" alt="{{ $service->title }}">
                 @else
-                  <img class="img-thumbnail"  src="{{ asset('/theme/assets/images/car.png') }}" alt="{{ $service->title }}">
+                  <img class="img-thumbnail img-service"  src="{{ asset('/theme/assets/images/car.png') }}" alt="{{ $service->title }}">
                 @endif
               </div>
             </div>
@@ -77,16 +83,16 @@
             <div class="col-md-6 col-sm-6">
               <div class="img-responsive">              
                 @if($service->image != null)
-                  <img class="img-thumbnail" src="{{ asset('storage/services/'.$service->image) }}" alt="{{ $service->title }}">
+                  <img class="img-thumbnail img-service" src="{{ asset('storage/services/'.$service->image) }}" alt="{{ $service->title }}">
                 @else
-                  <img class="img-thumbnail" src="{{ asset('/theme/assets/images/car.png') }}" alt="{{ $service->title }}">
+                  <img class="img-thumbnail img-service" src="{{ asset('/theme/assets/images/car.png') }}" alt="{{ $service->title }}">
                 @endif
               </div>
             </div>
           </div>
         @endif
 
-        {{ $flag++ }}
+        @php $flag++; @endphp
       @endforeach
 
     @endif
