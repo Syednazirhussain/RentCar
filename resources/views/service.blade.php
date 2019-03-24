@@ -3,9 +3,10 @@
 @section('css')
 
 <style>
-    .page-content > .overlay-black-middle {
-        background-image: '{{ asset('/theme/assets/images/banner/bnr3.jpg') }}'
-    }
+  .dzseth {
+    height: 100px
+  }
+
 </style>
 
 @endsection
@@ -46,11 +47,13 @@
         @if( $flag != 0 && ( $flag%2 != 0) )
           <div class="row dzseth m-b50">
             <div class="col-md-6 col-sm-6">
-              @if($service->image != null)
-                <img src="{{ asset('storage/services/'.$service->image) }}" alt="{{ $service->title }}">
-              @else
-                <img src="{{ asset('/theme/assets/images/car.png') }}" alt="{{ $service->title }}">
-              @endif
+              <div class="img-responsive">              
+                @if($service->image != null)
+                  <img class="img-thumbnail"  src="{{ asset('storage/services/'.$service->image) }}" alt="{{ $service->title }}">
+                @else
+                  <img class="img-thumbnail"  src="{{ asset('/theme/assets/images/car.png') }}" alt="{{ $service->title }}">
+                @endif
+              </div>
             </div>
             <div class="col-md-6 col-sm-6 dis-tbl">
               <div class="dis-tbl-cell">
@@ -72,11 +75,13 @@
               </div>
             </div>
             <div class="col-md-6 col-sm-6">
-              @if($service->image != null)
-                <img src="{{ asset('storage/services/'.$service->image) }}" alt="{{ $service->title }}">
-              @else
-                <img src="{{ asset('/theme/assets/images/car.png') }}" alt="{{ $service->title }}">
-              @endif
+              <div class="img-responsive">              
+                @if($service->image != null)
+                  <img class="img-thumbnail" src="{{ asset('storage/services/'.$service->image) }}" alt="{{ $service->title }}">
+                @else
+                  <img class="img-thumbnail" src="{{ asset('/theme/assets/images/car.png') }}" alt="{{ $service->title }}">
+                @endif
+              </div>
             </div>
           </div>
         @endif
