@@ -35,92 +35,7 @@
    <div class="section-full content-inner bg-white">
       <div class="container">
          <div class="row">
-            <!-- Side bar start -->
-            <div class="col-sm-4 col-md-4 col-lg-3">
-               <aside  class="side-bar">
-                  <div class="widget recent-posts-entry">
-                     <h4 class="widget-title">Advanced Search</h4>
-                     <div class="dlab-accordion advanced-search toggle" id="accordion1">
-                        <div class="panel">
-                           <div class="acod-head">
-                              <h5 class="acod-title"> 
-                                 <a data-toggle="collapse" href="#city" class="collapsed">
-                                 Vendors
-                                 </a> 
-                              </h5>
-                           </div>
-                           <div id="city" class="acod-body collapse in">
-                              <div class="acod-content">
-                                 <div class="input-group">
-                                    <select class="form-control">
-                                       <option>Select vendor</option>
-                                       @if(isset($vendors))
-                                          @foreach($vendors as $vendor)
-                                             <option value="{{ $vendor->id }}">{{ $vendor->name }}</option>
-                                          @endforeach
-                                       @endif
-                                    </select>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="panel">
-                           <div class="acod-head">
-                              <h5 class="acod-title"> 
-                                 <a data-toggle="collapse" href="#type" class="collapsed">
-                                 Vehicle Type
-                                 </a> 
-                              </h5>
-                           </div>
-                           <div id="type" class="acod-body collapse in">
-                              <div class="acod-content">
-                                 <div class="input-group">
-                                    <select class="form-control">
-                                       <option>Select vehicle type</option>
-                                       @if(isset($vehicleTypes))
-                                          @foreach($vehicleTypes as $vehicleType)
-                                             <option value="{{ $vehicleType->id }}">{{ $vehicleType->name }}</option>
-                                          @endforeach
-                                       @endif
-                                    </select>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="panel">
-                           <div class="acod-head">
-                              <h5 class="acod-title">
-                                 <a data-toggle="collapse" href="#price-range">
-                                 Price Range
-                                 </a> 
-                              </h5>
-                           </div>
-                           <div id="price-range" class="acod-body collapse in">
-                              <div class="acod-content">
-                                 <div class="price-slide range-slider m-b30">
-                                    <div class="price">
-                                       <label for="amount">Price Range</label>
-                                       <input type="text" id="amount" class="amount" readonly="" value="$200 - $5000" />
-                                       <div id="slider-range"></div>
-                                    </div>
-                                 </div>
-                                 <div class="price-slide-2 range-slider">
-                                    <div class="price">
-                                       <label for="amount-2">Price Range</label>
-                                       <input type="text" id="amount-2" class="amount" readonly="" value="$200 - $5000" />
-                                       <div id="slider-range-2"></div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </aside>
-            </div>
-            <!-- Side bar END -->
-            <!-- left part start -->
-            <div class="col-sm-8 col-md-8 col-lg-9">
+            <div class="col-sm-12 col-md-12 col-lg-12">
                <div class="row">
                   <div class="p-lr15 clearfix ">
                      <div class="filter-bar clearfix m-b30 p-lr15">
@@ -188,7 +103,6 @@
 
                </div>
             </div>
-            <!-- left part END -->
          </div>
       </div>
    </div>

@@ -39,6 +39,7 @@ class Vehicles extends Model
         'vehicle_number',
         'vehicle_images',
         'model',
+        'price',
         'vehicle_type_id',
         'vendor_id'
     ];
@@ -54,6 +55,7 @@ class Vehicles extends Model
         'vehicle_number' => 'string',
         'vehicle_images' => 'string',
         'model' => 'integer',
+        'model' => 'double',
         'vehicle_type_id' => 'integer',
         'vendor_id' => 'integer'
     ];
@@ -67,6 +69,7 @@ class Vehicles extends Model
         'name'  => 'required|min:3',
         'vehicle_number'    => 'required|Regex:/^[A-Z]{3}[-][0-9]{3}$/i',
         'model'     => 'required|numeric',
+        'price'     => 'required|numeric',
         'vehicle_type_id'   => 'required|integer',
         'vendor_id'   => 'required|integer'  
     ];

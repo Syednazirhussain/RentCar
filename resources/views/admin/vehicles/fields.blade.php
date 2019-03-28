@@ -110,6 +110,16 @@
 </div>
 
 <div class="col-sm-12 col-md-12">
+    <div class="col-md-6">
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input type="text" name="price" class="form-control" placeholder="ex. 2000/day" value="@if(isset($vehicles)){{ $vehicles->price }}@else {{ old('price') }}@endif">
+        </div>
+    </div>
+
+</div>
+
+<div class="col-sm-12 col-md-12">
     <div class="col-md-12">
         <div class="form-group">
           <label for="">Gallery</label>

@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Console\\Commands\\CustomerBookings' => $baseDir . '/app/Console/Commands/CustomerBookings.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Admin\\AuthController' => $baseDir . '/app/Http/Controllers/admin/AuthController.php',
@@ -57,6 +58,7 @@ return array(
     'App\\Http\\Requests\\Admin\\UpdateVehicleTypeRequest' => $baseDir . '/app/Http/Requests/Admin/UpdateVehicleTypeRequest.php',
     'App\\Http\\Requests\\Admin\\UpdateVehiclesRequest' => $baseDir . '/app/Http/Requests/Admin/UpdateVehiclesRequest.php',
     'App\\Http\\Requests\\Admin\\UpdateVendorRequest' => $baseDir . '/app/Http/Requests/Admin/UpdateVendorRequest.php',
+    'App\\Mail\\TodayBooking' => $baseDir . '/app/Mail/TodayBooking.php',
     'App\\Models\\Admin\\Booking' => $baseDir . '/app/Models/Admin/Booking.php',
     'App\\Models\\Admin\\Customers' => $baseDir . '/app/Models/Admin/Customers.php',
     'App\\Models\\Admin\\GeneralInformation' => $baseDir . '/app/Models/Admin/GeneralInformation.php',
@@ -86,6 +88,7 @@ return array(
     'App\\Repositories\\Admin\\VehicleTypeRepository' => $baseDir . '/app/Repositories/Admin/VehicleTypeRepository.php',
     'App\\Repositories\\Admin\\VehiclesRepository' => $baseDir . '/app/Repositories/Admin/VehiclesRepository.php',
     'App\\Repositories\\Admin\\VendorRepository' => $baseDir . '/app/Repositories/Admin/VendorRepository.php',
+    'App\\Traits\\DefaultTrait' => $baseDir . '/app/Traits/DefaultTrait.php',
     'App\\User' => $baseDir . '/app/User.php',
     'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
     'AssertionError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',

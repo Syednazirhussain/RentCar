@@ -136,7 +136,7 @@ class SiteController extends Controller
 
         $package = Packages::findOrFail($package_id);
 
-        $generalInformation     = GeneralInformation::where('code', 'site-setting')->first();
+        $generalInformation     = $this->getDefaults();
         $package                = Packages::where('id', $package_id)
                                     ->with([
                                         'vehicle',
@@ -219,20 +219,44 @@ class SiteController extends Controller
         $vehicle_type   = $request->input('vehicle_type');
         $model          = $request->input('model');
 
-        $allVehicles = Vehicles::all();
+        $allVehicles = Vehicles::paginate(4);
 
         $vendors = Vendor::all();
         $generalInformation = $this->getDefaults();
+
         $vehicles = Vehicles::where('id', $vehicle)
                             ->orWhere('vehicle_type_id', $vehicle_type)
                             ->orWhere('model', $model)
-                            ->get();
+                            ->paginate(4);
 
-        //dd($vehicles->toArray());
 
         return view('search', compact('allVehicles', 'vehicles', 'generalInformation', 'vendors', 'vehicleTypes'));
-
     }
+
+    public function car_details($vehicle_id) {
+        $generalInformation = $this->getDefaults();
+
+        $vehicle = Vehicles::where('id', $vehicle_id)
+                            ->with([
+                                'vendor',
+                                'vehicleType',
+                                'vehicleHasSpecifications.vehicleSpecification'
+                            ])->first();
+
+        $data = [
+            'vehicle'              => $vehicle,
+            'generalInformation'    => $generalInformation,
+        ];
+
+        if (!is_null($vehicle->vehicle_images)) {
+            $vehicle_images = explode("|", $vehicle->vehicle_images);
+        }
+        
+        $data['images']     = $vehicle_images;
+
+        return view('vehicle_booking', $data);
+    }
+
 
     
 }

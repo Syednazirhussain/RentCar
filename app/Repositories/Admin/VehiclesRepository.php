@@ -45,6 +45,7 @@ class VehiclesRepository extends BaseRepository
         $input['name']                  = $request->input('name');
         $input['vehicle_number']        = $request->input('vehicle_number');
         $input['model']                 = $request->input('model');
+        $input['price']                 = $request->input('price');
         $input['vendor_id']             = $request->input('vendor_id');
         $input['vehicle_type_id']       = $request->input('vehicle_type_id');
         $this->vehicle_specifications   = $request->input('specifications');
@@ -99,6 +100,7 @@ class VehiclesRepository extends BaseRepository
         $input['name']                  = $request->input('name');
         $input['vehicle_number']        = $request->input('vehicle_number');
         $input['model']                 = $request->input('model');
+        $input['price']                 = $request->input('price');
         $input['vendor_id']             = $request->input('vendor_id');
         $input['vehicle_type_id']       = $request->input('vehicle_type_id');
         if($request->hasFile('docFiles'))

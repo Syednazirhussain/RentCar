@@ -411,6 +411,7 @@ class ComposerStaticInitb075ce87e7f0dc70367f86de40462e1b
     );
 
     public static $classMap = array (
+        'App\\Console\\Commands\\CustomerBookings' => __DIR__ . '/../..' . '/app/Console/Commands/CustomerBookings.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Admin\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/admin/AuthController.php',
@@ -462,6 +463,7 @@ class ComposerStaticInitb075ce87e7f0dc70367f86de40462e1b
         'App\\Http\\Requests\\Admin\\UpdateVehicleTypeRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/UpdateVehicleTypeRequest.php',
         'App\\Http\\Requests\\Admin\\UpdateVehiclesRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/UpdateVehiclesRequest.php',
         'App\\Http\\Requests\\Admin\\UpdateVendorRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/UpdateVendorRequest.php',
+        'App\\Mail\\TodayBooking' => __DIR__ . '/../..' . '/app/Mail/TodayBooking.php',
         'App\\Models\\Admin\\Booking' => __DIR__ . '/../..' . '/app/Models/Admin/Booking.php',
         'App\\Models\\Admin\\Customers' => __DIR__ . '/../..' . '/app/Models/Admin/Customers.php',
         'App\\Models\\Admin\\GeneralInformation' => __DIR__ . '/../..' . '/app/Models/Admin/GeneralInformation.php',
@@ -491,6 +493,7 @@ class ComposerStaticInitb075ce87e7f0dc70367f86de40462e1b
         'App\\Repositories\\Admin\\VehicleTypeRepository' => __DIR__ . '/../..' . '/app/Repositories/Admin/VehicleTypeRepository.php',
         'App\\Repositories\\Admin\\VehiclesRepository' => __DIR__ . '/../..' . '/app/Repositories/Admin/VehiclesRepository.php',
         'App\\Repositories\\Admin\\VendorRepository' => __DIR__ . '/../..' . '/app/Repositories/Admin/VendorRepository.php',
+        'App\\Traits\\DefaultTrait' => __DIR__ . '/../..' . '/app/Traits/DefaultTrait.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',

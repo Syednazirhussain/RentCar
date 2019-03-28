@@ -21,7 +21,8 @@ Route::get('/booking/{package_id}', ['as'	=> 'site.booking', 'uses'	=> 'SiteCont
 Route::post('/booking', ['as'	=> 'customer.booking', 'uses'	=> 'SiteController@booking_attempt']);
 
 
-Route::post('/cars/search', ['as'	=> 'car.search', 'uses'	=> 'SiteController@cars_search']);
+Route::get('/cars/search', ['as'	=> 'car.search', 'uses'	=> 'SiteController@cars_search']);
+Route::get('/car/{vehicle_id}', ['as'	=> 'car.details.show', 'uses'	=> 'SiteController@car_details']);
 
 
 Route::get('/login', ['as'	=> 'customer.login', 'uses'	=> 'CustomerLoginController@login']);

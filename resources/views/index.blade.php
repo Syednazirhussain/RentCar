@@ -79,8 +79,8 @@
         <div class="form-slide">
         <div class="container">
 
-          <form class="search-car" action="{{ route('car.search') }}" method="POST">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+          <form class="search-car" action="{{ route('car.search') }}" method="GET">
+{{--             <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
             <div class="form-head">
               <h2>Search the right car</h2>
             </div>
