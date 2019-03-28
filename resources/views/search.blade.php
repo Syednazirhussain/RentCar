@@ -1,5 +1,14 @@
 @extends('default')
 
+@section('css')
+
+<style type="text/css">
+  .image {
+    height: 356px
+  }
+</style>
+
+@endsection
 
 @section('content')
 
@@ -14,7 +23,6 @@
                   <div class="tab-content">
                      <div class="tab-pane clearfix active in" >
                         <form action="{{ route('car.search') }}" method="GET">
-{{--                           <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
                            <div class="row">
                               <div class="col-md-3 col-sm-3">
                                  <div class="input-group">
@@ -61,8 +69,6 @@
          </div>
       </div>
    </div>
-   <!-- inner page banner END -->
-   <!-- Breadcrumb row -->
    <div class="breadcrumb-row">
       <div class="container">
          <ul class="list-inline">
@@ -71,8 +77,6 @@
          </ul>
       </div>
    </div>
-   <!-- Breadcrumb row END -->
-   <!-- Breadcrumb row END -->
    <div class="section-full content-inner bg-white">
       <div class="container">
          <div class="row">
@@ -95,16 +99,18 @@
 
                           <div class="post card-container col-md-6 col-sm-6 col-xs-12">
                               <div class="dlab-feed-list m-b30">
-                                    
-                                @if(!is_null($image))
-                                  <a href="{{ route('car.details.show', [$vehicle->id]) }}">
-                                    <img src="{{ asset('storage/vehicles/'.$image) }}">
-                                  </a>
-                                @else
-                                  <a href="{{ route('car.details.show', [$vehicle->id]) }}">
-                                    <img src="{{ asset('/theme/assets/images/our-work/work/pic1.jpg') }}">
-                                  </a>
-                                @endif
+                                
+                                <div class="img-responsive">                                
+                                  @if(!is_null($image))
+                                    <a href="{{ route('car.details.show', [$vehicle->id]) }}">
+                                      <img class="image" src="{{ asset('storage/vehicles/'.$image) }}">
+                                    </a>
+                                  @else
+                                    <a href="{{ route('car.details.show', [$vehicle->id]) }}">
+                                      <img class="image" src="{{ asset('/theme/assets/images/our-work/work/pic1.jpg') }}">
+                                    </a>
+                                  @endif
+                                </div>
 
                                  <div class="dlab-info">
                                     <h4 class="dlab-title">
@@ -142,16 +148,18 @@
 
                           <div class="post card-container col-md-6 col-sm-6 col-xs-12">
                               <div class="dlab-feed-list m-b30">
-                                    
-                                @if(!is_null($image))
-                                  <a href="{{ route('car.details.show', [$vehicle->id]) }}">
-                                    <img src="{{ asset('storage/vehicles/'.$image) }}">
-                                  </a>
-                                @else
-                                  <a href="{{ route('car.details.show', [$vehicle->id]) }}">
-                                    <img src="{{ asset('/theme/assets/images/our-work/work/pic1.jpg') }}">
-                                  </a>
-                                @endif
+                                
+                                <div class="img-responsive">                                
+                                  @if(!is_null($image))
+                                    <a href="{{ route('car.details.show', [$vehicle->id]) }}">
+                                      <img class="image" src="{{ asset('storage/vehicles/'.$image) }}">
+                                    </a>
+                                  @else
+                                    <a href="{{ route('car.details.show', [$vehicle->id]) }}">
+                                      <img class="image" src="{{ asset('/theme/assets/images/our-work/work/pic1.jpg') }}">
+                                    </a>
+                                  @endif
+                                </div> 
 
                                  <div class="dlab-info">
                                     <h4 class="dlab-title">
