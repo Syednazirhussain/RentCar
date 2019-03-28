@@ -11,6 +11,7 @@ use App\Models\Admin\VehicleSpecification;
 use App\Models\Admin\VehicleType;
 use App\Models\Admin\Vehicles;
 use App\Models\Admin\Vendor;
+use App\Traits\DefaultTrait;
 use Auth;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
@@ -19,6 +20,10 @@ use Session;
 
 class SiteController extends Controller
 {
+    use DefaultTrait;
+
+    protected $repository;
+
     public function __construct() {
         $this->middleware('customer.auth')->only('booking_attempt');
     }
@@ -26,12 +31,13 @@ class SiteController extends Controller
     public function index() {
     	
     	$vehicles = Vehicles::all();
+        $packages = Packages::all();
     	$vendors = Vendor::all();
-    	$packages = Packages::all();
     	$vehicleTypes = VehicleType::all();
-    	$generalInformation = GeneralInformation::where('code', 'site-setting')->first();
+    	$generalInformation = $this->getDefaults();
 
-    	return view('index', compact('generalInformation', 'vehicleTypes', 'vehicles'));
+
+    	return view('index', compact('generalInformation', 'vendors', 'vehicleTypes', 'vehicles'));
     }
 
     public function service() {
@@ -205,6 +211,27 @@ class SiteController extends Controller
         }
 
         return redirect()->back();
+    }
+
+    public function cars_search(Request $request) {
+
+        $vehicle        = $request->input('vehicle');
+        $vehicle_type   = $request->input('vehicle_type');
+        $model          = $request->input('model');
+
+        $allVehicles = Vehicles::all();
+
+        $vendors = Vendor::all();
+        $generalInformation = $this->getDefaults();
+        $vehicles = Vehicles::where('id', $vehicle)
+                            ->orWhere('vehicle_type_id', $vehicle_type)
+                            ->orWhere('model', $model)
+                            ->get();
+
+        //dd($vehicles->toArray());
+
+        return view('search', compact('allVehicles', 'vehicles', 'generalInformation', 'vendors', 'vehicleTypes'));
+
     }
 
     

@@ -16,7 +16,8 @@
  <div class="page-content">
     <!-- Slider -->
     <div class="main-slider style-two default-banner">
-       <div class="tp-banner-container">
+
+        <div class="tp-banner-container">
           <div class="tp-banner" >
              <div id="dz_rev_slider_4_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="news-gallery36" data-source="gallery" style="margin:0px auto;background-color:#ffffff;padding:0px;margin-top:0px;margin-bottom:0px;">
                 <!-- START REVOLUTION SLIDER 5.3.0.2 fullwidth mode -->
@@ -73,7 +74,57 @@
              </div>
              <!-- END REVOLUTION SLIDER -->
           </div>
-       </div>
+        </div>
+
+        <div class="form-slide">
+        <div class="container">
+
+          <form class="search-car" action="{{ route('car.search') }}" method="POST">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <div class="form-head">
+              <h2>Search the right car</h2>
+            </div>
+            <div class="form-find-area">
+              <div class="tab-content">
+                <div id="new-car"  class="tab-pane active clearfix">
+                  
+                  <div  id="budgetDiv" class="new_form_div">
+                    <div class="input-group">
+                      <select class="form-control" name="vehicle">
+                        <option>Select Vehicle</option>
+                        @if(isset($vehicles))
+                          @foreach($vehicles as $vehicle)
+                            <option value="{{ $vehicle->id }}">{{ $vehicle->name }}</option>
+                          @endforeach
+                        @endif
+                      </select>
+                    </div>
+                    <div class="input-group">
+                      <select class="form-control" name="vehicle_type">
+                        <option>All Vehicle Types</option>
+                        @if(isset($vendors))
+                          @foreach($vendors as $vendor)
+                            <option value="{{ $vendor->id }}">{{ $vendor->name }}</option>
+                          @endforeach
+                        @endif
+                      </select>
+                    </div>
+                    <div class="input-group">
+                      <select class="form-control" id="model" name="model">
+                        <option>Model</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <button class="site-button button-lg btn-block" type="submit">SEARCH</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+
+        </div>
+        </div>
 
     </div>
     <!-- Slider END -->
@@ -203,3 +254,25 @@
  </div>
 
 @endsection
+
+
+@section('js')
+
+<script type="text/javascript">
+    var year = (new Date()).getFullYear();
+    var current = year;
+    var numberOfYearBack = 10;
+    var backYear = current - numberOfYearBack;
+
+    for(var i = current ; i >= backYear ; i--) {
+        $('#model').append('<option value="' + (i) + '">' + (i) + '</option>');
+    }
+
+
+
+
+</script>
+
+@endsection
+
+
