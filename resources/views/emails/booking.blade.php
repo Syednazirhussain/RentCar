@@ -25,11 +25,11 @@
           </p>
           <p>
             <span style="width: 20%"><strong> Pickup Address: </strong></span>
-            <span style="width: 80%"> {{ $email }}</span>
+            <span style="width: 80%"> {{ $pickup_address }}</span>
           </p>
           <p>
             <span style="width: 20%"><strong> Dropoff Address: </strong></span>
-            <span style="width: 80%"> {{ $email }}</span>
+            <span style="width: 80%"> {{ $dropoff_address }}</span>
           </p>
 
         </div>
