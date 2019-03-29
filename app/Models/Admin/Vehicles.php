@@ -41,7 +41,8 @@ class Vehicles extends Model
         'model',
         'price',
         'vehicle_type_id',
-        'vendor_id'
+        'vendor_id',
+        'package_id'
     ];
 
     /**
@@ -57,7 +58,8 @@ class Vehicles extends Model
         'model' => 'integer',
         'model' => 'double',
         'vehicle_type_id' => 'integer',
-        'vendor_id' => 'integer'
+        'vendor_id' => 'integer',
+        'package_id' => 'integer'
     ];
 
     /**
@@ -88,6 +90,14 @@ class Vehicles extends Model
     public function vehicleType()
     {
         return $this->belongsTo(\App\Models\Admin\VehicleType::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function package()
+    {
+        return $this->belongsTo(\App\Models\Admin\Packages::class);
     }
 
     /**

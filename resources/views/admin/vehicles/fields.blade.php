@@ -27,7 +27,7 @@
   <div class="col-md-6">
       <div class="form-group">
           <label>Model</label>
-          <select class="form-control select2" id="model" name="model" style="width: 100%;">
+          <select class="form-control" id="model" name="model" style="width: 100%;">
           </select>
       </div>
   </div>
@@ -65,7 +65,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <label>Vendor</label>
-            <select class="form-control select2" name="vehicle_type_id" style="width: 100%;">
+            <select class="form-control" name="vehicle_type_id" id="vehicle_type_id" style="width: 100%;">
                 @if (isset($vehicleTypes))
                     @if (isset($vehicles))
                         @foreach($vehicleTypes as $vehicleType)
@@ -88,7 +88,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <label>Vehicle Type</label>
-            <select class="form-control select2" name="vendor_id" style="width: 100%;">
+            <select class="form-control" name="vendor_id" id="vendor_id" style="width: 100%;">
                 @if (isset($vendors))
                     @if (isset($vehicles))
                         @foreach($vendors as $vendor)
@@ -110,10 +110,34 @@
 </div>
 
 <div class="col-sm-12 col-md-12">
+    
     <div class="col-md-6">
         <div class="form-group">
           <label for="price">Price</label>
           <input type="text" name="price" class="form-control" placeholder="ex. 2000/day" value="@if(isset($vehicles)){{ $vehicles->price }}@else {{ old('price') }}@endif">
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="name">Assign Vehicle To Package</label>
+            <select name="package_id" id="package_id" class="form-control">
+                @if(isset($packages))
+                    @if(isset($vehicles))
+                        @foreach($packages as $package)
+                            @if($vehicles->package_id == $package->id)
+                                <option value="{{ $package->id }}" selected="selected">{{ $package->name }}</option>
+                            @else
+                                <option value="{{ $package->id }}">{{ $package->name }}</option>
+                            @endif
+                        @endforeach
+                    @else
+                        @foreach($packages as $packages)
+                            <option value="{{ $packages->id }}">{{ $packages->name }}</option>
+                        @endforeach
+                    @endif
+                @endif
+            </select>
         </div>
     </div>
 
@@ -149,10 +173,25 @@
     var numberOfYearBack = 10;
     var backYear = current - numberOfYearBack;
     
-    //Initialize Select2 Elements
-    $('.select2').select2();
 
-    $('#vehicle_specification').select2();    
+
+    $('#vehicle_specification').select2();
+
+    $('#package_id').select2({
+        placeholder: "Select a package"
+    });
+
+    $('#vendor_id').select2({
+        placeholder: "Select a vehicle type"
+    });    
+    
+    $('#vehicle_type_id').select2({
+        placeholder: "Select a vehicle type"
+    });
+
+    $('#model').select2({
+        placeholder: "Select a model"
+    });
 
     $('#vehicle_specification').on('select2:unselecting', function (e) {
         var jsObj = {

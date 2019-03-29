@@ -45,8 +45,8 @@ class PackagesController extends Controller
      */
     public function create()
     {
-        $vehicles = Vehicles::all();
-        return view('admin.packages.create', compact('vehicles'));
+        //$vehicles = Vehicles::all();
+        return view('admin.packages.create');
     }
 
     /**
@@ -104,9 +104,9 @@ class PackagesController extends Controller
             return redirect(route('admin.packages.index'));
         }
 
-        $vehicles = Vehicles::all();
+        // $vehicles = Vehicles::all();
 
-        return view('admin.packages.edit', compact('vehicles'))->with('packages', $packages);
+        return view('admin.packages.edit')->with('packages', $packages);
     }
 
     /**

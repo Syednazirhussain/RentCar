@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>Name</th>
-            <th>Vehicle</th>
+{{--             <th>Vehicle</th> --}}
             <th>Package Overtime Rate</th>
             <th>Package Rate</th>
             <th>Package Extra Fuel</th>
@@ -13,7 +13,7 @@
     @foreach($packages as $packages)
         <tr>
             <td>{!! $packages->name !!}</td>
-            <td>{!! $packages->vehicle->name !!}</td>
+            {{-- <td>{!! $packages->vehicle->name !!}</td> --}}
             <td>{!! $packages->package_overtime_rate !!}</td>
             <td>{!! $packages->package_rate !!}</td>
             <td>{!! $packages->package_extra_fuel !!}</td>

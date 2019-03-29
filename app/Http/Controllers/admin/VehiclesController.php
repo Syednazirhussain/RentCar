@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CreateVehiclesRequest;
 use App\Http\Requests\Admin\UpdateVehiclesRequest;
-use App\Repositories\Admin\VehiclesRepository;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Flash;
-use Prettus\Repository\Criteria\RequestCriteria;
+use App\Models\Admin\Packages;
+use App\Models\Admin\VehicleHasSpecification;
+use App\Models\Admin\VehicleSpecification;
+use App\Models\Admin\VehicleType;
 use App\Models\Admin\Vehicles;
 use App\Models\Admin\Vendor;
-use App\Models\Admin\VehicleType;
-use App\Models\Admin\VehicleSpecification;
-use App\Models\Admin\VehicleHasSpecification;
+use App\Repositories\Admin\VehiclesRepository;
+use Flash;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use Session;
 
@@ -55,18 +56,18 @@ class VehiclesController extends Controller
      */
     public function create()
     {
-        $vehicleTypes = VehicleType::all();   
         $vendors = Vendor::all();
+        $packages = Packages::all();
+        $vehicleTypes = VehicleType::all();   
         $vehicleSpecification = VehicleSpecification::all();
 
 
         $data = [
-            'vendors'               => $vendors,
-            'vehicleTypes'          => $vehicleTypes,
+            'vendors'                => $vendors,
+            'packages'               => $packages,
+            'vehicleTypes'           => $vehicleTypes,
             'vehicleSpecifications'  => $vehicleSpecification
         ];
-
-        // dd($data);
 
         return view('admin.vehicles.create', $data);
     }
@@ -153,8 +154,9 @@ class VehiclesController extends Controller
             return redirect(route('admin.vehicles.index'));
         }
 
-        $vehicleTypes = VehicleType::all();   
         $vendors = Vendor::all();
+        $packages = Packages::all();
+        $vehicleTypes = VehicleType::all();   
         $vehicleSpecification = VehicleSpecification::all();
         $vehicleHasSpecifications = VehicleHasSpecification::where('vehicle_id', $id)->get();
 
@@ -180,12 +182,13 @@ class VehiclesController extends Controller
         }
 
         $data = [
-            'vehicles'                  => $vehicles,
             'vendors'                   => $vendors,
+            'vehicles'                  => $vehicles,
+            'packages'                  => $packages,
+            'imagesFiles'               => $images,
             'vehicleTypes'              => $vehicleTypes,
             'vehicleSpecifications'     => $vehicleSpecification,
-            'vehicleHasSpecifications'  => $vehicleHasSpecifications,
-            'imagesFiles'               => $images
+            'vehicleHasSpecifications'  => $vehicleHasSpecifications
         ];
 
         return view('admin.vehicles.edit', $data);

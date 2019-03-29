@@ -61,7 +61,7 @@
     </div>
 </div>
 
-<div class="col-sm-12 col-md-12">
+{{-- <div class="col-sm-12 col-md-12">
     <div class="col-md-6">
         <div class="form-group">
             <label for="name">Select Vehicle</label>
@@ -84,7 +84,7 @@
             </select>
         </div>
     </div>
-</div>
+</div> --}}
 
 
 
