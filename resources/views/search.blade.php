@@ -85,9 +85,7 @@
                <div class="row">
                   <div id="masonry" class="dlab-blog-grid-3">
                     @if(isset($vehicles))
-                      @if(count($vehicles) > 0)
-                        @foreach($vehicles as $vehicle)
-
+                        @forelse($vehicles as $vehicle)
                           @php
                             $image_arr = explode("|", $vehicle->vehicle_images);
                             $image = null;
@@ -96,7 +94,6 @@
                               $image = $image_arr[$count];
                             }
                           @endphp
-
                           <div class="post card-container col-md-6 col-sm-6 col-xs-12">
                               <div class="dlab-feed-list m-b30">
                                 
@@ -131,59 +128,10 @@
                                  </div>
                               </div>
                           </div>
-                        @endforeach
-
+                        @empty
+                          <h2 class="text-white">No Record's found</h2>
+                        @endforelse
                         {{ $vehicles->links('vendor.pagination.default') }}
-                      @else
-                        @foreach($allVehicles as $vehicle)
-
-                          @php
-                            $image_arr = explode("|", $vehicle->vehicle_images);
-                            $image = null;
-                            if (count($image_arr) > 0) {
-                              $count = count($image_arr) - 1;
-                              $image = $image_arr[$count];
-                            }
-                          @endphp
-
-                          <div class="post card-container col-md-6 col-sm-6 col-xs-12">
-                              <div class="dlab-feed-list m-b30">
-                                
-                                <div class="img-responsive">                                
-                                  @if(!is_null($image))
-                                    <a href="{{ route('car.details.show', [$vehicle->id]) }}">
-                                      <img class="image" src="{{ asset('storage/vehicles/'.$image) }}">
-                                    </a>
-                                  @else
-                                    <a href="{{ route('car.details.show', [$vehicle->id]) }}">
-                                      <img class="image" src="{{ asset('/theme/assets/images/our-work/work/pic1.jpg') }}">
-                                    </a>
-                                  @endif
-                                </div> 
-
-                                 <div class="dlab-info">
-                                    <h4 class="dlab-title">
-                                      <a href="javascript:void(0);">{{ $vehicle->name }}</a>
-                                    </h4>
-                                    <div class="dlab-separator bg-black"></div>
-                                    <p class="dlab-price">
-                                      <span class="text-primary">{{ $vehicle->price }} PKR</span>
-                                    </p>
-                                 </div>
-
-                                 <div class="icon-box-btn text-center">
-                                    <ul class="clearfix">
-                                       <li>{{ $vehicle->vehicleType->name }}</li>
-                                       <li>{{ $vehicle->model }}</li>
-                                       <li>{{ $vehicle->vendor->name }}</li>
-                                    </ul>
-                                 </div>
-                              </div>
-                          </div>
-                        @endforeach
-
-                        {{ $allVehicles->links('vendor.pagination.default') }}
-                      @endif
                     @endif
                   </div>
                </div>

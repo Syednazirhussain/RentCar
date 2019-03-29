@@ -219,18 +219,43 @@ class SiteController extends Controller
         $vehicle_type   = $request->input('vehicle_type');
         $model          = $request->input('model');
 
-        $allVehicles = Vehicles::paginate(4);
+        //dd($vehicle." ".$vehicle_type." ".$model);
+
+        if ($vehicle == 0 && $vehicle_type == 0 && $model == 0) {
+            $vehicles = Vehicles::paginate(4);
+        } else if ($vehicle == 0 && $vehicle_type == 0 && $model != 0) {
+            $vehicles = Vehicles::where('model', $model)
+                                ->paginate(4);
+        } else if ($vehicle == 0 && $vehicle_type != 0 && $model == 0) {
+            $vehicles = Vehicles::where('vehicle_type_id', $vehicle_type)
+                                ->paginate(4);
+        } else if ($vehicle == 0 && $vehicle_type != 0 && $model != 0) {
+            $vehicles = Vehicles::where('vehicle_type_id', $vehicle_type)
+                                ->where('model', $model)
+                                ->paginate(4);
+        } else if ($vehicle != 0 && $vehicle_type == 0 && $model == 0) {
+            $vehicles = Vehicles::where('id', $vehicle)
+                                ->paginate(4);
+        } else if ($vehicle != 0 && $vehicle_type == 0 && $model != 0) {
+            $vehicles = Vehicles::where('id', $vehicle)
+                                ->where('model', $model)
+                                ->paginate(4);
+        } else if ($vehicle != 0 && $vehicle_type != 0 && $model == 0) {
+            $vehicles = Vehicles::where('id', $vehicle)
+                                ->where('vehicle_type_id', $vehicle_type)
+                                ->paginate(4);
+        } else if ($vehicle != 0 && $vehicle_type != 0 && $model != 0) {
+            $vehicles = Vehicles::where('id', $vehicle)
+                                ->where('model', $model)
+                                ->where('vehicle_type_id', $vehicle_type)
+                                ->paginate(4);
+        }
 
         $vendors = Vendor::all();
+        $allVehicles = Vehicles::all(); 
         $generalInformation = $this->getDefaults();
 
-        $vehicles = Vehicles::where('id', $vehicle)
-                            ->orWhere('vehicle_type_id', $vehicle_type)
-                            ->orWhere('model', $model)
-                            ->paginate(4);
-
-
-        return view('search', compact('allVehicles', 'vehicles', 'generalInformation', 'vendors', 'vehicleTypes'));
+        return view('search', compact('allVehicles', 'vehicles', 'generalInformation', 'vendors'));
     }
 
     public function car_details($vehicle_id) {

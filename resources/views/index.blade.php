@@ -80,7 +80,6 @@
         <div class="container">
 
           <form class="search-car" action="{{ route('car.search') }}" method="GET">
-{{--             <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
             <div class="form-head">
               <h2>Search the right car</h2>
             </div>
@@ -91,7 +90,7 @@
                   <div  id="budgetDiv" class="new_form_div">
                     <div class="input-group">
                       <select class="form-control" name="vehicle">
-                        <option>Select Vehicle</option>
+                        <option value="0">Select Vehicle</option>
                         @if(isset($vehicles))
                           @foreach($vehicles as $vehicle)
                             <option value="{{ $vehicle->id }}">{{ $vehicle->name }}</option>
@@ -101,7 +100,7 @@
                     </div>
                     <div class="input-group">
                       <select class="form-control" name="vehicle_type">
-                        <option>All Vehicle Types</option>
+                        <option value="0">All Vehicle Types</option>
                         @if(isset($vendors))
                           @foreach($vendors as $vendor)
                             <option value="{{ $vendor->id }}">{{ $vendor->name }}</option>
@@ -111,7 +110,7 @@
                     </div>
                     <div class="input-group">
                       <select class="form-control" id="model" name="model">
-                        <option>Model</option>
+                        <option value="0">Model</option>
                       </select>
                     </div>
                   </div>
