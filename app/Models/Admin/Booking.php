@@ -38,6 +38,7 @@ class Booking extends Model
     public $fillable = [
         'customer_id',
         'package_id',
+        'vehicle_id',
         'booking_date',
         'pickup_time',
         'dropoff_time',
@@ -54,6 +55,7 @@ class Booking extends Model
         'id' => 'integer',
         'customer_id' => 'integer',
         'package_id' => 'integer',
+        'vehicle_id' => 'integer',
         'booking_date' => 'date',
         'pickup_address' => 'string',
         'dropoff_address' => 'string'
@@ -66,7 +68,7 @@ class Booking extends Model
      */
     public static $rules = [
         'customer_id' => 'required',
-        'package_id' => 'required',
+        'vehicle_id' => 'required',
         'booking_date' => 'required|date',
         'pickup_time'   => 'required|date_format:h:i A',
         'dropoff_time'  => 'required|date_format:h:i A',
@@ -80,6 +82,14 @@ class Booking extends Model
     public function package()
     {
         return $this->belongsTo(\App\Models\Admin\Packages::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function vehicle()
+    {
+        return $this->belongsTo(\App\Models\Admin\Vehicles::class);
     }
 
     /**

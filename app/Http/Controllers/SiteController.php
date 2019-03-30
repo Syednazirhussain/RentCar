@@ -30,21 +30,21 @@ class SiteController extends Controller
 
     public function index() {
     	
-    	$vehicles = Vehicles::all();
-        $packages = Packages::all();
     	$vendors = Vendor::all();
+        $vehicles = Vehicles::all();
+        $packages = Packages::all();
     	$vehicleTypes = VehicleType::all();
     	$generalInformation = $this->getDefaults();
 
-
-    	return view('index', compact('generalInformation', 'vendors', 'vehicleTypes', 'vehicles'));
+    	return view('index', compact('generalInformation', 'packages', 'vendors', 'vehicleTypes', 'vehicles'));
     }
 
     public function service() {
-    	$generalInformation = GeneralInformation::where('code', 'site-setting')->first();
+        $packages           = Packages::all();
     	$services			= Services::all();
+        $generalInformation = GeneralInformation::where('code', 'site-setting')->first();
 
-    	return view('service', compact('generalInformation', 'services'));
+    	return view('service', compact('generalInformation', 'services', 'packages'));
     }
 
     public function pages($page_code) {
@@ -56,18 +56,21 @@ class SiteController extends Controller
                 return redirect()->back();
             }
             
+            $packages           = Packages::all();
             $generalInformation = GeneralInformation::where('code', 'site-setting')->first();
 
-            return view('pages', compact('generalInformation', 'page'));
+            return view('pages', compact('generalInformation', 'page', 'packages'));
         } 
 
         return redirect()->back();
     }
 
     public function contact() {
+
+        $packages           = Packages::all();
         $generalInformation = GeneralInformation::where('code', 'site-setting')->first();
 
-        return view('contact', compact('generalInformation'));
+        return view('contact', compact('generalInformation', 'packages'));
     }
 
     public function contact_request(Request $request) {
@@ -112,68 +115,86 @@ class SiteController extends Controller
         }
     }
 
-    public function packages() {
-        $generalInformation     = GeneralInformation::where('code', 'site-setting')->first();
-        $vehicleTypes           = Vendor::all();
-        $vendors                = VehicleType::all();
-        $packages               = Packages::with([
-                                    'vehicle',
-                                    'vehicle.vendor',
-                                    'vehicle.vehicleType'
-                                  ])->paginate(2);
+    public function packages($package_id) {
+        
+        $generalInformation     = $this->getDefaults();
+        $packages = Packages::all();
+
+        $package = Packages::findOrFail($package_id);
+        if (empty($package)) {
+            abort(500);
+        }
+
+        $vehicles = Vehicles::where('package_id', $package_id)
+                            ->with([
+                                'vendor',
+                                'package',
+                                'vehicleType'
+                            ])->paginate(2);
 
         $data = [
-            'vendors'               => $vendors,
-            'vehicleTypes'          => $vehicleTypes,
-            'packages'              => $packages,
+            'package'               => $package,   
+            'packages'              => $packages,   
+            'vehicles'              => $vehicles,
             'generalInformation'    => $generalInformation
         ];
 
         return view('package', $data);
     }
 
-    public function booking($package_id) {
+    public function booking($vehicle_id,$package_id = 0) {
 
-        $package = Packages::findOrFail($package_id);
-
+        $packages               = Packages::all();
         $generalInformation     = $this->getDefaults();
-        $package                = Packages::where('id', $package_id)
-                                    ->with([
-                                        'vehicle',
-                                        'vehicle.vendor',
-                                        'vehicle.vehicleType',
-                                        'vehicle.vehicleHasSpecifications.vehicleSpecification'
-                                    ])->first();
+
+        if ($package_id != 0) {
+            $package = Packages::findOrFail($package_id);
+        }
+        
+        $vehicle = Vehicles::where('id', $vehicle_id)
+                            ->with([
+                                'vendor',
+                                'vehicleType'
+                            ])->first();
         
         $data = [
-            'package'              => $package,
-            'generalInformation'    => $generalInformation,
+            'vehicle'              => $vehicle,
+            'packages'             => $packages,
+            'generalInformation'   => $generalInformation
         ];
 
-        if (!is_null($package->vehicle->vehicle_images)) {
-            $vehicle_images = explode("|", $package->vehicle->vehicle_images);
+        if (!is_null($vehicle->vehicle_images)) {
+            $vehicle_images = explode("|", $vehicle->vehicle_images);
         }
 
         $data['images']     = $vehicle_images;
+        if ($package_id != 0) {
+            $data['package'] = $package;
+        }
+
 
         return view('booking', $data);
     }
 
     public function booking_attempt(Request $request) {
+
         $request->validate([
             'booking_date'      => 'required|date',
-            'package_id'        => 'required|integer',
-            'pickup_time'       => 'required',
-            'pickup_address'    => 'required|String',
-            'dropoff_address'   => 'required|String',
+            'vehicle_id'        => 'required|integer',
+            'pickup_time'       => 'required'
+        ],
+        [
+            'booking_date.required' => 'Please enter booking date',
+            'pickup_time.required'  => 'Please enter pickup time'
         ]);
 
+        $package_id = $request->input('package_id');
         $customer_id = Auth::guard('customer')->user()->id;
 
         $check_input = [
             'customer_id'   => $customer_id,
-            'package_id'    => $request->input('package_id'),
-            'booking_date'  => $request->input('booking_date')
+            'vehicle_id'    => $request->input('vehicle_id'),
+            'booking_date'      => $request->input('booking_date'),
         ];
 
         $input = [
@@ -183,16 +204,20 @@ class SiteController extends Controller
             'dropoff_address'   => $request->input('dropoff_address')
         ];
 
+        if (!is_null($package_id)) {
+            $input['package_id'] = $package_id;
+        } else {
+            $input['package_id'] = null;
+        }
+
         $booking = Booking::updateOrCreate($check_input, $input);
 
         if (!empty($booking)) {
 
             $name = Auth::guard('customer')->user()->f_name." ".Auth::guard('customer')->user()->l_name;
-            $package_id = $request->input('package_id');
 
             $data = [
                 'name'              => $name,
-                'package'           => Packages::findOrFail($package_id)->name,
                 'email'             => Auth::guard('customer')->user()->email,
                 'phone'             => Auth::guard('customer')->user()->phone,
                 'pickup_time'       => $booking->pickup_time,
@@ -257,31 +282,6 @@ class SiteController extends Controller
 
         return view('search', compact('allVehicles', 'vehicles', 'generalInformation', 'vendors'));
     }
-
-    public function car_details($vehicle_id) {
-        $generalInformation = $this->getDefaults();
-
-        $vehicle = Vehicles::where('id', $vehicle_id)
-                            ->with([
-                                'vendor',
-                                'vehicleType',
-                                'vehicleHasSpecifications.vehicleSpecification'
-                            ])->first();
-
-        $data = [
-            'vehicle'              => $vehicle,
-            'generalInformation'    => $generalInformation,
-        ];
-
-        if (!is_null($vehicle->vehicle_images)) {
-            $vehicle_images = explode("|", $vehicle->vehicle_images);
-        }
-        
-        $data['images']     = $vehicle_images;
-
-        return view('vehicle_booking', $data);
-    }
-
 
     
 }

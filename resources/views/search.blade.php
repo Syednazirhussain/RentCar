@@ -99,7 +99,7 @@
                                 
                                 <div class="img-responsive">                                
                                   @if(!is_null($image))
-                                    <a href="{{ route('car.details.show', [$vehicle->id]) }}">
+                                    <a href="{{ route('site.booking', [$vehicle->id]) }}">
                                       <img class="image" src="{{ asset('storage/vehicles/'.$image) }}">
                                     </a>
                                   @else

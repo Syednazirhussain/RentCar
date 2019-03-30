@@ -106,7 +106,16 @@
                               <a href="{{ route('site.service') }}">Services</a>
                            </li>
                            <li>
-                              <a href="{{ route('site.packages') }}">Packages</a>
+                              <a href="javascript:void(0);">Packages</a>
+                              <ul class="sub-menu">
+                                 @if(isset($packages))
+                                    @forelse($packages as $package)
+                                       <li><a href="{{ route('site.packages', [$package->id]) }}">{{ $package->name }}</a></li>
+                                    @empty
+                                       <li>No Package Found</li>
+                                    @endforelse
+                                 @endif
+                              </ul>
                            </li>
                            <li>
                               <a href="{{ route('site.contact') }}">Contact</a>

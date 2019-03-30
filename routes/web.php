@@ -16,13 +16,13 @@ Route::get('/services', ['as'	=> 'site.service', 'uses'	=> 'SiteController@servi
 Route::get('/contact', ['as'	=> 'site.contact', 'uses'	=> 'SiteController@contact']);
 Route::post('/contact/request', ['as'	=> 'site.contact.request', 'uses'	=> 'SiteController@contact_request']);
 Route::get('pages/{page_code}', ['as'	=> 'site.pages', 'uses'	=> 'SiteController@pages']);
-Route::get('/packages', ['as'	=> 'site.packages', 'uses'	=> 'SiteController@packages']);
-Route::get('/booking/{package_id}', ['as'	=> 'site.booking', 'uses'	=> 'SiteController@booking']);
-Route::post('/booking', ['as'	=> 'customer.booking', 'uses'	=> 'SiteController@booking_attempt']);
-
 
 Route::get('/cars/search', ['as'	=> 'car.search', 'uses'	=> 'SiteController@cars_search']);
-Route::get('/car/{vehicle_id}', ['as'	=> 'car.details.show', 'uses'	=> 'SiteController@car_details']);
+
+Route::get('/packages/{package_id}', ['as'	=> 'site.packages', 'uses'	=> 'SiteController@packages']);
+Route::get('/booking/{vehicle_id}/{package_id?}', ['as'	=> 'site.booking', 'uses'	=> 'SiteController@booking']);
+Route::post('/booking', ['as'	=> 'customer.booking', 'uses'	=> 'SiteController@booking_attempt']);
+
 
 
 Route::get('/login', ['as'	=> 'customer.login', 'uses'	=> 'CustomerLoginController@login']);

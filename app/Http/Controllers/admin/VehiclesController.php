@@ -150,7 +150,6 @@ class VehiclesController extends Controller
         
         if (empty($vehicles)) {
             Session::Flash('msg.error', 'Vehicles not found');
-
             return redirect(route('admin.vehicles.index'));
         }
 
@@ -178,7 +177,6 @@ class VehiclesController extends Controller
                 $images[$i]['type'] = mime_content_type($url2.'/'.$file);
                 $i++;
             }
-
         }
 
         $data = [
