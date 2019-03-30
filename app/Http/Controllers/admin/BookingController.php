@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CreateBookingRequest;
 use App\Http\Requests\Admin\UpdateBookingRequest;
-use App\Repositories\Admin\BookingRepository;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Admin\Customers;
 use App\Models\Admin\Packages;
-use Prettus\Repository\Criteria\RequestCriteria;
+use App\Models\Admin\Vehicles;
+use App\Repositories\Admin\BookingRepository;
 use Flash;
+use Illuminate\Http\Request;
+use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use Session;
 
@@ -47,11 +48,11 @@ class BookingController extends Controller
     public function create()
     {
         $customers = Customers::all();
-        $packages = Packages::all();
+        $vehicles = Vehicles::all();
 
         $data = [
             'customers' => $customers,
-            'packages'  => $packages  
+            'vehicles'  => $vehicles  
         ];
 
         return view('admin.bookings.create', $data);
@@ -86,7 +87,7 @@ class BookingController extends Controller
     {
         $booking = $this->bookingRepository->findWithoutFail($id);
         $customers = Customers::all();
-        $packages = Packages::all();
+        $vehicles = Vehicles::all();
 
         if (empty($booking)) {
             Session::Flash('msg.error', 'Booking not found');
@@ -97,7 +98,7 @@ class BookingController extends Controller
         $data = [
             'booking'   => $booking,
             'customers' => $customers,
-            'packages'  => $packages  
+            'vehicles'  => $vehicles  
         ];
 
         return view('admin.bookings.edit', $data);

@@ -72,8 +72,6 @@ class Booking extends Model
         'booking_date' => 'required|date',
         'pickup_time'   => 'required|date_format:h:i A',
         'dropoff_time'  => 'required|date_format:h:i A',
-        'pickup_address' => 'required',
-        'dropoff_address' => 'required'
     ];
 
     /**

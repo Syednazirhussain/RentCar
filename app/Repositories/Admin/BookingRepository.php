@@ -41,7 +41,7 @@ class BookingRepository extends BaseRepository
 
     public function bookingInput(CreateBookingRequest $request) {
         $input['customer_id']  = $request->input('customer_id');
-        $input['package_id']  = $request->input('package_id');
+        $input['vehicle_id']  = $request->input('vehicle_id');
         $input['booking_date']  = $request->input('booking_date');
         $input['pickup_time']  = $request->input('pickup_time');
         $input['dropoff_time']  = $request->input('dropoff_time');
@@ -52,7 +52,7 @@ class BookingRepository extends BaseRepository
 
     public function bookingUpdateInput(UpdateBookingRequest $request) {
         $input['customer_id']  = $request->input('customer_id');
-        $input['package_id']  = $request->input('package_id');
+        $input['vehicle_id']  = $request->input('vehicle_id');
         $input['booking_date']  = $request->input('booking_date');
         $input['pickup_time']  = $request->input('pickup_time');
         $input['dropoff_time']  = $request->input('dropoff_time');

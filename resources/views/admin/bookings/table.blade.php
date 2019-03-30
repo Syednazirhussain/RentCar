@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>Customer</th>
-            <th>Package</th>
+            <th>Vehicle</th>
             <th>Booking Date</th>
             <th width="10%">Action</th>
         </tr>
@@ -11,7 +11,7 @@
     @foreach($bookings as $booking)
         <tr>
             <td>{!! $booking->customer->f_name !!}</td>
-            <td>{!! $booking->package->name !!}</td>
+            <td>{!! $booking->vehicle->name !!}</td>
             <td>{!! \Carbon\Carbon::parse($booking->booking_date)->diffForHumans() !!}</td>
             <td>
                 {!! Form::open(['route' => ['admin.bookings.destroy', $booking->id], 'method' => 'delete']) !!}

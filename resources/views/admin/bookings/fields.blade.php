@@ -31,20 +31,20 @@
     </div>
     <div class="col-md-6">
         <div class="form-group">
-            <label>Package</label>
-            <select class="form-control select2" name="package_id" style="width: 100%;">
-                @if (isset($packages))
+            <label>Vehicle</label>
+            <select class="form-control select2" name="vehicle_id" style="width: 100%;">
+                @if (isset($vehicles))
                     @if (isset($booking))
-                        @foreach($packages as $package)
-                            @if ($booking->package_id == $package->id) 
-                                <option value="{{ $package->id }}" selected="selected">{{ $package->name }}</option>
+                        @foreach($vehicles as $vehicle)
+                            @if ($booking->vehicle_id == $vehicle->id) 
+                                <option value="{{ $vehicle->id }}" selected="selected">{{ $vehicle->name }}</option>
                             @else
-                                <option value="{{ $package->id }}">{{ $package->name }}</option>
+                                <option value="{{ $vehicle->id }}">{{ $vehicle->name }}</option>
                             @endif
                         @endforeach
                     @else
-                        @foreach($packages as $package)
-                            <option value="{{ $package->id }}">{{ $package->name }}</option>
+                        @foreach($vehicles as $vehicle)
+                            <option value="{{ $vehicle->id }}">{{ $vehicle->name }}</option>
                         @endforeach
                     @endif
                 @endif
@@ -78,7 +78,7 @@
     </div>
     <div class="col-md-4">
         <div class="form-group">
-            <label>Pickup Time</label>
+            <label>DropOff Time</label>
             <div class="input-group bootstrap-timepicker">
                 <input type="text" name="dropoff_time" value="@if(isset($booking)){{ $booking->dropoff_time }}@else{{old('dropoff_time')}}@endif" id="dropoff_time"  class="form-control" readonly="readonly">
                 <div class="input-group-addon">
