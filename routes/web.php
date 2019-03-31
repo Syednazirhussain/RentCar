@@ -23,6 +23,8 @@ Route::get('/packages/{package_id}', ['as'	=> 'site.packages', 'uses'	=> 'SiteCo
 Route::get('/booking/{vehicle_id}/{package_id?}', ['as'	=> 'site.booking', 'uses'	=> 'SiteController@booking']);
 Route::post('/booking', ['as'	=> 'customer.booking', 'uses'	=> 'SiteController@booking_attempt']);
 
+Route::get('/customer/bookings', ['as'	=> 'customer.booking.details', 'uses'	=> 'SiteController@customer_bookings']);
+
 
 
 Route::get('/login', ['as'	=> 'customer.login', 'uses'	=> 'CustomerLoginController@login']);

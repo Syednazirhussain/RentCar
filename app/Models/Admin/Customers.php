@@ -96,6 +96,6 @@ class Customers extends Model implements AuthenticatableContract
      **/
     public function bookings()
     {
-        return $this->hasMany(\App\Models\Admin\Booking::class);
+        return $this->hasMany(\App\Models\Admin\Booking::class,'id');
     }
 }

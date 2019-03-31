@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Customers;
 use App\Models\Admin\GeneralInformation;
+use App\Models\Admin\Packages;
 use App\Repositories\Admin\CustomersRepository;
 use Auth;
 use Flash;
@@ -25,12 +26,13 @@ class CustomerLoginController extends Controller
 
     public function login(Request $request) {
 
+        $packages = Packages::all();
         $generalInformation = GeneralInformation::where('code', 'site-setting')->first();
     	if( strpos( URL::previous(), 'booking' ) !== false) {
 			$request->session()->put('booking_url', URL::previous());
 		}
 
-    	return view('login', compact('generalInformation'));
+    	return view('login', compact('generalInformation', 'packages'));
     }
 
     public function login_attempt(Request $request) {
@@ -65,9 +67,10 @@ class CustomerLoginController extends Controller
     }
 
     public function register() {
+        $packages = Packages::all();
         $generalInformation = GeneralInformation::where('code', 'site-setting')->first();
     	
-        return view('register', compact('generalInformation'));
+        return view('register', compact('generalInformation', 'packages'));
     }
 
     public function register_attempt(Request $request) {

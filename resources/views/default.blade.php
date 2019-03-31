@@ -66,10 +66,10 @@
                            <li>
                               <a href="javascript:void(0);"><i class="fa fa-envelope-o"></i> @if(isset($generalInformation)){{ $generalInformation->email }} @endif</a>
                            </li>
-                           <li><a href="@if(isset($generalInformation)){{ $generalInformation->facebook }}@else {{ 'javascript:void(0);' }}@endif" class="site-button-link facebook hover"><i class="fa fa-facebook"></i></a></li>
-                           <li><a href="@if(isset($generalInformation)){{ $generalInformation->instagram}}@else {{ 'javascript:void(0);' }}@endif" class="site-button-link google-plus hover"><i class="fa fa-instagram"></i></a></li>
-                           <li><a href="@if(isset($generalInformation)){{ $generalInformation->twitter}}@else {{ 'javascript:void(0);' }}@endif" class="site-button-link twitter hover"><i class="fa fa-twitter"></i></a></li>
-                           <li><a href="@if(isset($generalInformation)){{ $generalInformation->linkdin}}@else {{ 'javascript:void(0);' }}@endif" class="site-button-link linkedin hover"><i class="fa fa-linkedin"></i></a></li>
+                           <li><a target="_blank" href="@if(isset($generalInformation)){{ $generalInformation->facebook }}@else {{ 'javascript:void(0);' }}@endif" class="site-button-link facebook hover"><i class="fa fa-facebook"></i></a></li>
+                           <li><a target="_blank" href="@if(isset($generalInformation)){{ $generalInformation->instagram}}@else {{ 'javascript:void(0);' }}@endif" class="site-button-link google-plus hover"><i class="fa fa-instagram"></i></a></li>
+                           <li><a target="_blank" href="@if(isset($generalInformation)){{ $generalInformation->twitter}}@else {{ 'javascript:void(0);' }}@endif" class="site-button-link twitter hover"><i class="fa fa-twitter"></i></a></li>
+                           <li><a target="_blank" href="@if(isset($generalInformation)){{ $generalInformation->linkdin}}@else {{ 'javascript:void(0);' }}@endif" class="site-button-link linkedin hover"><i class="fa fa-linkedin"></i></a></li>
                         </ul>
                      </div>
                   </div>
@@ -122,7 +122,11 @@
                            </li>
                            @if(auth()->guard('customer')->check())
                               <li>
-                                 <a href="{{ route('customer.logout') }}">Logout</a>
+                                 <a href="javascript:void(0);">{{ auth()->guard('customer')->user()->f_name }}</a>
+                                 <ul class="sub-menu">
+                                    <li><a href="{{ route('customer.booking.details') }}">Bookings</a></li>
+                                    <li><a href="{{ route('customer.logout') }}">Logout</a></li>
+                                 </ul>
                               </li>
                            @else
                               <li>
@@ -170,10 +174,10 @@
                         <div class="widget">
                            <p class="text-capitalize"> <a href="{{ route('site.pages', ['term-n-conditions']) }}">Term & Conditions</a> </p>
                            <ul class="list-inline m-a0">
-                              <li><a href="@if(isset($generalInformation)){{ $generalInformation->facebook }}@else {{ 'javascript:void(0);' }}@endif" class="site-button facebook circle"><i class="fa fa-facebook"></i></a></li>
-                              <li><a href="@if(isset($generalInformation)){{ $generalInformation->instagram}}@else {{ 'javascript:void(0);' }}@endif" class="site-button google-plus circle"><i class="fa fa-instagram"></i></a></li>
-                              <li><a href="@if(isset($generalInformation)){{ $generalInformation->twitter}}@else {{ 'javascript:void(0);' }}@endif" class="site-button twitter circle"><i class="fa fa-twitter"></i></a></li>
-                              <li><a href="@if(isset($generalInformation)){{ $generalInformation->linkdin}}@else {{ 'javascript:void(0);' }}@endif" class="site-button linkedin circle"><i class="fa fa-linkedin"></i></a></li>
+                              <li><a target="_blank" href="@if(isset($generalInformation)){{ $generalInformation->facebook }}@else {{ 'javascript:void(0);' }}@endif" class="site-button facebook circle"><i class="fa fa-facebook"></i></a></li>
+                              <li><a target="_blank" href="@if(isset($generalInformation)){{ $generalInformation->instagram}}@else {{ 'javascript:void(0);' }}@endif" class="site-button google-plus circle"><i class="fa fa-instagram"></i></a></li>
+                              <li><a target="_blank" href="@if(isset($generalInformation)){{ $generalInformation->twitter}}@else {{ 'javascript:void(0);' }}@endif" class="site-button twitter circle"><i class="fa fa-twitter"></i></a></li>
+                              <li><a target="_blank" href="@if(isset($generalInformation)){{ $generalInformation->linkdin}}@else {{ 'javascript:void(0);' }}@endif" class="site-button linkedin circle"><i class="fa fa-linkedin"></i></a></li>
                            </ul>
                         </div>
                      </div>
@@ -207,22 +211,19 @@
       
       <script src="{{ asset('/theme/assets/js/combine.js') }}"></script>
       <script src="{{ asset('/theme/assets/js/jquery.searchable-1.0.0.min.js') }}"></script>
-
           <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
         async defer>
     </script>
       <script>
          var captcha_site_key = "{{ config('rentcar.RECAPTCHA.SITE_KEY') }}";
       </script>
-      <!-- custom fuctions  -->
       <script>
          jQuery(document).ready(function() {
              'use strict';
              dz_rev_slider_1();  
-         }); /*ready*/
+         });
       </script>
    </body>
 
    @yield('js')
-   <!-- Mirrored from carzone.dexignlab.com/xhtml/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Mar 2019 07:41:13 GMT -->
 </html>

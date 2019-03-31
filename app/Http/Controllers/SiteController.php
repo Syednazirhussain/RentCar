@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin\Booking;
+use App\Models\Admin\Customers;
 use App\Models\Admin\GeneralInformation;
 use App\Models\Admin\Packages;
 use App\Models\Admin\Pages;
@@ -156,7 +157,6 @@ class SiteController extends Controller
                                 'vendor',
                                 'vehicleType'
                             ])->first();
-        
         $data = [
             'vehicle'              => $vehicle,
             'packages'             => $packages,
@@ -281,6 +281,18 @@ class SiteController extends Controller
         $generalInformation = $this->getDefaults();
 
         return view('search', compact('allVehicles', 'vehicles', 'generalInformation', 'vendors'));
+    }
+
+    public function customer_bookings() {
+        $customer_id = Auth::guard('customer')->user()->id;
+        $bookings = Booking::where('customer_id', $customer_id)
+                            ->with([
+                                'vehicle',
+                                'customer',
+                                'vehicle.vehicleType'
+                            ])->paginate(4);
+        
+        return view('customer_booking', compact('bookings'));
     }
 
     
