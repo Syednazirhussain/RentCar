@@ -58,7 +58,7 @@ class CustomerLoginController extends Controller
     		Session::Flash('msg.error', 'Invalid credentials');
     	}
 
-    	return redirect()->back();
+    	return redirect()->route('site.index');
     }
 
     public function logout() {

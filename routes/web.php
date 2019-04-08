@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/', ['as'	=> 'site.index', 'uses'	=> 'SiteController@index']);
+Route::get('/', function() {
+	return redirect()->route('site.index');
+});
+
+Route::get('/home', ['as'	=> 'site.index', 'uses'	=> 'SiteController@index']);
 Route::get('/services', ['as'	=> 'site.service', 'uses'	=> 'SiteController@service']);
 Route::get('/contact', ['as'	=> 'site.contact', 'uses'	=> 'SiteController@contact']);
 Route::post('/contact/request', ['as'	=> 'site.contact.request', 'uses'	=> 'SiteController@contact_request']);
